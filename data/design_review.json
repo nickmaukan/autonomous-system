@@ -1,0 +1,118 @@
+[
+  {
+    "name": "Lumivero Landing",
+    "description": "Plataforma de gesti\u00f3n de riesgos",
+    "exists": true,
+    "issues": [
+      "\u26a0\ufe0f Sin im\u00e1genes"
+    ],
+    "good_practices": [
+      "\u2705 Tiene t\u00edtulo (H1/Title)",
+      "\u2705 Tiene meta tags",
+      "\u2705 Tiene CTA (Call to Action)",
+      "\u2705 Tiene formulario",
+      "\u2705 Tiene estilos CSS"
+    ],
+    "score": 75,
+    "recommendations": [
+      "\ud83d\udfe2 Buena base, optimizar detalles"
+    ]
+  },
+  {
+    "name": "SriDeclara",
+    "description": "Declaraciones SRI Ecuador",
+    "exists": true,
+    "issues": [
+      "\u274c Sin CTA claro",
+      "\u26a0\ufe0f Sin formulario de contacto",
+      "\u26a0\ufe0f Sin im\u00e1genes",
+      "\u26a0\ufe0f Sin estilos CSS"
+    ],
+    "good_practices": [
+      "\u2705 Tiene t\u00edtulo (H1/Title)",
+      "\u2705 Tiene meta tags"
+    ],
+    "score": 25,
+    "recommendations": [
+      "\ud83d\udd34 Requiere redise\u00f1o completo",
+      "\u2795 Agregar bot\u00f3n CTA prominently",
+      "\u2795 Agregar formulario de contacto"
+    ]
+  },
+  {
+    "name": "Landing - Lead Capture",
+    "description": "Template captura leads",
+    "exists": true,
+    "issues": [
+      "\u26a0\ufe0f Sin im\u00e1genes"
+    ],
+    "good_practices": [
+      "\u2705 Tiene t\u00edtulo (H1/Title)",
+      "\u2705 Tiene meta tags",
+      "\u2705 Tiene CTA (Call to Action)",
+      "\u2705 Tiene formulario",
+      "\u2705 Tiene estilos CSS"
+    ],
+    "score": 75,
+    "recommendations": [
+      "\ud83d\udfe2 Buena base, optimizar detalles"
+    ]
+  },
+  {
+    "name": "Landing - Servicios",
+    "description": "Template servicios profesionales",
+    "exists": true,
+    "issues": [
+      "\u26a0\ufe0f Sin im\u00e1genes"
+    ],
+    "good_practices": [
+      "\u2705 Tiene t\u00edtulo (H1/Title)",
+      "\u2705 Tiene meta tags",
+      "\u2705 Tiene CTA (Call to Action)",
+      "\u2705 Tiene formulario",
+      "\u2705 Tiene estilos CSS"
+    ],
+    "score": 75,
+    "recommendations": [
+      "\ud83d\udfe2 Buena base, optimizar detalles"
+    ]
+  },
+  {
+    "name": "Landing - Restaurante",
+    "description": "Template restaurant",
+    "exists": true,
+    "issues": [
+      "\u26a0\ufe0f Sin im\u00e1genes"
+    ],
+    "good_practices": [
+      "\u2705 Tiene t\u00edtulo (H1/Title)",
+      "\u2705 Tiene meta tags",
+      "\u2705 Tiene CTA (Call to Action)",
+      "\u2705 Tiene formulario",
+      "\u2705 Tiene estilos CSS"
+    ],
+    "score": 75,
+    "recommendations": [
+      "\ud83d\udfe2 Buena base, optimizar detalles"
+    ]
+  },
+  {
+    "name": "Landing - Precios",
+    "description": "An\u00e1lisis de precios",
+    "exists": true,
+    "issues": [
+      "\u26a0\ufe0f Sin im\u00e1genes"
+    ],
+    "good_practices": [
+      "\u2705 Tiene t\u00edtulo (H1/Title)",
+      "\u2705 Tiene meta tags",
+      "\u2705 Tiene CTA (Call to Action)",
+      "\u2705 Tiene formulario",
+      "\u2705 Tiene estilos CSS"
+    ],
+    "score": 75,
+    "recommendations": [
+      "\ud83d\udfe2 Buena base, optimizar detalles"
+    ]
+  }
+]
