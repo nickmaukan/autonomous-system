@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Propuesta de Transformación Digital — Entramados Estudio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#eef2ff',100:'#e0e7ff',200:'#c7d2fe',300:'#a5b4fc',400:'#818cf8',500:'#6366f1',600:'#4f46e5',700:'#4338ca',800:'#3730a3',900:'#312e81' },
+            dark: { 800:'#1e293b',900:'#0f172a' }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { font-family: 'Inter', system-ui, sans-serif; }
+    .slide { min-height: 100vh; scroll-snap-align: start; }
+    .snap { scroll-snap-type: y mandatory; overflow-y: scroll; height: 100vh; }
+    .gradient-text { background: linear-gradient(135deg, #4f46e5, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(79,70,229,0.15); }
+    .bar-animate { animation: grow 1.5s ease-out forwards; transform-origin: left; }
+    @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    .counter { animation: countUp 2s ease-out forwards; }
+    .line-decorator { width: 60px; height: 4px; background: linear-gradient(90deg, #6366f1, #818cf8); border-radius: 2px; }
+    .grid-pattern { background-image: linear-gradient(rgba(99,102,241,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(99,102,241,0.03) 1px, transparent 1px); background-size: 40px 40px; }
+  </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+<!-- ===================== SLIDE 1: COVER ===================== -->
+<section class="slide snap-always snap-start flex items-center justify-center relative overflow-hidden bg-dark-900" id="slide-1">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-800 to-primary-900 opacity-95"></div>
+  <div class="absolute inset-0 grid-pattern opacity-30"></div>
+  <!-- Decorative circles -->
+  <div class="absolute top-20 right-20 w-96 h-96 bg-primary-600 rounded-full opacity-10 blur-3xl"></div>
+  <div class="absolute bottom-20 left-20 w-64 h-64 bg-purple-500 rounded-full opacity-10 blur-3xl"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-8 text-center">
+    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-8">
+      <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+      <span class="text-white/80 text-sm font-medium">Propuesta Estratégica — Marzo 2026</span>
+    </div>
+
+    <h1 class="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
+      Transformación<br/>
+      <span class="gradient-text">Digital</span>
+    </h1>
+    <p class="text-2xl md:text-3xl text-white/60 font-light mb-4">para Entramados Estudio</p>
+    <p class="text-lg text-white/40 mb-12">Arquitectura · Interiorismo · Mobiliario Custom</p>
+
+    <div class="flex items-center justify-center gap-6 mb-16">
+      <div class="w-16 h-px bg-white/20"></div>
+      <p class="text-white/50 text-sm uppercase tracking-widest">Ecuador · 2026</p>
+      <div class="w-16 h-px bg-white/20"></div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-6 max-w-2xl mx-auto">
+      <div class="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10">
+        <p class="text-3xl font-bold text-white">186</p>
+        <p class="text-white/50 text-sm mt-1">Seguidores IG</p>
+      </div>
+      <div class="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10">
+        <p class="text-3xl font-bold text-white">0</p>
+        <p class="text-white/50 text-sm mt-1">Seguidores FB</p>
+      </div>
+      <div class="bg-white/5 backdrop-blur-sm rounded-xl p-5 border border-white/10">
+        <p class="text-3xl font-bold text-white">257</p>
+        <p class="text-white/50 text-sm mt-1">Publicaciones</p>
+      </div>
+    </div>
+
+    <p class="text-white/30 text-sm mt-12">Desplaza hacia abajo para navegar la presentación</p>
+    <div class="mt-4 animate-bounce">↓</div>
+  </div>
+</section>
+
+<!-- ===================== SLIDE 2: AGENDA ===================== -->
+<section class="slide snap-always snap-start flex items-center justify-center bg-gray-50" id="slide-2">
+  <div class="max-w-5xl mx-auto px-8 py-20">
+    <p class="text-primary-500 font-semibold uppercase tracking-widest text-sm mb-4">Visión General</p>
+    <h2 class="text-5xl font-bold text-dark-900 mb-2">Agenda</h2>
+    <div class="line-decorator mb-16 mt-6"></div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="flex items-start gap-4 bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+        <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+          <span class="text-primary-600 font-bold">01</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg text-dark-900">Situación Actual</h3>
+          <p class="text-gray-500 text-sm mt-1">Diagnóstico de Instagram y Facebook con métricas reales</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+        <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+          <span class="text-primary-600 font-bold">02</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg text-dark-900">Oportunidades</h3>
+          <p class="text-gray-500 text-sm mt-1">FODA y áreas de mejora identificadas</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+        <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+          <span class="text-primary-600 font-bold">03</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg text-dark-900">Propuesta de Valor</h3>
+          <p class="text-gray-500 text-sm mt-1">Propuesta única y pilares estratégicos</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+        <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+          <span class="text-primary-600 font-bold">04</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg text-dark-900">Estrategia 360°</h3>
+          <p class="text-gray-500 text-sm mt-1">Plan integral de acción por fases</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+        <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+          <span class="text-primary-600 font-bold">05</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg text-dark-900">Inversión y ROI</h3>
+          <p class="text-gray-500 text-sm mt-1">Presupuesto y retorno esperado</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+        <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center flex-shrink-0">
+          <span class="text-primary-600 font-bold">06</span>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg text-dark-900">Next Steps</h3>
+          <p class="text-gray-500 text-sm mt-1">Acciones inmediatas y camino a seguir</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SLIDE 3: QUIÉNES SOMOS ===================== -->
+<section class="slide snap-always snap-start flex items-center justify-center bg-white" id="slide-3">
+  <div class="max-w-5xl mx-auto px-8 py-20">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div>
+        <p class="text-primary-500 font-semibold uppercase tracking-widest text-sm mb-4">Sobre Nosotros</p>
+        <h2 class="text-5xl font-bold text-dark-900 mb-6">Consultores en<br/><span class="gradient-text">Marketing Digital</span></h2>
+        <div class="line-decorator mb-8"></div>
+        <p class="text-gray-600 text-lg leading-relaxed mb-6">
+          Somos un equipo especializado en estrategias de transformación digital para estudios de arquitectura e interiorismo en Latinoamérica.
+        </p>
+        <p class="text-gray-600 leading-relaxed mb-8">
+          Combinamos expertise en marketing, diseño de contenido y tecnología para ayudar a estudios como Entramados a maximizar su presencia digital, generar leads cualificados y convertir seguidores en clientes.
+        </p>
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+              <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <span class="text-gray-700 font-medium">Metodología basada en datos</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+              <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <span class="text-gray-700 font-medium">+50 proyectos en arquitectura y diseño</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+              <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <span class="text-gray-700 font-medium">Especialistas en mercado latinoamericano</span>
+          </div>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="bg-gradient-to-br from-primary-50 to-primary-100 rounded-3xl p-10">
+          <div class="space-y-8">
+            <div class="bg-white rounded-2xl p-6 shadow-sm">
+              <p class="text-4xl font-black text-primary-600">5×</p>
+              <p class="text-gray-600 font-medium mt-1">Potencial de crecimiento en leads</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-sm">
+              <p class="text-4xl font-black text-primary-600">$0</p>
+              <p class="text-gray-600 font-medium mt-1">Costo por lead orgánico</p>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-sm">
+              <p class="text-4xl font-black text-primary-600">30%</p>
+              <p class="text-gray-600 font-medium mt-1">Tasa de cierre estimada</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SLIDE 4: INSTAGRAM ===================== -->
+<section class="slide snap-always snap-start flex items-center justify-center bg-gray-50" id="slide-4">
+  <div class="max-w-5xl mx-auto px-8 py-20">
+    <div class="flex items-center justify-between mb-12">
+      <div>
+        <p class="text-primary-500 font-semibold uppercase tracking-widest text-sm mb-4">Situación Actual</p>
+        <h2 class="text-5xl font-bold text-dark-900">Instagram</h2>
+        <p class="text-gray-500 mt-2">@entramados_estudio78</p>
+      </div>
+      <div class="bg-red-50 border border-red-200 rounded-xl px-4 py-2">
+        <span class="text-red-600 font-semibold text-sm">⚠️ OPORTUNIDAD CRÍTICA</span>
+      </div>
+    </div>
+
+    <!-- Metrics grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
+        <p class="text-4xl font-black text-dark-900">186</p>
+        <p class="text-gray-500 text-sm mt-2">Seguidores</p>
+        <div class="mt-2 bg-red-100 rounded-full h-2 w-full">
+          <div class="bg-red-400 h-2 rounded-full" style="width:18%"></div>
+        </div>
+        <p class="text-xs text-red-500 mt-1">Meta: 500+</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
+        <p class="text-4xl font-black text-dark-900">257</p>
+        <p class="text-gray-500 text-sm mt-2">Publicaciones</p>
+        <div class="mt-2 bg-green-100 rounded-full h-2 w-full">
+          <div class="bg-green-400 h-2 rounded-full" style="width:85%"></div>
+        </div>
+        <p class="text-xs text-green-600 mt-1">Sobresaliente</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
+        <p class="text-4xl font-black text-dark-900">1.38×</p>
+        <p class="text-gray-500 text-sm mt-2">Ratio Posts:Seguidores</p>
+        <div class="mt-2 bg-red-100 rounded-full h-2 w-full">
+          <div class="bg-red-400 h-2 rounded-full" style="width:14%"></div>
+        </div>
+        <p class="text-xs text-red-500 mt-1">Ideal: 5–10×</p>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
+        <p class="text-4xl font-black text-dark-900">~2%</p>
+        <p class="text-gray-500 text-sm mt-2">Engagement Rate</p>
+        <div class="mt-2 bg-yellow-100 rounded-full h-2 w-full">
+          <div class="bg-yellow-400 h-2 rounded-full" style="width:33%"></div>
+        </div>
+        <p class="text-xs text-yellow-600 mt-1">Meta: 5%+</p>
+      </div>
+    </div>
+
+    <!-- Diagnosis -->
+    <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+      <h3 class="font-bold text-xl text-dark-900 mb-6">Diagnóstico</h3>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h4 class="font-semibold text-red-600 mb-3">🚨 Problemas identificados</h4>
+          <ul class="space-y-2 text-gray-600 text-sm">
+            <li>• 257 posts con solo 186 seguidores = contenido sin conversión</li>
+            <li>• Engagement rate bajo (~2%) vs benchmark (5–7%)</li>
+            <li>• Sin CTAs claros en publicaciones</li>
+            <li>• Bio sin link a WhatsApp o web</li>
+            <li>• Highlights covers sin optimizar</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-green-600 mb-3">✅ Lo que funciona</h4>
+          <ul class="space-y-2 text-gray-600 text-sm">
+            <li>• 257 publicaciones = acervo valioso de contenido</li>
+            <li>• Highlights organizados por categorías</li>
+            <li>• Reels activos (formato de mayor alcance)</li>
+            <li>• Stories diarias en uso</li>
+            <li>• Nicho claramente definido</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SLIDE 5: FACEBOOK ===================== -->
+<section class="slide snap-always snap-start flex items-center justify-center bg-white" id="slide-5">
+  <div class="max-w-5xl mx-auto px-8 py-20">
+    <div class="flex items-center justify-between mb-12">
+      <div>
+        <p class="text-primary-500 font-semibold uppercase tracking-widest text-sm mb-4">Situación Actual</p>
+        <h2 class="text-5xl font-bold text-dark-900">Facebook</h2>
+        <p class="text-gray-500 mt-2">@Entramados Estudio</p>
+      </div>
+      <div class="bg-red-50 border border-red-200 rounded-xl px-4 py-2">
+        <span class="text-red-600 font-semibold text-sm">🔴 CRÍTICO — RECONSTRUCCIÓN TOTAL</span>
+      </div>
+    </div>
+
+    <!-- Big red metrics -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+      <div class="bg-red-50 rounded-2xl p-8 border border-red-100 text-center">
+        <p class="text-6xl font-black text-red-500">0</p>
+        <p class="text-red-600 font-semibold mt-2">Seguidores</p>
+        <p class="text-gray-500 text-sm mt-1">Sin comunidad activa</p>
+      </div>
+      <div class="bg-red-50 rounded-2xl p-8 border border-red-100 text-center">
+        <p class="text-6xl font-black text-red-500">0</p>
+        <p class="text-red-600 font-semibold mt-2">Reviews</p>
+        <p class="text-gray-500 text-sm mt-1">Sin social proof</p>
+      </div>
+      <div class="bg-red-50 rounded-2xl p-8 border border-red-100 text-center">
+        <p class="text-4xl font-black text-red-500">AGO 2023</p>
+        <p class="text-red-600 font-semibold mt-2">Último Post</p>
+        <p class="text-gray-500 text-sm mt-1">+2.5 años inactivo</p>
+      </div>
+    </div>
+
+    <!-- What to rebuild -->
+    <div class="bg-gradient-to-r from-primary-50 to-primary-100 rounded-3xl p-8">
+      <h3 class="font-bold text-xl text-dark-900 mb-6">Plan de Reconstrucción — Semana 1</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-5 shadow-sm">
+          <div class="text-3xl mb-3">📸</div>
+          <h4 class="font-bold text-dark-900">Foto de Portada</h4>
+          <p class="text-gray-500 text-sm mt-1">Diseñar cover profesional 1640×624</p>
+        </div>
+        <div class="bg-white rounded-2xl p-5 shadow-sm">
+          <div class="text-3xl mb-3">📋</div>
+          <h4 class="font-bold text-dark-900">Info Completa</h4>
+          <p class="text-gray-500 text-sm mt-1">About, servicios, contacto, horarios</p>
+        </div>
+        <div class="bg-white rounded-2xl p-5 shadow-sm">
+          <div class="text-3xl mb-3">📱</div>
+          <h4 class="font-bold text-dark-900">Botón CTA</h4>
+          <p class="text-gray-500 text-sm mt-1">Configurar → WhatsApp</p>
+        </div>
+        <div class="bg-white rounded-2xl p-5 shadow-sm">
+          <div class="text-3xl mb-3">✍️</div>
+          <h4 class="font-bold text-dark-900">7 Posts Iniciales</h4>
+          <p class="text-gray-500 text-sm mt-1">1/día durante la primera semana</p>
+        </div>
+        <div class="bg-white rounded-2xl p-5 shadow-sm">
+          <div class="text-3xl mb-3">⭐</div>
+          <h4 class="font-bold text-dark-900">Reviews</h4>
+          <p class="text-gray-500 text-sm mt-1">Pedir a clientes satisfechos</p>
+        </div>
+        <div class="bg-white rounded-2xl p-5 shadow-sm">
+          <div class="text-3xl mb-3">📊</div>
+          <h4 class="font-bold text-dark-900">Meta Business Suite</h4>
+          <p class="text-gray-500 text-sm mt-1">Conectar IG + FB para métricas</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SLIDE 6: OPORTUNIDADES ===================== -->
+<section class="slide snap-always snap-start flex items-center justify-center bg-dark-900" id="slide-6">
+  <div class="max-w-5xl mx-auto px-8 py-20">
+    <div class="text-center mb-16">
+      <p class="text-primary-400 font-semibold uppercase tracking-widest text-sm mb-4">Análisis Estratégico</p>
+      <h2 class="text-5xl font-bold text-white mb-4">Oportunidades Identificadas</h2>
+      <div class="line-decorator mx-auto mt-6"></div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- FODA cards -->
+      <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center">
+            <span class="text-green-400 font-bold text-sm">F</span>
+          </div>
+          <h3 class="text-white font-bold text-lg">Fortalezas</h3>
+        </div>
+        <ul class="space-y-2 text-white/70 text-sm">
+          <li>✓ 257 publicaciones (acervo existente)</li>
+          <li>✓ Highlights organizados por categorías</li>
+          <li>✓ Mobiliario custom (diferenciador único)</li>
+          <li>✓ Reels activos en formato correcto</li>
+          <li>✓ Nicho claro: arquitectura + interiores</li>
+        </ul>
+      </div>
+
+      <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 bg-yellow-500/20 rounded-xl flex items-center justify-center">
+            <span class="text-yellow-400 font-bold text-sm">D</span>
+          </div>
+          <h3 class="text-white font-bold text-lg">Debilidades</h3>
+        </div>
+        <ul class="space-y-2 text-white/70 text-sm">
+          <li>✗ Solo 186 seguidores con 257 posts</li>
+          <li>✗ Facebook completamente abandonado</li>
+          <li>✗ Sin reviews ni testimonios visibles</li>
+          <li>✗ Bio sin CTA ni link funcional</li>
+          <li>✗ Sin estrategia de hashtags</li>
+        </ul>
+      </div>
+
+      <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 bg-primary-500/20 rounded-xl flex items-center justify-center">
+            <span class="text-primary-400 font-bold text-sm">O</span>
+          </div>
+          <h3 class="text-white font-bold text-lg">Oportunidades</h3>
+        </div>
+        <ul class="space-y-2 text-white/70 text-sm">
+          <li>🚀 Reels before/after = viralidad probada</li>
+          <li>🚀 Facebook = 0 seguidores, máximo potencial</li>
+          <li>🚀 Colaboraciones con architects/l decorators</li>
+          <li>🚀 WhatsApp Business como canal de ventas</li>
+          <li>🚀 Google Business para SEO local</li>
+        </ul>
+      </div>
+
+      <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-10 h-10 bg-red-500/20 rounded-xl flex items-center justify-center">
+            <span class="text-red-400 font-bold text-sm">A</span>
+          </div>
+          <h3 class="text-white font-bold text-lg">Amenazas</h3>
+        </div>
+        <ul class="space-y-2 text-white/70 text-sm">
+          <li>⚠️ Competencia local creciente</li>
+          <li>⚠️ Estudios grandes con más presupuesto</li>
+          <li>⚠️ Economía fluctuante en Ecuador</li>
+          <li>⚠️ Tendencia a diseñadores extranjeros</li>
+          <li>⚠️ Cambios de algoritmo en redes</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-10 bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-8 text-center">
+      <p class="text-white text-xl font-bold">Conclusión: La mayor oportunidad está en Facebook (tierra fértil con 0 inversión)</p>
+      <p class="text-white/70 mt-2">Y en convertir el mobiliario custom en contenido viral de transformación</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SLIDE 7: PROPUESTA DE VALOR ===================== -->
+<section class="slide snap-always snap-start flex items-center justify-center bg-white" id="slide-7">
+  <div class="max-w-5xl mx-auto px-8 py-20">
+    <div class="text-center mb-16">
+      <p class="text-primary-500 font-semibold uppercase tracking-widest text-sm mb-4">Nuestra Propuesta</p>
+      <h2 class="text-5xl font-bold text-dark-900 mb-4">Propuesta de Valor</h2>
+      <div class="line-decorator mx-auto mt-6"></div>
+    </div>
+
+    <!-- Main value prop -->
+    <div class="bg-gradient-to-br from-primary-50 via-white to-primary-50 rounded-3xl p-10 border border-primary-100 mb-12 text-center">
+      <p class="text-xl md:text-2xl text-dark-800 font-medium leading-relaxed">
+        "Transformamos espacios vacíos en <span class="text-primary-600 font-bold">hogares que cuentan historias</span> — con diseño arquitectónico, interiorismo personalizado y mobiliario hecho a tu medida, <span class="text-primary-600 font-bold">todo en un solo lugar</span>."
+      </p>
+    </div>
+
+    <!-- Differentiators -->
+    <div class="grid md:grid-cols-3 gap-8 mb-12">
+      <div class="text-center card-hover bg-gray-50 rounded-2xl p-8">
+        <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+        </div>
+        <h3 class="font-bold text-xl text-dark-900 mb-3">Mobiliario Custom</h3>
+        <p class="text-gray-500">Diferenciador único: diseño y fabricación de mobiliario propio, control de calidad end-to-end</p>
+      </div>
+
+      <div class="text-center card-hover bg-gray-50 rounded-2xl p-8">
+        <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+        </div>
+        <h3 class="font-bold text-xl text-dark-900 mb-3">Proceso Visible</h3>
+        <p class="text-gray-500">Documentamos cada etapa: de la idea al mueble instalado. Transparency = confianza</p>
+      </div>
+
+      <div class="text-center card-hover bg-gray-50 rounded-2xl p-8">
+        <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <svg class="w-8 h-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <h3 class="font-bold text-xl text-dark-900 mb-3">Identidad Local</h3>
+        <p class="text-gray-500">Expertos en Ecuador, entendiendo la realidad local: clima, cultura, materiales de la región</p>
+      </div>
+    </div>
+
+    <!-- Pricing range -->
+    <div class="bg-dark-900 rounded-3xl p-8 text-center">
+      <p class="text-white/60 text-sm uppercase tracking-widest mb-4">Rango de Precios</p>
+      <p class="text-4xl font-black text-white mb-2">$500 — $10,000+</p>
+      <p class="text-white/50">Por proyecto · Diseño + Mobiliario Custom</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SLIDE 8: ESTRATEGIA 360° ===================== -->
+<section class="slide snap-always snap-start flex items-center justify-center bg-gray-50" id="slide-8">
+  <div class="max-w-5xl mx-auto px-8 py-20">
+    <div class="text-center mb-16">
+      <p class="text-primary-500 font-semibold uppercase tracking-widest text-sm mb-4">Plan Integral</p>
+      <h2 class="text-5xl font-bold text-dark-900 mb-4">E
+    <h2 class="text-5xl font-bold text-dark-900 mb-4">Estrategia 360°</h2>
+      <div class="line-decorator mx-auto mt-6"></div>
+    </div>
+
+    <!-- Strategy pillars -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center card-hover">
+        <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <span class="text-2xl">📸</span>
+        </div>
+        <h4 class="font-bold text-dark-900">Contenido</h4>
+        <p class="text-gray-500 text-xs mt-1">Reels + Carousels + Stories</p>
+      </div>
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center card-hover">
+        <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <span class="text-2xl">🔄</span>
+        </div>
+        <h4 class="font-bold text-dark-900">Cross-Posting</h4>
+        <p class="text-gray-500 text-xs mt-1">IG → FB → Pinterest</p>
+      </div>
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center card-hover">
+        <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <span class="text-2xl">🤝</span>
+        </div>
+        <h4 class="font-bold text-dark-900">Colaboraciones</h4>
+        <p class="text-gray-500 text-xs mt-1">Architects + Decorators</p>
+      </div>
+      <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center card-hover">
+        <div class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+          <span class="text-2xl">💬</span>
+        </div>
+        <h4 class="font-bold text-dark-900">WhatsApp</h4>
+        <p class="text-gray-500 text-xs mt-1">Conversión + Ventas</p>
+      </div>
+    </div>
+
+    <!-- Content mix -->
+    <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 mb-8">
+      <h3 class="font-bold text-xl text-dark-900 mb-6">Mix de Contenido Mensual</h3>
+      <div class="space-y-4">
+        <div>
+          <div class="flex justify-between text-sm mb-1">
+            <span class="font-medium">🎬 Reels Before/After (30%)</span>
+            <span class="text-gray-500">4/mes</span>
+          </div>
+          <div class="bg-gray-100 rounded-full h-3">
+            <div class="bg-primary-500 h-3 rounded-full" style="width:30%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-1">
+            <span class="font-medium">📚 Carousels Educativos (25%)</span>
+            <span class="text-gray-500">4/mes</span>
+          </div>
+          <div class="bg-gray-100 rounded-full h-3">
+            <div class="bg-primary-400 h-3 rounded-full" style="width:25%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-1">
+            <span class="font-medium">⚡ Reels Proceso (20%)</span>
+            <span class="text-gray-500">2/mes</span>
+          </div>
+          <div class="bg-gray-100 rounded-full h-3">
+            <div class="bg-purple-400 h-3 rounded-full" style="width:20%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-1">
+            <span class="font-medium">🏠 Showcase Productos (15%)</span>
+            <span class="text-gray-500">2/mes</span>
+          </div>
+          <div class="bg-gray-100 rounded-full h-3">
+            <div class="bg-purple-300 h-3 rounded-full" style="width:15%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-1">
+            <span class="font-medium">💬 Conexión Humana (10%)</span>
+            <span class="text-gray-500">Stories diario</span>
+          </div>
+          <div class="bg-gray-100 rounded-full h-3">
+            <div class="bg-gray-300 h-3 rounded-full" style="width:10%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Platforms -->
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl p-6 text-white">
+        <h4 class="font-bold text-lg mb-2">Instagram</h4>
+        <p class="text-white/80 text-sm">Presencia principal + discovery. Reels + Stories + Carousels.</p>
+        <p class="text-white/60 text-xs mt-3">186 → 500+ seguidores en 3 meses</p>
+      </div>
+      <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-6 text-white">
+        <h4 class="font-bold text-lg mb-2">Facebook</h4>
+        <p class="text-white/80 text-sm">Comunidad + Social Proof. Rebuild total + reviews.</p>
+        <p class="text-white/60 text-xs mt-3">0 → 300+ seguidores en 3 meses</p>
+      </div>
+      <div class="bg-gradient-to-br from-green-500 to-green-700 rounded-2xl p-6 text-white">
+        <h4 class="font-bold text-lg mb-2">WhatsApp</h4>
+        <p class="text-white/80 text-sm">Canal de conversión. Cada CTA apunta aquí.</p>
+        <p class="text-white/60 text-xs mt-3">5 → 15 leads cualificados/mes</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SLIDE 9: PLAN DE ACCIÓN FASE 1 ===================== -->
+<section class="slide snap-always snap-start flex items-center justify-center bg-white" id="slide-9">
+  <div class="max-w-5xl mx-auto px-8 py-20">
+    <div class="text-center mb-12">
+      <p class="text-primary-500 font-semibold uppercase tracking-widest text-sm mb-4">Fase 1</p>
+      <h2 class="text-5xl font-bold text-dark-900 mb-4">Plan de Acción</h2>
+      <p class="text-gray-500 text-lg">Semanas 1–4 — Fundación y Crecimiento Inicial</p>
+    </div>
+
+    <div class="space-y-4 mb-8">
+      <!-- Week 1 -->
+      <div class="bg-primary-50 border border-primary-100 rounded-2xl p-6">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 bg-primary-500 rounded-xl flex items-center justify-center">
+            <span class="text-white font-bold">S1</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-dark-900 text-lg">Semana 1 — Rebuild y Fundamentos</h3>
+            <p class="text-gray-500 text-sm">Optimizar perfiles + 7 posts Facebook + primer reel</p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-4 gap-3">
+          <div class="bg-white rounded-xl p-3 text-center">
+            <p class="font-bold text-dark-900">Día 1–2</p>
+            <p class="text-xs text-gray-500">Bio IG + Linktree + FB rebuild</p>
+          </div>
+          <div class="bg-white rounded-xl p-3 text-center">
+            <p class="font-bold text-dark-900">Día 2–3</p>
+            <p class="text-xs text-gray-500">7 posts FB iniciales</p>
+          </div>
+          <div class="bg-white rounded-xl p-3 text-center">
+            <p class="font-bold text-dark-900">Día 3–4</p>
+            <p class="text-xs text-gray-500">Meta Business Suite</p>
+          </div>
+          <div class="bg-white rounded-xl p-3 text-center">
+            <p class="font-bold text-dark-900">Día 5</p>
+            <p class="text-xs text-gray-500">Primer Reel B/A</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Week 2 -->
+      <div class="bg-purple-50 border border-purple-100 rounded-2xl p-6">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center">
+            <span class="text-white font-bold">S2</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-dark-900 text-lg">Semana 2 — Contenido Educativo</h3>
+            <p class="text-gray-500 text-sm">Carousels + Tips + Reels de proceso</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-white rounded-full px-3 py-1 text-xs font-medium text-purple-600 border border-purple-100">Reels 3×</span>
+          <span class="bg-white rounded-full px-3 py-1 text-xs font-medium text-purple-600 border border-purple-100">Carousels 2×</span>
+          <span class="bg-white rounded-full px-3 py-1 text-xs font-medium text-purple-600 border border-purple-100">Posts FB 5×</span>
+          <span class="bg-white rounded-full px-3 py-1 text-xs font-medium text-purple-600 border border-purple-100">Stories diario</span>
+        </div>
+      </div>
+
+      <!-- Week 3 -->
+      <div class="bg-blue-50 border border-blue-100 rounded-2xl p-6">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
+            <span class="text-white font-bold">S3</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-dark-900 text-lg">Semana 3 — Social Proof</h3>
+            <p class="text-gray-500 text-sm">Testimonios + Casos de éxito + Reviews FB</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-white rounded-full px-3 py-1 text-xs font-medium text-blue-600 border border-blue-100">Reel testimonial</span>
+          <span class="bg-white rounded-full px-3 py-1 text-xs font-medium text-blue-600 border border-blue-100">Caso de éxito carousel</span>
+          <span class="bg-white rounded-full px-3 py-1 text-xs font-medium text-blue-600 border border-blue-100">3 reviews FB</span>
+        </div>
+      </div>
+
+      <!-- Week 4 -->
+      <div class="bg-green-50 border border-green-100 rounded-2xl p-6">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center">
+            <span class="text-white font-bold">S4</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-dark-900 text-lg">Semana 4 — Colaboraciones + Ads</h3>
+            <p class="text-gray-500 text-sm">3 colaboraciones + primera campaña de ads</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-white rounded-full px-3 py-1 text-xs font-medium text-green-600 border border-green-100">3 colaboraciones</span>
+          <span class="bg-white rounded-full px-3 py-1 text-xs font-medium text-green-600 border border-green-100">Campaña $100–$200</span>
+          <span class="bg-white rounded-full px-3 py-1 text-xs font-medium text-green-600 border border-green-100">Revisión de métricas</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Targets -->
+    <div class="bg-dark-900 rounded-2xl p-6">
+      <p class="text-white/60 text-sm uppercase tracking-widest mb-4">Metas Fin de Mes 1</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="text-center">
+          <p class="text-3xl font-black text-white">250+</p>
+          <p class="text-white/50 text-xs mt-1">Seguidores IG</p>
+        </div>
+        <div class="text-center">
+          <p class="text-3xl font-black text-white">100+</p>
+          <p class="text-white/50 text-xs mt-1">Seguidores FB</p>
+        </div>
+        <div class="text-center">
+          <p class="text-3xl font-black text-white">5%</p>
+          <p class="text-white/50 text-xs mt-1">Engagement</p>
+        </div>
+        <div class="text-center">
+          <p class="text-3xl font-black text-white">5+</p>
+          <p class="text-white/50 text-xs mt-1">Leads</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SLIDE 10: CONTENIDO ===================== -->
+<section class="slide snap-always snap-start flex items-center justify-center bg-gray-50" id="slide-10">
+  <div class="max-w-5xl mx-auto px-8 py-20">
+    <div class="text-center mb-12">
+      <p class="text-primary-500 font-semibold uppercase tracking-widest text-sm mb-4">Content Strategy</p>
+      <h2 class="text-5xl font-bold text-dark-900 mb-4">Contenido que Proponemos</h2>
+      <div class="line-decorator mx-auto mt-6"></div>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Type 1 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="bg-red-100 rounded-xl p-3">
+            <span class="text-xl">🎬</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-dark-900">Reels Before/After</h4>
+            <p class="text-gray-400 text-xs">Alto potencial viral</p>
+          </div>
+        </div>
+        <p class="text-gray-600 text-sm">"De espacio vacío a hogar soñado" — el formato #1 en arquitectura. Zoom + transición + música trending.</p>
+        <div class="mt-4 flex gap-2">
+          <span class="bg-red-50 text-red-600 text-xs px-2 py-1 rounded-full font-medium">15–30 seg</span>
+          <span class="bg-red-50 text-red-600 text-xs px-2 py-1 rounded-full font-medium">3×/sem</span>
+        </div>
+      </div>
+
+      <!-- Type 2 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="bg-blue-100 rounded-xl p-3">
+            <span class="text-xl">📚</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-dark-900">Carousels Educativos</h4>
+            <p class="text-gray-400 text-xs">Authority building</p>
+          </div>
+        </div>
+        <p class="text-gray-600 text-sm">"5 reglas de diseño que nunca fallan", "Tendencias 2026", "Errores comunes". Saves + shares + DMs.</p>
+        <div class="mt-4 flex gap-2">
+          <span class="bg-blue-50 text-blue-600 text-xs px-2 py-1 rounded-full font-medium">5–10 slides</span>
+          <span class="bg-blue-50 text-blue-600 text-xs px-2 py-1 rounded-full font-medium">2×/sem</span>
+        </div>
+      </div>
+
+      <!-- Type 3 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="bg-green-100 rounded-xl p-3">
+            <span class="text-xl">⚡</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-dark-900">Reels Proceso</h4>
+            <p class="text-gray-400 text-xs">Behind the scenes</p>
+          </div>
+        </div>
+        <p class="text-gray-600 text-sm">"Así nace un mueble", timelapse de instalación. Transparency = confianza. Muestra expertise real.</p>
+        <div class="mt-4 flex gap-2">
+          <span class="bg-green-50 text-green-600 text-xs px-2 py-1 rounded-full font-medium">30–60 seg</span>
+          <span class="bg-green-50 text-green-600 text-xs px-2 py-1 rounded-full font-medium">1×/sem</span>
+        </div>
+      </div>
+
+      <!-- Type 4 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="bg-purple-100 rounded-xl p-3">
+            <span class="text-xl">🏠</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-dark-900">Showcase Productos</h4>
+            <p class="text-gray-400 text-xs">Mobiliario custom</p>
+          </div>
+        </div>
+        <p class="text-gray-600 text-sm">Fotos profesionales del mobiliario: cocinas, closets, bibliotecas. Diferenciador único de Entramados.</p>
+        <div class="mt-4 flex gap-2">
+          <span class="bg-purple-50 text-purple-600 text-xs px-2 py-1 rounded-full font-medium">Carrousel</span>
+          <span class="bg-purple-50 text-purple-600 text-xs px-2 py-1 rounded-full font-medium">1×/sem</span>
+        </div>
+      </div>
+
+      <!-- Type 5 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="bg-yellow-100 rounded-xl p-3">
+            <span class="text-xl">💬</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-dark-900">Stories Diarias</h4>
+            <p class="text-gray-400 text-xs">Conexión + Engagement</p>
+          </div>
+        </div>
+        <p class="text-gray-600 text-sm">Detrás de escenas, encuestas, Q&As, countdowns. Mantiene presencia diaria sin esfuerzo excesivo.</p>
+        <div class="mt-4 flex gap-2">
+          <span class="bg-yellow-50 text-yellow-600 text-xs px-2 py-1 rounded-full font-medium">3–5/día</span>
+          <span class="bg-yellow-50 text-yellow-600 text-xs px-2 py-1 rounded-full font-medium">7 días</span>
+        </div>
+      </div>
+
+      <!-- Type 6 -->
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 card-hover">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="bg-orange-100 rounded-xl p-3">
+            <span class="text-xl">⭐</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-dark-900">Testimonios</h4>
+            <p class="text-gray-400 text-xs">Social proof</p>
+          </div>
+        </div>
+        <p class="text-gray-600 text-sm">Clientes reales con sus espacios transformados. Screenshots de WhatsApp + fotos del proyecto. Máxima credibilidad.</p>
+        <div class="mt-4 flex gap-2">
+          <span class="bg-orange-50 text-orange-600 text-xs px-2 py-1 rounded-full font-medium">1×/mes</span>
+          <span class="bg-orange-50 text-orange-600 text-xs px-2 py-1 rounded-full font-medium">Reel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SLIDE 11: INVERSIÓN Y TIMELINE ===================== -->
+<section class="slide snap-always snap-start flex items-center justify-center bg-dark-900" id="slide-11">
+  <div class="max-w-5xl mx-auto px-8 py-20">
+    <div class="text-center mb-16">
+      <p class="text-primary-400 font-semibold uppercase tracking-widest text-sm mb-4">Investment</p>
+      <h2 class="text-5xl font-bold text-white mb-4">Inversión y Timeline</h2>
+      <div class="line-decorator mx-auto mt-6"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 mb-12">
+      <!-- Phase 1 -->
+      <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="bg-primary-500 text-white text-xs font-bold px-3 py-1 rounded-full">FASE 1</span>
+        </div>
+        <p class="text-white font-bold text-lg mb-1">Fundación</p>
+        <p class="text-white/50 text-sm mb-4">Meses 1–3</p>
+        <p class="text-4xl font-black text-white mb-1">$50–100</p>
+        <p class="text-white/40 text-sm mb-6">/mes en herramientas</p>
+        <ul class="space-y-2 text-white/60 text-sm">
+          <li>✓ Bio + Linktree optimizados</li>
+          <li>✓ Facebook rebuild completo</li>
+          <li>✓ 90 posts publicados</li>
+          <li>✓ 24+ reels producidos</li>
+          <li>✓ Meta Business Suite</li>
+        </ul>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="bg-primary-600 rounded-2xl p-8 border border-primary-500 relative overflow-hidden">
+        <div class="absolute top-3 right-3 bg-yellow-400 text-dark-900 text-xs font-bold px-2 py-1 rounded-full">RECOMENDADO</div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="bg-white text-primary-600 text-xs font-bold px-3 py-1 rounded-full">FASE 2</span>
+        </div>
+        <p class="text-white font-bold text-lg mb-1">Crecimiento</p>
+        <p class="text-white/70 text-sm mb-4">Meses 4–6</p>
+        <p class="text-4xl font-black text-white mb-1">$200–400</p>
+        <p class="text-white/40 text-sm mb-6">/mes (incluye ads)</p>
+        <ul class="space-y-2 text-white/80 text-sm">
+          <li>✓ Todo lo anterior</li>
+          <li>✓ Facebook/IG Ads ($100–200/mes)</li>
+          <li>✓ 5 colaboraciones activas</li>
+          <li>✓ Campañas de lead nurturing</li>
+          <li>✓ 1 taller/webinar</li>
+        </ul>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full">FASE 3</span>
+        </div>
+        <p class="text-white font-bold text-lg mb-1">Escala</p>
+        <p class="text-white/50 text-sm mb-4">Meses 7–12</p>
+        <p class="text-4xl font-black text-white mb-1">$400–800</p>
+        <p class="text-white/40 text-sm mb-6">/mes (ads + contenido)</p>
+        <ul class="space-y-2 text-white/60 text-sm">
+          <li>✓ Todo lo anterior</li>
+          <li>✓ $300–500/mes en ads</li>
+          <li>✓ TikTok + YouTube Shorts</li>
+          <li>✓ 1 persona dedicada</li>
+          <li>✓ Team de contenido</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center">
+      <p class="text-white/60 text-sm uppercase tracking-widest mb-4">Inversión Total Año 1</p>
+      <p class="text-4xl font-black text-white mb-2">$3,150 — $6,300</p>
+      <p class="text-white/50">Promedio: $400/mes</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SLIDE 12: ROI ===================== -->
+<section class="slide snap-always snap-start flex items-center justify-center bg-white" id="slide-12">
+  <div class="max-w-5xl mx-auto px-8 py-20">
+    <div class="text-center mb-12">
+      <p class="text-primary-500 font-semibold uppercase tracking-widest text-sm mb-4">Return on Investment</p>
+      <h2 class="text-5xl font-bold text-dark-900 mb-4">ROI Esperado</h2>
+      <div class="line-decorator mx-auto mt-6"></div>
+    </div>
+
+    <!-- Scenarios -->
+    <div class="grid md:grid-cols-3 gap-6 mb-10">
+      <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+        <p class="text-gray-400 text-xs uppercase tracking-widest font-semibold mb-4">ESCENARIO CONSERVADOR</p>
+        <div class="space-y-3">
+          <div class="flex justify-between">
+            <span class="text-gray-600 text-sm">Leads/mes</span>
+            <span class="font-bold text-dark-900">5</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600 text-sm">Tasa de cierre</span>
+            <span class="font-bold text-dark-900">20%</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600 text-sm">Proyectos/mes</span>
+            <span class="font-bold text-dark-900">1</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600 text-sm">Ticket promedio</span>
+            <span class="font-bold text-dark-900">$2,000</span>
+          </div>
+          <div class="border-t border-gray-200 pt-3 flex justify-between">
+            <span class="font-bold text-dark-900">Revenue/mes</span>
+            <span class="font-black text-green-600 text-lg">$2,000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-primary-50 rounded-2xl p-6 border border-primary-100 relative">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary-500 text-white text-xs font-bold px-3 py-1 rounded-full">ESCENARIO BASE</div>
+        <p class="text-primary-400 text-xs uppercase tracking-widest font-semibold mb-4 mt-2">ESCENARIO BASE</p>
+        <div class="space-y-3">
+          <div class="flex justify-between">
+            <span class="text-gray-600 text-sm">Leads/mes</span>
+            <span class="font-bold text-dark-900">10</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600 text-sm">Tasa de cierre</span>
+            <span class="font-bold text-dark-900">25%</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600 text-sm">Proyectos/mes</span>
+            <span class="font-bold text-dark-900">2.5</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600 text-sm">Ticket promedio</span>
+            <span class="font-bold text-dark-900">$2,500</span>
+          </div>
+          <div class="border-t border-primary-200 pt-3 flex justify-between">
+            <span class="font-bold text-dark-900">Revenue/mes</span>
+            <span class="font-black text-primary-600 text-lg">$6,250</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+        <p class="text-gray-400 text-xs uppercase tracking-widest font-semibold mb-4">ESCENARIO OPTIMISTA</p>
+        <div class="space-y-3">
+          <div class="flex justify-between">
+            <span class="text-gray-600 text-sm">Leads/mes</span>
+            <span class="font-bold text-dark-900">15</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600 text-sm">Tasa de cierre</span>
+            <span class="font-bold text-dark-900">30%</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600 text-sm">Proyectos/mes</span>
+            <span class="font-bold text-dark-900">4.5</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600 text-sm">Ticket promedio</span>
+            <span class="font-bold text-dark-900">$3,000</span>
+          </div>
+          <div class="border-t border-gray-200 pt-3 flex justify-between">
+            <span class="font-bold text-dark-900">Revenue/mes</span>
+            <span class="font-black text-green-600 text-lg">$13,500</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ROI table -->
+    <div class="bg-dark-900 rounded-3xl p-8">
+      <p class="text-white/60 text-sm uppercase tracking-widest mb-6">Retorno sobre Inversión — Proyección Anual</p>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="text-white/40 border-b border-white/10">
+              <th class="text-left py-3 font-medium">Fase</th>
+              <th class="text-right py-3 font-medium">Inversión</th>
+              <th class="text-right py-3 font-medium">Revenue Incremental</th>
+              <th class="text-right py-3 font-medium">ROI</th>
+            </tr>
+          </thead>
+          <tbody class="text-white">
+            <tr class="border-b border-white/5">
+              <td class="py-3">Mes 3</td>
+              <td class="text-right py-3">$300</td>
+              <td class="text-right py-3 text-green-400 font-bold">$6,000–$18,000</td>
+              <td class="text-right py-3 text-green-400 font-bold">1,900%–5,900%</td>
+            </tr>
+            <tr class="border-b border-white/5">
+              <td class="py-3">Mes 6</td>
+              <td class="text-right py-3">$1,200</td>
+              <td class="text-right py-3 text-green-400 font-bold">$15,000–$40,000</td>
+              <td class="text-right py-3 text-green-400 font-bold">1,150%–3,200%</td>
+            </tr>
+            <tr>
+              <td class="py-3">Mes 12</td>
+              <td class="text-right py-3">$5,000</td>
+              <td class="text-right py-3 text-green-400 font-bold">$40,000–$120,000</td>
+              <td class="text-right py-3 text-green-400 font-bold">700%–2,300%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-white/30 text-xs mt-6">*Proyecciones basadas en escenario base con ticket promedio de $2,500. El ROI real depende de la capacidad comercial del equipo de Entramados.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SLIDE 13: BENCHMARKS ===================== -->
+<section class="slide snap-always snap-start flex items-center justify-center bg-gray-50" id="slide-13">
+  <div class="max-w-5xl mx-auto px-8 py-20">
+    <div class="text-center mb-12">
+      <p class="text-primary-500 font-semibold uppercase tracking-widest text-sm mb-4">Benchmarks</p>
+      <h2 class="text-5xl font-bold text-dark-900 mb-4">Casos de Éxito del Nicho</h2>
+      <div class="line-decorator mx-auto mt-6"></div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 mb-10">
+      <!-- Benchmark 1 -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded">CASO REAL</span>
+          <span class="text-gray-400 text-xs">Arquitectura · Ecuador</span>
+        </div>
+        <h3 class="font-bold text-xl text-dark-900 mb-2">Estudio de Arquitectura Quito</h3>
+        <p class="text-gray-500 text-sm mb-4">De 200 a 3,000 seguidores en 8 meses con estrategia de Reels before/after</p>
+        <div class="space-y-2 text-sm">
+          <div class="flex justify-between"><span class="text-gray-600">Seguidores</span><span class="font-bold">200 → 3,000</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Engagement</span><span class="font-bold">2% → 8%</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Leads/mes</span><span class="font-bold">0 → 12</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Revenue redes</span><span class="font-bold text-green-600">$0 → $8,000/mes</span></div>
+        </div>
+      </div>
+
+      <!-- Benchmark 2 -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded">CASO REAL</span>
+          <span class="text-gray-400 text-xs">Interiorismo · Colombia</span>
+        </div>
+        <h3 class="font-bold text-xl text-dark-900 mb-2">Muebles & Hogar Bogotá</h3>
+        <p class="text-gray-500 text-sm mb-4">Mobiliario custom + Instagram como canal principal de ventas</p>
+        <div class="space-y-2 text-sm">
+          <div class="flex justify-between"><span class="text-gray-600">Seguidores IG</span><span class="font-bold">500 → 8,000</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Engagement</span><span class="font-bold">3% → 9%</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Posts/mes</span><span class="font-bold">30</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Revenue redes</span><span class="font-bold text-green-600">$5,000+/mes</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key insight -->
+    <div class="bg-gradient-to-r from-primary-500 to-primary-700 rounded-2xl p-8 text-center">
+      <p class="text-white text-xl font-bold">La fórmula probada: Reels de transformación + Consistencia + WhatsApp como cierre</p>
+      <p class="text-white/70 mt-2">No se necesita presupuesto de ads para generar resultados significativos</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SLIDE 14: NEXT STEPS ===================== -->
+<section class="slide snap-always snap-start flex items-center justify-center bg-dark-900" id="slide-14">
+  <div class="max-w-5xl mx-auto px-8 py-20 text-center">
+    <div class="mb-12">
+      <p class="text-primary-400 font-semibold uppercase tracking-widest text-sm mb-4">Action Plan</p>
+      <h2 class="text-5xl font-bold text-white mb-4">Próximos Pasos</h2>
+      <div class="line-decorator mx-auto mt-6"></div>
+    </div>
+
+    <!-- CTA Box -->
+    <div class="bg-gradient-to-br from-primary-600 to-primary-800 rounded-3xl p-10 mb-12 max-w-2xl mx-auto">
+      <h3 class="text-white text-2xl font-bold mb-4">¿Listos para comenzar?</h3>
+      <p class="text-white/80 text-lg mb-8">La mayor oportunidad de Entramados está en reconstruir Facebook y convertir el mobiliario custom en contenido viral de transformación.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <div class="bg-white/20 backdrop-blur-sm rounded-xl px-6 py-4 text-center">
+          <p class="text-white font-bold text-2xl">$0</p>
+          <p class="text-white/60 text-sm">Costo de oportunidad<br/>de no actuar</p>
+        </div>
+        <div class="bg-white/20 backdrop-blur-sm rounded-xl px-6 py-4 text-center">
+          <p class="text-white font-bold text-2xl">$50</p>
+          <p class="text-white/60 text-sm">Inversión mensual<br/>en herramientas</p>
+        </div>
+        <div class="bg-white/20 backdrop-blur-sm rounded-xl px-6 py-4 text-center">
+          <p class="text-white font-bold text-2xl">5×</p>
+          <p class="text-white/60 text-sm">Potencial de leads<br/>vs. situación actual</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-12 text-left">
+      <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-primary-500 rounded-xl flex items-center justify-center">
+            <span class="text-white font-bold">1</span>
+          </div>
+          <h4 class="text-white font-bold">Esta semana</h4>
+        </div>
+        <ul class="space-y-2 text-white/60 text-sm">
+          <li>• Aprobar plan estratégico</li>
+          <li>• Actualizar bio IG + crear Linktree</li>
+          <li>• Rebuild completo de Facebook</li>
+          <li>• Publicar primer reel before/after</li>
+        </ul>
+      </div>
+      <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-purple-500 rounded-xl flex items-center justify-center">
+            <span class="text-white font-bold">2</span>
+          </div>
+          <h4 class="text-white font-bold">Mes 1</h4>
+        </div>
+        <ul class="space-y-2 text-white/60 text-sm">
+          <li>• 30 posts publicados (IG + FB)</li>
+          <li>• 8+ reels producidos</li>
+          <li>• 250+ seguidores IG / 100+ FB</li>
+          <li>• 5+ leads cualificados</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="space-y-4">
+      <p class="text-white/60 text-sm uppercase tracking-widest">Contacto</p>
+      <p class="text-white text-xl font-medium">@entramados_estudio78</p>
+      <p class="text-white/50 text-sm">General Torres y Pedro León, Ecuador</p>
+      <div class="mt-8">
+        <p class="text-primary-400 text-lg font-semibold">¿Hablamos esta semana?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Navigation dots -->
+<div class="fixed right-6 top-1/2 -translate-y-1/2 flex flex-col gap-2 z-50">
+  <a href="#slide-1" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-primary-500 transition-colors"></a>
+  <a href="#slide-2" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-primary-500 transition-colors"></a>
+  <a href="#slide-3" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-primary-500 transition-colors"></a>
+  <a href="#slide-4" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-primary-500 transition-colors"></a>
+  <a href="#slide-5" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-primary-500 transition-colors"></a>
+  <a href="#slide-6" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-primary-500 transition-colors"></a>
+  <a href="#slide-7" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-primary-500 transition-colors"></a>
+  <a href="#slide-8" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-primary-500 transition-colors"></a>
+  <a href="#slide-9" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-primary-500 transition-colors"></a>
+  <a href="#slide-10" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-primary-500 transition-colors"></a>
+  <a href="#slide-11" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-primary-500 transition-colors"></a>
+  <a href="#slide-12" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-primary-500 transition-colors"></a>
+  <a href="#slide-13" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-primary-500 transition-colors"></a>
+  <a href="#slide-14" class="w-2 h-2 rounded-full bg-gray-300 hover:bg-primary-500 transition-colors"></a>
+</div>
+
+</body>
+</html>

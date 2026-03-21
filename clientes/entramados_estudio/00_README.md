@@ -57,12 +57,13 @@ entramados_estudio/
 
 | Archivo | Descripción |
 |---------|-------------|
-| `01_analisis/ANÁLISIS_COMPLETO.md` | Diagnóstico completo FODA + plan |
+| `06_plan_estrategico/PLAN_ESTRATEGICO.md` | Plan maestro completo (540 líneas) |
+| `06_plan_estrategico/presentacion.html` | Presentación consulting (listo para ver) |
+| `06_plan_estrategico/SOCIAL_MEDIA_STRATEGY.md` | Estrategia 30 días (544 líneas) |
+| `06_plan_estrategico/IMAGE_CONCEPTS.md` | 15+ prompts para AI imágenes |
+| `06_plan_estrategico/KPIs_DASHBOARD.md` | Dashboard de métricas (444 líneas) |
 | `02_guias/01_REBUILD_FACEBOOK.md` | Cómo rebuild FB desde cero |
-| `02_guias/02_OPTIMIZAR_INSTAGRAM.md` | Bio, highlights, CTA |
-| `02_guias/03_CROSSPOSTING.md` | Sistema IG → FB automático |
 | `03_contenido/CAPTIONS.md` | 20+ captions listos |
-| `03_contenido/CALENDARIO_MENSUAL.md` | 30 días de contenido |
 
 ---
 
