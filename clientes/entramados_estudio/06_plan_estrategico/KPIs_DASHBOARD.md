@@ -1,444 +1,500 @@
-# 📊 KPIs DASHBOARD & PERFORMANCE TRACKING
-## Entramados Estudio — Medición de Éxito
+# 📊 KPIs DASHBOARD — Entramados Estudio
+## Sistema de Medición y Reporteo
 
+**Fecha:** 21 de marzo de 2026  
 **Cliente:** Entramados Estudio  
-**Fecha:** 2026-03-21  
-**Período:** 2026-03-21 → 2026-04-21
+**Período de seguimiento:** Abril 2026 — Marzo 2027
 
 ---
 
-## 1. DASHBOARD VISUAL
+## 1. KPIs PRINCIPALES (NORTH STAR METRICS)
 
-```
-╔══════════════════════════════════════════════════════════════════════════════════╗
-║                    ENTRAMADOS ESTUDIO — DASHBOARD                          ║
-║                        Mes 1: 21 Mar → 21 Abr 2026                          ║
-╠══════════════════════════════════════════════════════════════════════════════════╣
-║                                                                          ║
-║  📱 INSTAGRAM                    📘 FACEBOOK                    💬 LEADS   ║
-║  ┌──────────────────┐            ┌──────────────────┐         ┌──────────────────┐  ║
-║  │ Inicio │ Actual │ Meta │     │ Inicio │ Actual │ Meta │    │ Meta │ Actual │  ║
-║  │  186   │   _   │ 250  │     │    0   │   _   │ 100  │    │  15   │   _   │  ║
-║  │        │  +_%  │ +35% │     │        │  +_%  │ +100 │    │  _%   │  _%   │  ║
-║  └──────────────────┘            └──────────────────┘         └──────────────────┘  ║
-║                                                                          ║
-║  📈 ENGAGEMENT                  🎬 CONTENT                ⭐ REVIEWS      ║
-║  ┌──────────────────┐            ┌──────────────────┐         ┌──────────────────┐  ║
-║  │ Rate │ Actual │ Meta │      │ Posts │ Real │ Meta │    │ FB │ Actual │ Meta │  ║
-║  │ 1.5% │   _   │  5%  │      │  257  │  _   │ 287  │    │   0  │   _   │  3  ║
-║  │       │  +_ % │+233% │     │  Reels│  _   │  12  │    │       │  +_%  │     ║
-║  └──────────────────┘            └──────────────────┘         └──────────────────┘  ║
-║                                                                          ║
-╚══════════════════════════════════════════════════════════════════════════════════╝
-```
+### 1.1 Lista Completa de Métricas a Trackear
 
----
+#### Instagram
 
-## 2. KPIs PRINCIPALES (KPIs PRINCIPALES)
+| Métrica | Definición | Fuente | Frecuencia |
+|---------|-----------|--------|------------|
+| **Seguidores totales** | Número total de followers | Meta Business Suite / IG Insights | Semanal |
+| **Crecimiento seguidores** | Nuevos seguidores netos por semana | Meta Business Suite | Semanal |
+| **Alcance por post** | Cuántas cuentas únicas vieron el post | IG Insights | Por post |
+| **Impresiones por post** | Cuántas veces se mostró el post | IG Insights | Por post |
+| **Engagement rate** | (Likes + Comments + Saves + Shares) / Alcance × 100 | IG Insights | Por post / Promedio |
+| **Likes** | Total de likes por post | IG Insights | Por post |
+| **Comments** | Total de comentarios por post | IG Insights | Por post |
+| **Saves** | Total de guardados por post | IG Insights | Por post |
+| **Shares** | Total de compartidos por post | IG Insights | Por post |
+| **Vistas de Reels** | Cuántas vistas tuvo cada Reel | IG Insights | Por Reel |
+| **Interacción con Reels** | Likes + Comments + Shares en Reels | IG Insights | Por Reel |
+| **Respuestas de Stories** | DMs recibidos por actividad en stories | IG Insights | Semanal |
+| **Clics en link bio** | Clics al link de Linktree en bio | Linktree / Bitly | Semanal |
+| **Mensajes DM** | Total de DMs recibidos | Meta Business Suite | Semanal |
+| **Tasa de respuesta DM** | DMs respondidos / DMs totales × 100 | Meta Business Suite | Semanal |
+| **Crecimiento hashtags** | Engagement desde hashtags descubiertos | IG Insights | Mensual |
 
-### 2.1 Social Media KPIs
+#### Facebook
 
-| KPI | Descripción | Baseline | Meta Mes 1 | Meta Mes 3 | Meta Mes 6 | Meta Mes 12 |
-|-----|-------------|----------|------------|------------|------------|-------------|
-| **IG_SEG** | Seguidores IG | 186 | 250 | 500 | 1,000 | 3,000 |
-| **IG_ENG** | Engagement Rate | 1.5% | 5% | 6% | 7% | 8% |
-| **IG_REACH** | Alcance/post | ? | 500 | 1,000 | 2,500 | 5,000 |
-| **IG_SAVES** | Saves/post | ? | 10 | 25 | 50 | 100 |
-| **IG_REELS** | Vistas Reels | ? | 1,000 | 3,000 | 7,500 | 15,000 |
-| **FB_SEG** | Seguidores FB | 0 | 100 | 300 | 750 | 2,000 |
-| **FB_ENG** | Engagement FB | 0% | 3% | 5% | 6% | 7% |
-| **REVIEWS** | Reviews FB | 0 | 3 | 10 | 25 | 50 |
+| Métrica | Definición | Fuente | Frecuencia |
+|---------|-----------|--------|------------|
+| **Seguidores totales** | Número total de fans | FB Page Insights | Semanal |
+| **Alcance de página** | Personas únicas que vieron contenido de la página | FB Insights | Semanal |
+| **Impresiones** | Total de veces que se mostró contenido | FB Insights | Semanal |
+| **Alcance orgánico** | Personas que vieron sin promoción | FB Insights | Semanal |
+| **Alcance paid** | Personas alcanzadas via ads | FB Insights | Por campaña |
+| **Engagement rate** | Interacciones / Alcance × 100 | FB Insights | Por post / Promedio |
+| **Page likes** | Nuevos likes por semana | FB Insights | Semanal |
+| **Reviews** | Número de reviews y calificación promedio | FB Page | Mensual |
+| **Mensajes recibidos** | Total de mensajes Messenger | FB Messenger | Semanal |
+| **Clics en CTA** | Clics en botón de acción de la página | FB Insights | Semanal |
+| **Responses to posts** | Comments + Reactions por post | FB Insights | Por post |
 
-### 2.2 Lead Generation KPIs
+#### WhatsApp Business
 
-| KPI | Descripción | Baseline | Meta Mes 1 | Meta Mes 3 | Meta Mes 6 | Meta Mes 12 |
-|-----|-------------|----------|------------|------------|------------|-------------|
-| **LEADS** | Leads totales | ? | 10 | 35 | 100 | 300 |
-| **WAPP** | WhatsApp msgs | ? | 15 | 50 | 150 | 400 |
-| **COTS** | Cotizaciones enviadas | ? | 5 | 15 | 40 | 100 |
-| **WON** | Proyectos cerrados | 0 | 1 | 4 | 10 | 25 |
-| **REV** | Revenue generado | $0 | $2,000 | $10,000 | $30,000 | $100,000 |
+| Métrica | Definición | Fuente | Frecuencia |
+|---------|-----------|--------|------------|
+| **Mensajes recibidos** | Total de mensajes de clientes | WhatsApp Business | Semanal |
+| **Leads cualificados** | Mensajes con intención real de proyecto | Registro manual | Semanal |
+| **Cotizaciones enviadas** | Número de cotizaciones formales enviadas | Registro manual | Mensual |
+| **Proyectos cerrados** | Leads convertidos en clientes | Registro manual | Mensual |
+| **Revenue** | Ingresos de proyectos cerrados | Registro manual | Mensual |
+| **Tiempo de respuesta** | Promedio de tiempo en responder mensajes | WhatsApp Business | Semanal |
+| **Tasa de conversión** | Leads cerrados / Leads totales × 100 | Registro manual | Mensual |
 
-### 2.3 Content KPIs
+#### Google Business Profile *(Por crear/optimizar)*
 
-| KPI | Descripción | Baseline | Meta Mes 1 | Meta Mes 3 |
-|-----|-------------|----------|------------|------------|
-| **POSTS** | Posts publicados | 257 | 287 (+30) | 377 (+120) |
-| **REELS** | Reels publicados | ? | +12 | +40 |
-| **STORIES** | Stories activos/día | ? | 7/7 | 7/7 |
-| **CAROUSELS** | Carousels | ? | +8 | +25 |
+| Métrica | Definición | Fuente | Frecuencia |
+|---------|-----------|--------|------------|
+| **Vistas de perfil** | Veces que se vio el perfil | Google Business | Semanal |
+| **Acciones de dirección** | Clics para obtener dirección | Google Business | Semanal |
+| **Acciones de sitio web** | Clics al sitio web | Google Business | Semanal |
+| **Acciones de teléfono** | Clics para llamar | Google Business | Semanal |
+| **Reviews** | Número y calificación | Google Business | Mensual |
 
----
+#### Pinterest *(Si se implementa)*
 
-## 3. METRICAS DETALLADAS
-
-### 3.1 Instagram Metrics
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│  📱 INSTAGRAM ANALYTICS                                                   │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                           │
-│  CRECIMIENTO DE SEGUIDORES                                               │
-│  ═══════════════════════════                                              │
-│  Semana 0: ████ 186                                                      │
-│  Semana 1: ████ _     (+_)                                               │
-│  Semana 2: ████ _     (+_)                                               │
-│  Semana 3: ████ _     (+_)                                               │
-│  Semana 4: ████████ _   (+_) [META: 250]                                 │
-│                                                                           │
-│  ENGAGEMENT RATE                                                         │
-│  ═══════════════════                                                     │
-│  Meta: 5%                                                                │
-│  Semana 1: ██ _%                                                        │
-│  Semana 2: ███ _%                                                        │
-│  Semana 3: ████ _%                                                       │
-│  Semana 4: █████ _% [META ✓]                                             │
-│                                                                           │
-│  TOP POSTS (Por semana)                                                  │
-│  ═══════════════════════                                                  │
-│  - Tipo: _                                                              │
-│  - Likes: _                                                             │
-│  - Comentarios: _                                                       │
-│  - Saves: _                                                             │
-│  - Shares: _                                                            │
-│                                                                           │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-### 3.2 Facebook Metrics
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│  📘 FACEBOOK ANALYTICS                                                    │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                           │
-│  CRECIMIENTO DE SEGUIDORES                                               │
-│  ═══════════════════════════                                              │
-│  Semana 0: ░░░░░ 0                                                      │
-│  Semana 1: ██ _     (+_)                                                 │
-│  Semana 2: ████ _   (+_)                                                 │
-│  Semana 3: ██████ _ (+_)                                                 │
-│  Semana 4: ██████████ _ (+_) [META: 100]                                 │
-│                                                                           │
-│  ALCANCE                                                                │
-│  ═══════════════════════════                                              │
-│  Meta: 3,000 personas/semana                                             │
-│                                                                           │
-│  REVIEWS                                                                │
-│  ═══════════════════                                                     │
-│  Meta: 3 reviews ★★★★★                                                   │
-│  Actuales: _ reviews                                                     │
-│                                                                           │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
-
-### 3.3 Lead Pipeline
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│  💬 LEAD PIPELINE                                                        │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                           │
-│  FUNNEL DE CONVERSIÓN                                                    │
-│  ═══════════════════                                                     │
-│                                                                           │
-│  Impresiones → Alcance → Visitas → Engagement → DM → WhatsApp → Lead    │
-│     ↓          ↓       ↓        ↓          ↓         ↓         ↓          │
-│    10,000    3,000   500      100        50        30        15       │
-│                                                                           │
-│  CONVERSIÓN RATE                                                        │
-│  ════════════════                                                       │
-│  Engagement → DM: 50%                                                   │
-│  DM → WhatsApp: 60%                                                    │
-│  WhatsApp → Lead: 50%                                                   │
-│  Lead → Cliente: 20%                                                    │
-│                                                                           │
-│  PIPELINE STATUS                                                        │
-│  ════════════════                                                       │
-│                                                                           │
-│  💬 En conversación: _                                                   │
-│  📋 Cotización enviada: _                                               │
-│  ✅ Proyecto cerrado: _                                                 │
-│  💰 Revenue: $_                                                        │
-│                                                                           │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
+| Métrica | Definición | Fuente | Frecuencia |
+|---------|-----------|--------|------------|
+| **Seguidores** | Total de seguidores | Pinterest Analytics | Mensual |
+| **Alcance mensual** | Impresiones de pins | Pinterest Analytics | Mensual |
+| **Clics a website** | Clics hacia el sitio/web | Pinterest Analytics | Mensual |
+| **Guardados (Repins)** | Veces que guardaron el pin | Pinterest Analytics | Por Pin |
 
 ---
 
-## 4. WEEKLY TRACKING SHEET
+## 2. TARGETS SEMANALES
 
-### Semana 1 (Mar 21-27)
+### Meta Semana 1 (Días 1-7)
 
-| Día | Posts IG | Posts FB | Reels | Stories | Seg IG | Seg FB | Eng% | Leads | Notes |
-|-----|----------|----------|-------|---------|---------|---------|------|-------|-------|
-| Lun | 1 | 1 | 1 | ✓ | _ | _ | _ | _ | |
-| Mar | 1 | 0 | 0 | ✓ | _ | _ | _ | _ | |
-| Mié | 1 | 1 | 1 | ✓ | _ | _ | _ | _ | |
-| Jue | 1 | 1 | 0 | ✓ | _ | _ | _ | _ | |
-| Vie | 1 | 0 | 1 | ✓ | _ | _ | _ | _ | |
-| Sáb | 1 | 0 | 0 | ✓ | _ | _ | _ | _ | |
-| Dom | 1 | 0 | 1 | ✓ | _ | _ | _ | _ | |
-| **Total** | **7** | **3** | **4** | **7/7** | **_ (+_%)** | **_ (+_%)** | **_%** | **_** | |
+| KPI | Baseline | Target S1 | Acciones para alcanzar |
+|-----|----------|-----------|----------------------|
+| Posts IG publicados | 0/día promedio | 5-7/semana | Programar contenido |
+| Posts FB publicados | 0 | 7/semana | Rebuild FB + 7 posts |
+| Reels publicados | Variable | 2-3/semana | Grabar 2-3 reels |
+| Stories publicadas | Variable | 14+/semana | 2 stories/día mínimo |
+| Engagement rate IG | ~2% | 3%+ | Posts optimizados + Reels |
+| Seguidores IG nuevos | — | +14 (+35% de 186) | Engagement + contenido |
+| Seguidores FB nuevos | 0 | +30 | Posts consistentes |
+| Mensajes recibidos | — | 5+ | CTAs en posts |
+| Reviews FB | 0 | 0 | No se pide aún |
+| Clics en link bio | — | 10+ | Linktree configurado |
 
-### Semana 2 (Mar 28 - Abr 3)
+### Meta Semana 2 (Días 8-14)
 
-| Día | Posts IG | Posts FB | Reels | Stories | Seg IG | Seg FB | Eng% | Leads | Notes |
-|-----|----------|----------|-------|---------|---------|---------|------|-------|-------|
-| Lun | 1 | 1 | 1 | ✓ | | | | | |
-| Mar | 1 | 0 | 0 | ✓ | | | | | |
-| Mié | 1 | 1 | 1 | ✓ | | | | | |
-| Jue | 1 | 1 | 0 | ✓ | | | | | |
-| Vie | 1 | 0 | 1 | ✓ | | | | | |
-| Sáb | 1 | 0 | 0 | ✓ | | | | | |
-| Dom | 1 | 0 | 1 | ✓ | | | | | |
-| **Total** | **7** | **3** | **4** | **7/7** | **_ (+_%)** | **_ (+_%)** | **_%** | **_** | |
+| KPI | Target S2 | Acciones |
+|-----|-----------|----------|
+| Posts IG publicados | 5-7 | Continuar calendar |
+| Posts FB publicados | 5-7 | Continuar cross-posting |
+| Reels publicados | 3 | Más contenido B/A |
+| Engagement rate IG | 4%+ | A/B test captions |
+| Seguidores IG nuevos | +15 | Colaboraciones inician |
+| Seguidores FB nuevos | +20 | Engagement en FB |
+| Mensajes recibidos | 8+ | CTAs más fuertes |
+| Saves en posts | 10+ total | Contenido más guardable |
+| Shares en Reels | 5+ | Reels más compartibles |
 
-### Semana 3 (Abr 4-10)
+### Meta Semana 3 (Días 15-21)
 
-| Día | Posts IG | Posts FB | Reels | Stories | Seg IG | Seg FB | Eng% | Leads | Notes |
-|-----|----------|----------|-------|---------|---------|---------|------|-------|-------|
-| Lun | 1 | 1 | 1 | ✓ | | | | | |
-| Mar | 1 | 0 | 0 | ✓ | | | | | |
-| Mié | 1 | 1 | 1 | ✓ | | | | | |
-| Jue | 1 | 1 | 0 | ✓ | | | | | |
-| Vie | 1 | 0 | 1 | ✓ | | | | | |
-| Sáb | 1 | 0 | 0 | ✓ | | | | | |
-| Dom | 1 | 0 | 1 | ✓ | | | | | |
-| **Total** | **7** | **3** | **4** | **7/7** | **_ (+_%)** | **_ (+_%)** | **_%** | **_** | |
+| KPI | Target S3 | Acciones |
+|-----|-----------|----------|
+| Posts IG publicados | 5-7 | Continuar |
+| Posts FB publicados | 5-7 | Continuar |
+| Reels publicados | 3 | Contenido testimonial |
+| Engagement rate IG | 5%+ | Optimizar basado en datos |
+| Seguidores IG totales | 225+ | Colaboraciones activas |
+| Seguidores FB totales | 75+ | Patrón de posts establecido |
+| Mensajes/leads | 5+ | Nurturing de leads |
+| Reviews FB | 1-2 | Solicitar a clientes |
+| Saves promedio/post | 5+ | Más contenido útil |
 
-### Semana 4 (Abr 11-17)
+### Meta Semana 4 (Días 22-30)
 
-| Día | Posts IG | Posts FB | Reels | Stories | Seg IG | Seg FB | Eng% | Leads | Notes |
-|-----|----------|----------|-------|---------|---------|---------|------|-------|-------|
-| Lun | 1 | 1 | 1 | ✓ | | | | | |
-| Mar | 1 | 0 | 0 | ✓ | | | | | |
-| Mié | 1 | 1 | 1 | ✓ | | | | | |
-| Jue | 1 | 1 | 0 | ✓ | | | | | |
-| Vie | 1 | 0 | 1 | ✓ | | | | | |
-| Sáb | 1 | 0 | 0 | ✓ | | | | | |
-| Dom | 1 | 0 | 1 | ✓ | | | | | |
-| **Total** | **7** | **3** | **4** | **7/7** | **_ (+_%)** | **_ (+_%)** | **_%** | **_** | |
-
-### RESUMEN MES 1
-
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│  📊 RESUMEN MES 1 (21 Mar - 21 Abr 2026)                                 │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                           │
-│  CONTENT GENERATED                                                        │
-│  ═════════════════                                                       │
-│  Total Posts: _     [Meta: 30]     [_% achievement]                       │
-│  Total Reels: _     [Meta: 12]     [_% achievement]                       │
-│  Stories diarios: _ [Meta: 28]    [_% achievement]                       │
-│                                                                           │
-│  GROWTH                                                                  │
-│  ═════════════════                                                      │
-│  Seguidores IG: _ → _  [+_ (_%)]  [Meta: 250] [_% to goal]               │
-│  Seguidores FB: _ → _  [+_ (_%)]  [Meta: 100] [_% to goal]               │
-│                                                                           │
-│  ENGAGEMENT                                                              │
-│  ═════════════════                                                      │
-│  Avg Engagement Rate: _%  [Meta: 5%]  [_% to goal]                       │
-│  Avg Saves/post: _        [Meta: 10]  [_% to goal]                        │
-│  Avg Shares/post: _       [Meta: 5]   [_% to goal]                        │
-│                                                                           │
-│  BUSINESS RESULTS                                                        │
-│  ═════════════════                                                      │
-│  Leads generados: _      [Meta: 10]   [_% achievement]                    │
-│  Cotizaciones enviadas: _ [Meta: 5]    [_% achievement]                    │
-│  Clientes cerrados: _    [Meta: 1-2]  [_% achievement]                    │
-│  Revenue: $_            [Meta: $_]     [_% achievement]                    │
-│                                                                           │
-│  REVIEWS                                                                │
-│  ═════════════════                                                      │
-│  Facebook Reviews: _     [Meta: 3]    [_% achievement]                    │
-│                                                                           │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
+| KPI | Target S4 | Acciones |
+|-----|-----------|----------|
+| Engagement rate IG | 5%+ | Consolidar lo que funciona |
+| Seguidores IG totales | 250+ | Meta de mes 1 |
+| Seguidores FB totales | 100+ | Meta de mes 1 |
+| Leads mensuales | 5+ | Proceso de venta activo |
+| Cotizaciones enviadas | 3+ | Follow-up sistemático |
+| Reviews FB acumuladas | 3+ | Pedir a clientes |
+| Revenue de redes | Por confirmar | Primer proyecto de redes |
 
 ---
 
-## 5. CONTENT PERFORMANCE TRACKER
+## 3. TARGETS MENSUALES
 
-### Top Performing Content
+### Mes 1 — Abril 2026
 
-| Pos | Fecha | Tipo |Descripción | Likes | Coms | Saves | Shares | Eng% |
-|-----|-------|------|-----------|-------|------|-------|--------|------|
-| 1 | _ | _ | _ | _ | _ | _ | _ | _ |
-| 2 | _ | _ | _ | _ | _ | _ | _ | _ |
-| 3 | _ | _ | _ | _ | _ | _ | _ | _ |
-| 4 | _ | _ | _ | _ | _ | _ | _ | _ |
-| 5 | _ | _ | _ | _ | _ | _ | _ | _ |
+| KPI | Target | Evaluator |
+|-----|--------|-----------|
+| **Seguidores IG** | 250 (+35%) | Meta Business Suite |
+| **Seguidores FB** | 100+ (desde 0) | FB Insights |
+| **Engagement rate IG** | 5%+ | IG Insights |
+| **Posts publicados (IG)** | 20-28 | Meta Business Suite |
+| **Posts publicados (FB)** | 20-28 | Meta Business Suite |
+| **Reels publicados** | 8-12 | IG Insights |
+| **Stories activas** | 56+ (14/semana) | IG Insights |
+| **Alcance promedio/post** | 200+ | IG Insights |
+| **Saves promedio/post** | 5+ | IG Insights |
+| **Leads cualificados** | 5+ | WhatsApp/Registro |
+| **Reviews FB** | 3+ | FB Page |
+| **Colaboracionesrealizadas** | 2+ | Registro interno |
+| **Clics en link bio** | 50+ | Linktree Analytics |
+| **Revenue atribuible** | $1,000+ | Registro financiero |
 
-### Worst Performing Content
+### Mes 2 — Mayo 2026
 
-| Pos | Fecha | Tipo |Descripción | Likes | Coms | Saves | Shares | Eng% |
-|-----|-------|------|-----------|-------|------|-------|--------|------|
-| 1 | _ | _ | _ | _ | _ | _ | _ | _ |
-| 2 | _ | _ | _ | _ | _ | _ | _ | _ |
-| 3 | _ | _ | _ | _ | _ | _ | _ | _ |
+| KPI | Target | Evaluator |
+|-----|--------|-----------|
+| **Seguidores IG** | 400 (+60% vs inicio) | Meta Business Suite |
+| **Seguidores FB** | 200+ | FB Insights |
+| **Engagement rate IG** | 5-6% | IG Insights |
+| **Leads cualificados** | 10+ | WhatsApp/Registro |
+| **Reviews FB acumuladas** | 7+ | FB Page |
+| **Proyectos cerrados** | 1-2 | Registro |
+| **Revenue de redes** | $2,000+ | Registro |
+| **Presupuesto ads** | $100-200 | Meta Ads |
+
+### Mes 3 — Junio 2026
+
+| KPI | Target | Evaluator |
+|-----|--------|-----------|
+| **Seguidores IG** | 500+ | Meta Business Suite |
+| **Seguidores FB** | 300+ | FB Insights |
+| **Engagement rate IG** | 6-7% | IG Insights |
+| **Leads cualificados** | 15+ | WhatsApp/Registro |
+| **Proyectos cerrados** | 2-3 | Registro |
+| **Revenue de redes** | $5,000+ | Registro |
+| **Reviews FB** | 10+ | FB Page |
+| **Colaboraciones activas** | 5+ | Registro |
+| **Presupuesto ads** | $200-400 | Meta Ads |
+
+### Trimestre 2-4 (Proyección)
+
+| KPI | Mes 6 | Mes 9 | Mes 12 |
+|-----|-------|-------|--------|
+| Seguidores IG | 1,000 | 1,700 | 2,500 |
+| Seguidores FB | 600 | 1,000 | 1,500 |
+| Engagement IG | 7% | 8% | 8-10% |
+| Leads/mes | 25 | 30 | 35 |
+| Proyectos cerrados/mes | 4-6 | 6-8 | 8-12 |
+| Revenue/mes | $10,000 | $12,000 | $15,000+ |
 
 ---
 
-## 6. COMPETITOR BENCHMARKING
+## 4. HERRAMIENTAS DE MEDICIÓN
 
-### Comparación con Competidores
+### 4.1 Stack de Analytics
 
-| Métrica | Entramados | @competidor1 | @competidor2 | @competidor3 |
-|---------|------------|--------------|---------------|---------------|
-| Seguidores IG | 186 | _ | _ | _ |
-| Posts/mes | _ | _ | _ | _ |
-| Engagement% | 1.5% | _ | _ | _ |
-| Reels activa | Sí | _ | _ | _ |
-| FB activo | No | _ | _ | _ |
-| Reviews FB | 0 | _ | _ | _ |
+| Herramienta | Qué mide | Costo | Setup |
+|-------------|---------|-------|-------|
+| **Meta Business Suite** | IG + FB stats, scheduling, inbox unificado | Gratis | Conectar cuentas |
+| **Meta Business Suite > Insights** | Engagement, alcance, demographics, mejores posts | Gratis | Automatic |
+| **Google Analytics** | Tráfico web (si hay sitio) | Gratis | Instalar tracking code |
+| **Google Business Profile** | Búsquedas locales, reviews, mapas | Gratis | Crear/claim perfil |
+| **Pinterest Analytics** | Si hay Pinterest activo | Gratis | Conectar cuenta business |
+| **Linktree Pro** | Clics en bio links | $9/mes | Upgrade account |
+| **Bitly** | Short links con tracking | Freemium | Crear account |
+| **WhatsApp Business** | Métricas de mensajes básicos | Gratis | App phone |
 
-### Qué están haciendo bien:
-1. _
-2. _
-3. _
+### 4.2 Configuración de Meta Business Suite
 
-### Qué podemos aprender:
-1. _
-2. _
-3. _
+**Paso 1: Conectar cuentas**
+1. Ir a https://business.facebook.com
+2. Crear Business Account (si no existe)
+3. Agregar Page de Facebook
+4. Conectar cuenta de Instagram
 
----
+**Paso 2: Configurar Insights**
+1. Ir a Meta Business Suite > Insights
+2. Activar "Resúmenes de rendimiento" por email
+3. Configurar objetivos de negocio
 
-## 7. REPORTING TEMPLATE
+**Paso 3: Configurar programación**
+1. Ir a Meta Business Suite > Content
+2. Conectar calendario (compatible con Google Calendar)
+3. Programar posts ahead
 
-### Reporte Semanal
+### 4.3 Dashboard Manual (Spreadsheet)
+
+Para tracking que Meta Business Suite no cubre, usar Google Sheets:
 
 ```
-╔══════════════════════════════════════════════════════════════════════════════╗
-║  📊 REPORTE SEMANAL — ENTRAMADOS ESTUDIO                                  ║
-║  Semana: _ | Del _ al _ de 2026                                           ║
-╠══════════════════════════════════════════════════════════════════════════════╣
-║                                                                              ║
-║  HIGHLIGHTS DE LA SEMANA ✓                                                 ║
-║  ═══════════════════════                                                   ║
-║  • _                                                                      ║
-║  • _                                                                      ║
-║  • _                                                                      ║
-║                                                                              ║
-║  NÚMEROS CLAVE                                                             ║
-║  ═════════════                                                             ║
-║  • Seguidores IG: _ → _ (+_ followers)                                    ║
-║  • Seguidores FB: _ → _ (+_ followers)                                    ║
-║  • Engagement: _%                                                          ║
-║  • Leads: _                                                              ║
-║                                                                              ║
-║  CONTENT PUBLICADO                                                        ║
-║  ═══════════════════                                                     ║
-║  • Posts IG: _                                                            ║
-║  • Posts FB: _                                                            ║
-║  • Reels: _                                                               ║
-║  • Stories: _/7 días                                                      ║
-║                                                                              ║
-║  TOP POST DE LA SEMANA                                                    ║
-║  ═══════════════════════                                                   ║
-║  • Tipo: _                                                                ║
-║  • Engagement: _%                                                          ║
-║  • Nota: _                                                                ║
-║                                                                              ║
-║  PROBLEMAS/PUNTOS MEJORAR                                                 ║
-║  ═══════════════════════════                                               ║
-║  • _                                                                      ║
-║  • _                                                                      ║
-║                                                                              ║
-║  PLAN PRÓXIMA SEMANA                                                      ║
-║  ═══════════════════════                                                   ║
-║  • _                                                                      ║
-║  • _                                                                      ║
-║  • _                                                                      ║
-║                                                                              ║
-║  ACTION ITEMS                                                             ║
-║  ═════════════════                                                       ║
-║  □ _                                                                      ║
-║  □ _                                                                      ║
-║  □ _                                                                      ║
-║                                                                              ║
-╚══════════════════════════════════════════════════════════════════════════════╝
+Columnas:
+| Fecha | Día | Tipo Post | Platform | Link Post | Alcance | Likes | Comments | Saves | Shares | Engagement % | Seguidores Nuevo | DMs | Leads | Actions taken |
+```
+
+**Template disponible en:** `METRICAS.md` del directorio de seguimiento
+
+---
+
+## 5. CÓMO REPORTAR AL CLIENTE
+
+### 5.1 Estructura de Reportes
+
+#### Reporte Quincenal (para Entramados)
+
+**Formato:** Documento simple de 1-2 páginas
+**Frecuencia:** Cada 2 semanas
+**Entregable:** Email + WhatsApp
+
+**Contenido:**
+1. **Resumen ejecutivo** (3-4 bullets)
+   - "Esta quincena: 23 posts publicados, +45 seguidores IG, 8 leads recibidos"
+
+2. **Métricas principales vs. metas**
+   | KPI | Meta | Actual | vs Meta |
+   |-----|------|--------|---------|
+   | Seguidores IG | 225 | 210 | -7% |
+   | Engagement | 5% | 4.2% | -16% |
+
+3. **Highlights de la quincena**
+   - Top 3 posts con mejor rendimiento
+   - Mejores Reels
+   - Mejores fuentes de leads
+
+4. **Áreas de mejora**
+   - Qué no funcionó
+   - Ajustes planeados
+
+5. **Próximas 2 semanas — Plan**
+   - Contenido clave a publicar
+   - Colaboraciones programadas
+   - Ajustes de estrategia
+
+6. **Leads y Pipeline**
+   - Leads recibidos: X
+   - En seguimiento: Y
+   - Cerrados: Z
+   - Revenue: $
+
+---
+
+#### Reporte Mensual (Ejecutivo)
+
+**Formato:** Presentación de 8-10 slides
+**Frecuencia:** Mensual
+**Entregable:** PDF o link a presentación
+
+**Slides:**
+1. Cover + Resumen ejecutivo
+2. Métricas principales vs. metas (con gráficos)
+3. Crecimiento de seguidores (IG + FB)
+4. Engagement: mejores posts + Reels
+5. Análisis de contenido: qué funcionó
+6. Pipeline de leads y conversiones
+7. ROI: inversión vs. revenue
+8. Próximo mes: plan de acción
+9. Preguntas / Discusión
+
+---
+
+### 5.2 Template de Reporte Quincenal
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 REPORTE QUINCENAL — ENTRAMADOS ESTUDIO
+Período: [Fecha] — [Fecha]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📈 RESUMEN EJECUTIVO
+• Posts publicados: XX (IG: X | FB: X)
+• Seguidores IG: XXX (+XX esta quincena)
+• Seguidores FB: XXX (+XX esta quincena)
+• Engagement promedio: X%
+• Leads recibidos: XX
+• Revenue atribuible: $X,XXX
+
+🎯 MÉTRICAS vs. METAS
+| KPI          | Meta Q   | Actual | Status |
+|--------------|----------|--------|--------|
+| Seguidores IG | XXX     | XXX    | 🟢/🟡/🔴 |
+| Engagement   | X%       | X%     | 🟢/🟡/🔴 |
+| Leads        | X        | X      | 🟢/🟡/🔴 |
+
+🏆 HIGHLIGHTS
+• Top post: [descripción + link]
+• Top Reel: [descripción + stats]
+• Mejor día engagement: [día]
+
+📋 PIPELINE DE LEADS
+• Nuevos: X
+• En seguimiento: X  
+• Cerrados: X
+• Revenue: $X,XXX
+
+⚠️ ÁREAS DE MEJORA
+• [Issue identificado]
+• [Ajuste planeado]
+
+🔮 PRÓXIMAS 2 SEMANAS
+• [Plan de contenido principal]
+• [Colaboraciones programadas]
+• [Cambios de estrategia]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 ---
 
-## 8. TOOLS PARA MEDICIÓN
+### 5.3 Cadencia de Comunicación
 
-### Herramientas Gratuitas
-
-| Herramienta | Qué mide | URL |
-|------------|----------|-----|
-| Meta Business Suite | IG + FB insights | business.facebook.com |
-| Instagram Insights | Métricas IG | (app nativa) |
-| Facebook Page Insights | Métricas FB | (app nativa) |
-| Google Analytics | Web (si hay) | analytics.google.com |
-| Bitly | Link tracking | bitly.com |
-
-### Configuración
-
-#### Meta Business Suite
-1. Ir a: https://business.facebook.com
-2. Crear cuenta Business (si no existe)
-3. Agregar página de Facebook
-4. Conectar Instagram Business
-5. Revisar insights diariamente
-
-#### Instagram Insights (App)
-1. Ir a perfil → Insights
-2. Revisar semanalmente:
-   - Alcance
-   - Interacciones
-   - Seguidores
-3. Guardar screenshot semanal
+| Tipo Reporte | Frecuencia | Canal | Audience |
+|-------------|-----------|-------|----------|
+| Check-in rápido | Diario | WhatsApp (si aplica) | Equipo interno |
+| Revisión métricas | Semanal | Reunión 15 min / WhatsApp | Interno |
+| Reporte quincenal | Cada 2 semanas | Email + PDF | Entramados |
+| Reporte mensual | Mensual | PDF / Presentación | Entramados |
+| Revisión estratégica | Trimestral | Reunión 1 hora | Entramados + Interno |
 
 ---
 
-## 9. SUCCESS CRITERIA
+## 6. DASHBOARD VISUAL (TEMPLATE)
 
-### Green (En camino)
-- Progreso >80% hacia meta semanal
-- Engagement >4%
-- Ningún KPI en rojo
+### Dashboard — Semana/Mes
 
-### Yellow (Atención)
-- Progreso 50-80% hacia meta
-- Engagement 2-4%
-- 1-2 KPIs en rojo
-
-### Red (Intervención necesaria)
-- Progreso <50% hacia meta
-- Engagement <2%
-- 3+ KPIs en rojo
-- Sin posts publicados
+```
+╔══════════════════════════════════════════════════════════╗
+║           ENTRAMADOS ESTUDIO — DASHBOARD                 ║
+║           Período: [FECHA] — [FECHA]                    ║
+╠══════════════════════════════════════════════════════════╣
+║                                                          ║
+║  📱 INSTAGRAM              │  📘 FACEBOOK               ║
+║  ─────────────────────────  │  ───────────────────────── ║
+║  Seguidores: 230 (+44)      │  Seguidores: 85 (+85)      ║
+║  Target: 250                │  Target: 100                ║
+║  Engagement: 4.8%           │  Engagement: 3.2%          ║
+║  Target: 5%                │  Target: 3%                 ║
+║                                                          ║
+╠══════════════════════════════════════════════════════════╣
+║  💬 WHATSAPP / LEADS                                  ║
+║  ─────────────────────────────────────────────────────  ║
+║  Mensajes recibidos: 12     │  Leads cualificados: 5     ║
+║  Cotizaciones enviadas: 3   │  Proyectos cerrados: 1     ║
+║  Revenue: $1,500                                    ║
+║                                                          ║
+╠══════════════════════════════════════════════════════════╣
+║  📊 CONTENT PERFORMANCE                                 ║
+║  ─────────────────────────────────────────────────────  ║
+║  Posts publicados: 28        │  Reels: 9                 ║
+║  Avg alcance/post: 245      │  Avg saves/post: 6        ║
+║  Mejor post: [Link]         │  Mejor Reel: [Link]        ║
+║                                                          ║
+╠══════════════════════════════════════════════════════════╣
+║  ⭐ REVIEWS                                             ║
+║  ─────────────────────────────────────────────────────  ║
+║  Facebook: ⭐⭐⭐⭐⭐ (2 nuevas)                         ║
+║  Google: No disponible aún                             ║
+║                                                          ║
+╠══════════════════════════════════════════════════════════╣
+║  🎯 STATUS: 🟢 EN TRACK / 🟡 ATENCIÓN / 🔴 FUERA DE RANGO ║
+╚══════════════════════════════════════════════════════════╝
+```
 
 ---
 
-## 10. NEXT STEPS BASADOS EN DATA
+## 7. ALERTAS Y THRESHOLDS
 
-### Si engagement está bajo:
-1. Aumentar Reels (más alcance orgánico)
-2. Publicar en mejores horarios
-3. Mejorar calidad de captions
-4. Más contenido de valor (tips, education)
+### Cuándo Actuar (Thresholds)
 
-### Si seguidores no crecen:
-1. Aumentar engagement activo (comentar en otras cuentas)
-2. Verificar hashtags (¿banned? ¿muy vagos?)
-3. Collaborations con otras cuentas
-4. Considerar ads pequeños
+| KPI | Verde | Amarillo | Rojo |
+|-----|-------|---------|------|
+| Engagement IG | >5% | 3-5% | <3% |
+| Crecimiento seguidores/semana | >10 | 5-10 | <5 |
+| Tasa respuesta DMs | >90% | 70-90% | <70% |
+| Leads/semana | >2 | 1-2 | 0 |
+| Alcance/post vs. semana anterior | >100% | 80-100% | <80% |
 
-### Si leads no llegan:
-1. Revisar CTA en bio y posts
-2. Aumentar CTAs en contenido
-3. Mejorar response time en WhatsApp
-4. Crear lead magnet (guía gratis, etc)
+### Acciones por Color
+
+**🟢 Verde (On track):**
+- Continuar estrategia actual
+- Buscar optimizaciones menores
+- Documentar qué está funcionando
+
+**🟡 Amarillo (Atención):**
+- Analizar causa raíz
+- Ajustar estrategia en 1-2 posts
+- Monitorear de cerca (revisar en 3-5 días)
+
+**🔴 Rojo (Intervención):**
+- Reunión de emergencia si persiste 2 semanas
+- Cambiar tipo de contenido
+- Probar nuevos horarios
+- Evaluar si el problema es de contenido o de distribución
 
 ---
 
-*Documento generado: 2026-03-21*
-*Versión: 1.0*
-*Para uso interno: AI Company System*
+## 8. KPIs FINANCIEROS
+
+### Métricas de Revenue y ROI
+
+| Métrica | Definición | Target Mes 1 | Target Mes 3 | Target Mes 6 |
+|---------|-----------|-------------|-------------|-------------|
+| **Leads recibidos** | Mensajes con intención de proyecto | 5+ | 15+ | 25+ |
+| **Tasa de conversión** | Leads → Cotizaciones enviadas | 50% | 60% | 70% |
+| **Tasa de cierre** | Cotizaciones → Proyectos cerrados | 20% | 25% | 30% |
+| **Ticket promedio** | Revenue / # proyectos | $2,000 | $2,500 | $3,000 |
+| **Revenue de redes** | Ingresos atribuibles | $1,000 | $5,000 | $10,000 |
+| **ROI de marketing** | (Revenue - Inversión) / Inversión × 100 | 500%+ | 1,000%+ | 1,500%+ |
+| **Costo por lead (CPL)** | Inversión marketing / # leads | $0-2 | $2-5 | $3-7 |
+| **Costo de adquisición (CAC)** | Inversión total / # clientes | $50-100 | $40-80 | $30-60 |
+
+### Tracking de Pipeline
+
+```
+Lead → Cotización enviada → Seguimiento → Negociación → Cierre → Proyecto
+   │         │                    │            │            │          │
+   ▼         ▼                    ▼            ▼            ▼          ▼
+ Registrado  X cotización       Y follow-ups   Z términos    W contrato  $$
+```
+
+---
+
+## 9. CHECKLIST DE SEGUIMIENTO SEMANAL
+
+### Revisión Semanal (30-45 min)
+
+- [ ] **Exportar métricas de Meta Business Suite** (alcance, engagement, seguidores)
+- [ ] **Revisar mejores posts** — qué funcionó, por qué
+- [ ] **Revisar peores posts** — qué no funcionó, por qué
+- [ ] **Contar DMs/leads recibidos** — registrar en spreadsheet
+- [ ] **Revisar comentarios** — responder pendientes
+- [ ] **Actualizar dashboard** con números de la semana
+- [ ] **Comparar vs. targets** — estamos on track?
+- [ ] **Ajustar estrategia** si algún tipo de contenido sobreperformó
+- [ ] **Planificar semana siguiente** basado en datos
+- [ ] **Enviar reporte quincenal** (si es quincena)
+
+### Revisión Mensual (1-2 horas)
+
+- [ ] **Reporte mensual completo** — métricas + análisis
+- [ ] **Reunión con Entramados** — presentar resultados + siguiente mes
+- [ ] **Evaluar ROI** — inversión vs. resultados
+- [ ] **Revisar pipeline de leads** — conversión y revenue
+- [ ] **Documentar lecciones aprendidas**
+- [ ] **Actualizar targets** si necesario
+
+---
+
+*Dashboard generado por AI Company System — Mauri Esp*  
+*Última actualización: 21 de marzo de 2026*
