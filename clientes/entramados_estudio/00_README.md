@@ -1,114 +1,117 @@
 # 📁 ENTRAMADOS ESTUDIO - Cliente
 
 **Cliente:** Entramados Estudio  
-**Nicho:** Arquitectura + Interiorismo + Mobiliario  
+**Nicho:** Arquitectura + Interiorismo + Mobiliario Custom  
 **Ubicación:** General Torres y Pedro León, Ecuador  
 **Redes:** Instagram @entramados_estudio78 | Facebook @Entramados Estudio  
-**Fecha de Inicio:** 2026-03-21  
-**Asesor:** AI Company System (Aurus ⚡)
-
----
-
-## 📋 ESTRUCTURA DE CARPETAS
-
-```
-entramados_estudio/
-├── 00_README.md           ← Este archivo
-├── 01_analisis/          ← Análisis completo del cliente
-├── 02_guias/             ← Guías paso a paso
-├── 03_contenido/         ← Captions y calendarios
-├── 04_plantillas/        ← Templates para usar
-└── 05_seguimiento/       ← tracking y métricas
-```
+**Fecha:** 2026-03-21
 
 ---
 
 ## 🚀 EMPEZAR AQUÍ
 
-### Día 1: Configuración
-1. Leer `02_guias/01_REBUILD_FACEBOOK.md`
-2. Leer `02_guias/02_OPTIMIZAR_INSTAGRAM.md`
-3. Implementar cambios
+**👉 Lee primero:** `00_GUIA_INICIO.md`
 
-### Día 2-7: Contenido
-1. Revisar `03_contenido/CAPTIONS.md`
-2. Seguir calendario semanal
-3. Implementar `02_guias/03_CALENDARIO.md`
-
-### Día 8-30: Crecimiento
-1. Seguir `02_guias/04_CALENDARIO_SEMANAL.md`
-2. Monitorear en `05_seguimiento/METRICAS.md`
+Ahí está el plan de 7 días con todas las actividades y qué archivos usar.
 
 ---
 
-## 📊 METAS DEL MES
+## 📂 ESTRUCTURA COMPLETA
 
-| KPI | Actual | Meta Mes 1 | Meta Mes 3 |
-|-----|--------|------------|------------|
-| Seguidores IG | 186 | 250 | 500 |
-| Seguidores FB | 0 | 100 | 300 |
-| Engagement | 1-2% | 5% | 8% |
-| Leads/Mes | ? | 10 | 30 |
-| Clientes cerrados | ? | 1-2 | 3-5 |
-
----
-
-## 📁 ARCHIVOS PRINCIPALES
-
-| Archivo | Descripción |
-|---------|-------------|
-| `06_plan_estrategico/PLAN_ESTRATEGICO.md` | Plan maestro completo (540 líneas) |
-| `06_plan_estrategico/presentacion.html` | Presentación consulting (listo para ver) |
-| `06_plan_estrategico/SOCIAL_MEDIA_STRATEGY.md` | Estrategia 30 días (544 líneas) |
-| `06_plan_estrategico/IMAGE_CONCEPTS.md` | 15+ prompts para AI imágenes |
-| `06_plan_estrategico/KPIs_DASHBOARD.md` | Dashboard de métricas (444 líneas) |
-| `02_guias/01_REBUILD_FACEBOOK.md` | Cómo rebuild FB desde cero |
-| `03_contenido/CAPTIONS.md` | 20+ captions listos |
-
----
-
-## 🎯 PRIORIDADES
-
-### Esta Semana
-1. ✅ Rebuild Facebook completo
-2. ✅ Optimizar bio Instagram
-3. ✅ Crear Linktree
-4. ✅ Publicar 7 posts en FB
-
-### Esta Quincena
-1. ⬜ 30 posts (2/día)
-2. ⬜ 10 reels nuevos
-3. ⬜ 5 colaboraciones
-
-### Este Mes
-1. ⬜ 500+ seguidores IG
-2. ⬜ 100+ seguidores FB
-3. ⬜ 5+ reviews en FB
-4. ⬜ 10+ leads qualificados
+```
+entramados_estudio/
+│
+├── 00_README.md              ← Vista general (ESTE)
+├── 00_GUIA_INICIO.md         ← GUÍA RÁPIDA (PRINCIPAL)
+│
+├── 01_analisis/
+│   └── ENTRAMADOS_ESTUDIO_ANALISIS.md
+│
+├── 02_guias/
+│   ├── 01_REBUILD_FACEBOOK.md
+│   ├── 02_OPTIMIZAR_INSTAGRAM.md
+│   ├── 03_CROSSPOSTING.md
+│   └── 04_CALENDARIO_SEMANAL.md
+│
+├── 03_captions/
+│   └── ENTRAMADOS_CAPTIONS.md
+│
+├── 04_plantillas/
+│   └── IMAGENES_PROMpts.md
+│
+├── 06_plan_estrategico/
+│   ├── PLAN_ESTRATEGICO_V2.md    ← USA ESTE (corregido)
+│   ├── presentacion.html          ← Abrir en navegador
+│   ├── SOCIAL_MEDIA_STRATEGY.md
+│   ├── KPIs_DASHBOARD.md
+│   ├── IMAGE_CONCEPTS.md
+│   └── REVISION_EXPERTA.md
+│
+├── 07_contenido_ejemplo/
+│   ├── CAPTIONS_Y_HOOKS.md
+│   └── imagenes/
+│       └── Leo_*.jpg          ← 5 imágenes Leonardo.ai
+│
+└── 08_kit_arranque/
+    ├── KIT_ARRANQUE.md
+    └── KIT_ARRANQUE.pdf       ← PDF para imprimir
+```
 
 ---
 
-## 💰 INGRESOS ESPERADOS
+## 🎯 PLAN DE ACCIÓN
+
+### DÍA 1 — FUNDAMENTOS
+| Actividad | Archivo |
+|-----------|---------|
+| Bio Instagram | KIT_ARRANQUE.md |
+| Linktree | KIT_ARRANQUE.md |
+| Google Business | KIT_ARRANQUE.md |
+| Rebuild Facebook | KIT_ARRANQUE.md |
+| WhatsApp Business | KIT_ARRANQUE.md |
+| Posts iniciales | CAPTIONS_Y_HOOKS.md |
+
+### DÍA 2-7 — CONTENIDO DIARIO
+| Actividad | Archivo |
+|-----------|---------|
+| Qué posting | Calendario semanal |
+| Captions | CAPTIONS_Y_HOOKS.md |
+| Imágenes | imagenes/Leo_*.jpg |
+| Métricas | KPIs_DASHBOARD.md |
+
+---
+
+## 📊 METAS (según PLAN_ESTRATEGICO_V2.md)
+
+| Métrica | Actual | Meta Mes 1 | Meta Mes 3 |
+|---------|--------|------------|------------|
+| Seguidores IG | 186 | 220 | 350 |
+| Segidores FB | 0 | 50 | 150 |
+| Engagement | 1.5% | 3% | 4.5% |
+
+---
+
+## 📄 PARA EL CLIENTE
+
+| Material | Qué es | Uso |
+|----------|--------|-----|
+| `presentacion.html` | Presentación 14 slides | Mostrar en reunión |
+| `KIT_ARRANQUE.pdf` | Guía imprimible | Entregar al cliente |
+| `PLAN_ESTRATEGICO_V2.md` | Plan completo | Dejar con el cliente |
+
+---
+
+## 💰 PROYECCIÓN DE INGRESOS
 
 | Servicio | Precio | Target |
 |----------|--------|--------|
-| Diseño arquitectónico | $2,000-10,000 | 1/mes |
-| Diseño interiores | $500-5,000 | 1-2/mes |
-| Mobiliario custom | $300-3,000 | 2-3/mes |
+| Mobiliario custom | $300-2,000 | 40% clients |
+| Diseño interiores | $500-3,000 | 35% clients |
+| Diseño arquitectónico | $2,000-8,000 | 15% clients |
 
-**Meta mes:** $2,000-5,000 en nuevos clientes via redes
-
----
-
-## 📞 CONTACTO DEL CLIENTE
-
-| Canal | Usuario |
-|-------|---------|
-| Instagram | @entramados_estudio78 |
-| Facebook | @Entramados Estudio |
-| WhatsApp | Por confirmar |
-| Web | Por confirmar |
+**ROI esperado 12 meses:** $18,000-$100,000 (escenario conservador a optimista)
 
 ---
 
-*Última actualización: 2026-03-21*
+*AI Company System — Mauri Esp*
+*21 de marzo de 2026*

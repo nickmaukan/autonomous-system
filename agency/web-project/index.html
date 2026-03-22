@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Entramados Estudio - Diseño arquitectónico, interiorismo y mobiliario custom en Cuenca, Ecuador. Transformamos espacios en experiencias únicas.">
+  <meta name="keywords" content="arquitectura ecuador, diseño interior cuenca, mobiliario custom, estudio arquitectura, diseño ecuador">
+  <meta name="author" content="Entramados Estudio">
+  <meta name="robots" content="index, follow">
+  <title>Entramados Estudio | Arquitectura + Interiorismo + Mobiliario Custom | Cuenca, Ecuador</title>
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Entramados Estudio - Diseño Arquitectónico en Ecuador">
+  <meta property="og:description" content="Estudio de arquitectura e interiorismo en Cuenca. Diseño personalizado, Mobiliario custom.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://entramadosestudio.com">
+  <meta property="og:image" content="images/hero.jpg">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#6366F1',
+            secondary: '#1E1B4B',
+            accent: '#F97316',
+            cream: '#FAF8F5',
+            charcoal: '#1F2937'
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          }
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Entramados Estudio",
+    "description": "Estudio de arquitectura e interiorismo en Cuenca, Ecuador",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "General Torres y Pedro León",
+      "addressLocality": "Cuenca",
+      "addressRegion": "Azuay",
+      "addressCountry": "EC"
+    },
+    "url": "https://entramadosestudio.com",
+    "telephone": "+593981234567",
+    "sameAs": [
+      "https://instagram.com/entramados_estudio78"
+    ]
+  }
+  </script>
+</head>
+<body class="bg-cream font-sans text-charcoal">
+  
+  <!-- HEADER -->
+  <header class="header fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-serif font-bold text-xl">E</div>
+          <span class="text-xl font-serif font-semibold text-secondary">Entramados</span>
+        </a>
+        
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#inicio" class="nav-link">Inicio</a>
+          <a href="#servicios" class="nav-link">Servicios</a>
+          <a href="#proyectos" class="nav-link">Proyectos</a>
+          <a href="#nosotros" class="nav-link">Nosotros</a>
+          <a href="#contacto" class="bg-primary text-white px-6 py-2.5 rounded-lg font-medium hover:bg-primary/90 transition-colors">
+            Cotizar Proyecto
+          </a>
+        </nav>
+        
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden p-2" id="menuToggle" aria-label="Abrir menú">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav hidden md:hidden bg-white border-t">
+      <div class="px-4 py-4 space-y-3">
+        <a href="#inicio" class="block py-2 text-charcoal hover:text-primary">Inicio</a>
+        <a href="#servicios" class="block py-2 text-charcoal hover:text-primary">Servicios</a>
+        <a href="#proyectos" class="block py-2 text-charcoal hover:text-primary">Proyectos</a>
+        <a href="#nosotros" class="block py-2 text-charcoal hover:text-primary">Nosotros</a>
+        <a href="#contacto" class="block py-2 text-charcoal hover:text-primary">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <!-- Background Image -->
+      <div class="absolute inset-0">
+        <img src="images/hero.jpg" alt="Interior de lujo Ecuador" class="w-full h-full object-cover" loading="eager">
+        <div class="absolute inset-0 bg-gradient-to-r from-secondary/90 to-secondary/60"></div>
+      </div>
+      
+      <!-- Content -->
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+        <span class="inline-block px-4 py-1.5 bg-white/10 backdrop-blur text-white text-sm font-medium rounded-full mb-6 animate-fade-in">
+          📍 Arquitectura | Mobiliario | Interiorismo — Cuenca, Ecuador
+        </span>
+        
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 max-w-4xl mx-auto animate-fade-in">
+          Diseñamos espacios que <span class="text-primary">cuentan tu historia</span>
+        </h1>
+        
+        <p class="text-xl text-white/80 max-w-2xl mx-auto mb-8 animate-fade-in">
+          Estudio de arquitectura e interiorismo en Cuenca, Ecuador. Creamos hogares y espacios comerciales que fusionan funcionalidad, estética y alma.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
+          <a href="#proyectos" class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105">
+            Ver Proyectos →
+          </a>
+          <a href="#contacto" class="bg-white/10 backdrop-blur hover:bg-white/20 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all border border-white/30">
+            Agenda tu Consulta Gratuita
+          </a>
+        </div>
+        
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-16 pt-8 border-t border-white/20">
+          <div class="text-center">
+            <p class="text-3xl font-bold text-white">150+</p>
+            <p class="text-white/70 text-sm">Proyectos</p>
+          </div>
+          <div class="text-center">
+            <p class="text-3xl font-bold text-white">12</p>
+            <p class="text-white/70 text-sm">Años</p>
+          </div>
+          <div class="text-center">
+            <p class="text-3xl font-bold text-white">98%</p>
+            <p class="text-white/70 text-sm">Satisfechos</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <svg class="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- SERVICIOS SECTION -->
+    <section id="servicios" class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="text-primary font-semibold text-sm tracking-wider uppercase">Nuestros Servicios</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-secondary mt-3 mb-4">
+            Soluciones integrales para cada espacio
+          </h2>
+          <p class="text-charcoal/70 max-w-2xl mx-auto">
+            Ofrecemos un enfoque completo desde la conceptización hasta la materialización de tu visión arquitectónica.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Arquitectura -->
+          <div class="group bg-cream rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-3xl">
+              🏛️
+            </div>
+            <h3 class="font-serif text-2xl font-semibold text-secondary mb-4">Arquitectura</h3>
+            <p class="text-charcoal/70 mb-6">
+              Diseñamos edificaciones desde la concepción inicial hasta la entrega final. Cada proyecto dialoga con su entorno sin perder personalidad.
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm">Proyectos personalizados según tus necesidades</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm">Gestión completa de obra</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm">Diseño bioclimático para Cuenca</span>
+              </li>
+            </ul>
+            <a href="#contacto" class="text-primary font-semibold hover:underline inline-flex items-center gap-1">
+              Solicitar información <span>→</span>
+            </a>
+          </div>
+          
+          <!-- Interiorismo -->
+          <div class="group bg-cream rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div class="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mb-6 text-3xl">
+              🪑
+            </div>
+            <h3 class="font-serif text-2xl font-semibold text-secondary mb-4">Interiorismo</h3>
+            <p class="text-charcoal/70 mb-6">
+              El interiorismo va más allá de la estética: diseñamos ambientes que mejoran tu día a día con paletas de color, materiales e iluminación.
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm">Proyectos residenciales y comerciales</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm">Iluminación y acabados premium</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm">Espacios que se sienten como tú</span>
+              </li>
+            </ul>
+            <a href="#contacto" class="text-accent font-semibold hover:underline inline-flex items-center gap-1">
+              Solicitar información <span>→</span>
+            </a>
+          </div>
+          
+          <!-- Mobiliario Custom -->
+          <div class="group bg-cream rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mb-6 text-3xl">
+              🪵
+            </div>
+            <h3 class="font-serif text-2xl font-semibold text-secondary mb-4">Mobiliario Custom</h3>
+            <p class="text-charcoal/70 mb-6">
+              Muebles diseñados y producidos pensando en complementar nuestros proyectos o como servicio independiente. Cada pieza es única.
+            </p>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm">Diseño único, medidas exactas</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm">Materiales de calidad (madera maciza)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span class="text-sm">Producción e instalación propia</span>
+              </li>
+            </ul>
+            <a href="#contacto" class="text-secondary font-semibold hover:underline inline-flex items-center gap-1">
+              Solicitar información <span>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS SECTION -->
+    <section id="proyectos" class="py-24 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="text-primary font-semibold text-sm tracking-wider uppercase">Nuestros Proyectos</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-secondary mt-3 mb-4">
+            Trabajo que habla por sí solo
+          </h2>
+          <p class="text-charcoal/70 max-w-2xl mx-auto">
+            Cada proyecto es una historia única. Descubre cómo transformamos visiones en realidades arquitectónicas.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Proyecto 1 -->
+          <div class="group relative overflow-hidden rounded-2xl aspect-[4/3]">
+            <img src="images/proyecto-1.jpg" alt="Departamento moderno Ecuador" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <span class="text-white/70 text-sm">Arquitectura</span>
+              <h3 class="text-white font-serif text-xl font-semibold">Departamento Moderno</h3>
+              <p class="text-white/80 text-sm mt-1">Cuenca centro</p>
+            </div>
+          </div>
+          
+          <!-- Proyecto 2 -->
+          <div class="group relative overflow-hidden rounded-2xl aspect-[4/3]">
+            <img src="images/proyecto-2.jpg" alt="Cocina custom Ecuador" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <span class="text-white/70 text-sm">Mobiliario Custom</span>
+              <h3 class="text-white font-serif text-xl font-semibold">Cocina a la Medida</h3>
+              <p class="text-white/80 text-sm mt-1">Diseño exclusivo</p>
+            </div>
+          </div>
+          
+          <!-- Proyecto 3 -->
+          <div class="group relative overflow-hidden rounded-2xl aspect-[4/3]">
+            <img src="images/proyecto-3.jpg" alt="Dormitorio master Ecuador" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <span class="text-white/70 text-sm">Interiorismo</span>
+              <h3 class="text-white font-serif text-xl font-semibold">Master Bedroom</h3>
+              <p class="text-white/80 text-sm mt-1">Suite principal</p>
+            </div>
+          </div>
+          
+          <!-- Proyecto 4 -->
+          <div class="group relative overflow-hidden rounded-2xl aspect-[4/3]">
+            <img src="images/proyecto-4.jpg" alt="Oficina mobiliado Ecuador" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <span class="text-white/70 text-sm">Mobiliario Custom</span>
+              <h3 class="text-white font-serif text-xl font-semibold">Espacio de Trabajo</h3>
+              <p class="text-white/80 text-sm mt-1">Home office</p>
+            </div>
+          </div>
+          
+          <!-- Proyecto 5 - Living -->
+          <div class="group relative overflow-hidden rounded-2xl aspect-[4/3] md:col-span-2 lg:col-span-2">
+            <img src="images/hero.jpg" alt="Sala moderna Ecuador" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-8">
+              <span class="text-white/70 text-sm">Arquitectura + Interiorismo</span>
+              <h3 class="text-white font-serif text-2xl font-semibold">Transformación Completa</h3>
+              <p class="text-white/80 text-sm mt-1">Proyecto residencial integral</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-12">
+          <a href="#contacto" class="inline-flex items-center gap-2 bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-secondary/90 transition-colors">
+            Ver Todos los Proyectos →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOSOTROS SECTION -->
+    <section id="nosotros" class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <!-- Image -->
+          <div class="relative">
+            <img src="images/about.jpg" alt="Oficina Entramados Estudio" class="rounded-2xl shadow-2xl w-full">
+            <div class="absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-2xl shadow-xl">
+              <p class="text-4xl font-bold">12+</p>
+              <p class="text-sm">Años de experiencia</p>
+            </div>
+          </div>
+          
+          <!-- Content -->
+          <div>
+            <span class="text-primary font-semibold text-sm tracking-wider uppercase">Sobre Nosotros</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-secondary mt-3 mb-6">
+              Un equipo apasionado por el diseño que transforma
+            </h2>
+            
+            <div class="prose prose-lg text-charcoal/70 mb-8">
+              <p>
+                Entramados Estudio nació en Cuenca, Ecuador, de la convicción de que el buen diseño debe ser accesible y transformador. Somos un equipo multidisciplinario de arquitectos, diseñadores de interiores y maestros carpinteros unidos por la misma filosofía: cada espacio que tocamos debe mejorar la vida de quien lo habita.
+              </p>
+              <p class="mt-4">
+                Cada decisión de diseño se toma considerando el proyecto completo, no por partes. Hoy trabajamos con clientes en toda la región de Cuenca, llevando nuestro enfoque integral a hogares, comercios y espacios de trabajo que merecen más.
+              </p>
+            </div>
+            
+            <!-- Values -->
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">
+                  💎
+                </div>
+                <div>
+                  <h4 class="font-semibold text-secondary">Integridad en cada decisión</h4>
+                  <p class="text-sm text-charcoal/70">No recomendamos lo que no usaríamos en nuestro propio hogar o negocio.</p>
+                </div>
+              </div>
+              
+              <div class="flex gap-4">
+                <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">
+                  💚
+                </div>
+                <div>
+                  <h4 class="font-semibold text-secondary">Diseño con alma</h4>
+                  <p class="text-sm text-charcoal/70">Diseñamos para vidas reales: familias y emprendedores que merecen espacios que los reflejen.</p>
+                </div>
+              </div>
+              
+              <div class="flex gap-4">
+                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">
+                  🌱
+                </div>
+                <div>
+                  <h4 class="font-semibold text-secondary">Sostenibilidad responsable</h4>
+                  <p class="text-sm text-charcoal/70">Priorizamos materiales locales y acabados de bajo impacto ambiental.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS SECTION -->
+    <section id="testimonios" class="py-24 bg-secondary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="text-primary font-semibold text-sm tracking-wider uppercase">Testimonios</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">
+            Lo que dicen nuestros clientes
+          </h2>
+          <p class="text-white/70 max-w-2xl mx-auto">
+            La satisfacción de nuestros clientes es nuestro mayor logro. Conoce sus experiencias.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Testimonio 1 -->
+          <div class="bg-white rounded-2xl p-8">
+            <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+            <p class="text-charcoal/80 mb-6 italic">
+              "Superaron todo lo que imaginamos. Transformaron un espacio oscuro y estrecho en un hogar luminoso y funcional. La distribución que propusieron nos permitió ganar más de 15 metros útiles sin construir nada nuevo."
+            </p>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary font-bold">
+                AM
+              </div>
+              <div>
+                <p class="font-semibold text-secondary">Andrés Merchán</p>
+                <p class="text-sm text-charcoal/60">Remodelación de apartamento</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonio 2 -->
+          <div class="bg-white rounded-2xl p-8">
+            <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+            <p class="text-charcoal/80 mb-6 italic">
+              "Entramados no solo creó un espacio hermoso, sino que pensó en cada detalle operativo: la cocina, la circulación del personal, la experiencia del cliente. Las reservas no paran desde el día uno."
+            </p>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center text-accent font-bold">
+                MFA
+              </div>
+              <div>
+                <p class="font-semibold text-secondary">María Fernanda Aguilar</p>
+                <p class="text-sm text-charcoal/60">Diseño de local gastronómico</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonio 3 -->
+          <div class="bg-white rounded-2xl p-8">
+            <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+            <p class="text-charcoal/80 mb-6 italic">
+              "Lo que más valoramos es que todo fluye como un solo proyecto, no como piezas inconexas. El resultado es una casa que se siente cohesiva, cálida y completamente nuestra."
+            </p>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center text-secondary font-bold">
+                CPJ
+              </div>
+              <div>
+                <p class="font-semibold text-secondary">Carlos Patricio Jaramillo</p>
+                <p class="text-sm text-charcoal/60">Proyecto integral casa</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO SECTION -->
+    <section id="contacto" class="py-24 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16">
+          <!-- Info -->
+          <div>
+            <span class="text-primary font-semibold text-sm tracking-wider uppercase">Contacto</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-secondary mt-3 mb-6">
+              ¿Tienes un proyecto en mente?
+            </h2>
+            <p class="text-charcoal/70 mb-8">
+              Nos encantaría escuchar sobre tu próximo proyecto. Agenda una consulta sin compromiso y descubre cómo podemos ayudarte.
+            </p>
+            
+            <div class="space-y-6 mb-8">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-xl flex-shrink-0">
+                  📍
+                </div>
+                <div>
+                  <h4 class="font-semibold text-secondary">Visítanos</h4>
+                  <p class="text-charcoal/70">General Torres y Pedro León<br>Cuenca, Ecuador</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-xl flex-shrink-0">
+                  📞
+                </div>
+                <div>
+                  <h4 class="font-semibold text-secondary">Llámanos</h4>
+                  <p class="text-charcoal/70">+593 98 123 4567</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-xl flex-shrink-0">
+                  ✉️
+                </div>
+                <div>
+                  <h4 class="font-semibold text-secondary">Email</h4>
+                  <p class="text-charcoal/70">hola@entramadosestudio.com</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-xl flex-shrink-0">
+                  🕐
+                </div>
+                <div>
+                  <h4 class="font-semibold text-secondary">Horario</h4>
+                  <p class="text-charcoal/70">Lunes a Viernes: 9:00 - 18:00<br>Sábado: 10:00 - 14:00</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Social -->
+            <div class="flex gap-4">
+              <a href="https://instagram.com/entramados_estudio78" target="_blank" class="w-12 h-12 bg-white rounded-xl shadow flex items-center justify-center text-xl hover:shadow-lg transition-shadow">
+                📷
+              </a>
+              <a href="https://facebook.com/entramadosestudio" target="_blank" class="w-12 h-12 bg-white rounded-xl shadow flex items-center justify-center text-xl hover:shadow-lg transition-shadow">
+                📘
+              </a>
+              <a href="https://wa.me/593981234567?text=Hola,%20me%20interesa%20conocer sus servicios" class="w-12 h-12 bg-green-500 rounded-xl shadow flex items-center justify-center text-xl hover:shadow-lg transition-all hover:scale-110">
+                💬
+              </a>
+            </div>
+          </div>
+          
+          <!-- Form -->
+          <div class="bg-white rounded-2xl shadow-xl p-8">
+            <form id="contactForm" class="space-y-6">
+              <div class="grid sm:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-secondary mb-2">Nombre completo *</label>
+                  <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="Tu nombre">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-secondary mb-2">Email *</label>
+                  <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="tu@email.com">
+                </div>
+              </div>
+              
+              <div class="grid sm:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium text-secondary mb-2">Teléfono</label>
+                  <input type="tel" name="phone" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="+593 99 123 4567">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-secondary mb-2">Servicio</label>
+                  <select name="service" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+                    <option value="">Selecciona...</option>
+                    <option value="arquitectura">Diseño Arquitectónico</option>
+                    <option value="interiorismo">Interiorismo</option>
+                    <option value="mobiliario">Mobiliario Custom</option>
+                    <option value="integral">Proyecto Integral</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div>
+                <label class="block text-sm font-medium text-secondary mb-2">Cuéntanos sobre tu proyecto *</label>
+                <textarea name="message" required rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none" placeholder="Describe brevemente tu proyecto..."></textarea>
+              </div>
+              
+              <button type="submit" class="w-full bg-primary text-white py-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+                Enviar Mensaje →
+              </button>
+            </form>
+            
+            <div id="formSuccess" class="hidden text-center py-12">
+              <div class="text-5xl mb-4">✅</div>
+              <h3 class="text-xl font-semibold text-secondary mb-2">¡Mensaje enviado!</h3>
+              <p class="text-charcoal/70">Te responderemos en menos de 24 horas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-secondary text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-12 mb-12">
+        <!-- Brand -->
+        <div class="md:col-span-1">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-serif font-bold text-xl">E</div>
+            <span class="text-xl font-serif font-semibold">Entramados</span>
+          </div>
+          <p class="text-white/70 text-sm">
+            Estudio de diseño arquitectónico especializado en crear espacios que inspiran y transforman vidas.
+          </p>
+        </div>
+        
+        <!-- Links -->
+        <div>
+          <h4 class="font-semibold mb-4">Navegación</h4>
+          <ul class="space-y-2 text-white/70 text-sm">
+            <li><a href="#inicio" class="hover:text-white transition-colors">Inicio</a></li>
+            <li><a href="#servicios" class="hover:text-white transition-colors">Servicios</a></li>
+            <li><a href="#proyectos" class="hover:text-white transition-colors">Proyectos</a></li>
+            <li><a href="#nosotros" class="hover:text-white transition-colors">Nosotros</a></li>
+            <li><a href="#contacto" class="hover:text-white transition-colors">Contacto</a></li>
+          </ul>
+        </div>
+        
+        <!-- Services -->
+        <div>
+          <h4 class="font-semibold mb-4">Servicios</h4>
+          <ul class="space-y-2 text-white/70 text-sm">
+            <li>Diseño Arquitectónico</li>
+            <li>Interiorismo</li>
+            <li>Mobiliario Custom</li>
+            <li>Remodelaciones</li>
+          </ul>
+        </div>
+        
+        <!-- Contact -->
+        <div>
+          <h4 class="font-semibold mb-4">Contacto</h4>
+          <ul class="space-y-2 text-white/70 text-sm">
+            <li>📍 General Torres y Pedro León, Cuenca</li>
+            <li>📞 +593 98 123 4567</li>
+            <li>✉️ hola@entramadosestudio.com</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-white/50 text-sm">© 2026 Entramados Estudio. Todos los derechos reservados.</p>
+        <div class="flex gap-4">
+          <a href="https://instagram.com/entramados_estudio78" target="_blank" class="text-white/50 hover:text-white text-sm">Instagram</a>
+          <a href="https://facebook.com/entramadosestudio" target="_blank" class="text-white/50 hover:text-white text-sm">Facebook</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/593981234567?text=Hola,%20me%20interesa%20conocer%20sus%20servicios" target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-3xl shadow-lg hover:scale-110 transition-transform z-50" aria-label="WhatsApp">
+    💬
+  </a>
+
+  <!-- Back to Top -->
+  <button id="backToTop" class="fixed bottom-6 left-6 w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-white shadow-lg hover:bg-primary transition-colors opacity-0 pointer-events-none z-50" aria-label="Volver arriba">
+    ↑
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
