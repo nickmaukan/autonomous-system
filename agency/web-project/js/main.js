@@ -1,40 +1,14 @@
 /**
  * ENTRAMADOS ESTUDIO - Main JavaScript
- * =====================================
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-  initHeader();
   initMobileMenu();
   initSmoothScroll();
-  initScrollAnimations();
   initFormValidation();
   initBackToTop();
+  initNewsletterForm();
 });
-
-/**
- * Header scroll effect
- */
-function initHeader() {
-  const header = document.querySelector('.header');
-  if (!header) return;
-
-  let lastScrollY = window.scrollY;
-
-  const handleScroll = () => {
-    const currentScrollY = window.scrollY;
-
-    if (currentScrollY > 50) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-
-    lastScrollY = currentScrollY;
-  };
-
-  window.addEventListener('scroll', handleScroll, { passive: true });
-}
 
 /**
  * Mobile Menu Toggle
@@ -81,14 +55,13 @@ function initSmoothScroll() {
     link.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
 
-      // Skip if it's just "#"
       if (href === '#') return;
 
       const target = document.querySelector(href);
 
       if (target) {
         e.preventDefault();
-        const headerHeight = document.querySelector('.header')?.offsetHeight || 80;
+        const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
         const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
 
         window.scrollTo({
@@ -101,131 +74,105 @@ function initSmoothScroll() {
 }
 
 /**
- * Scroll Animations using Intersection Observer
- */
-function initScrollAnimations() {
-  const animatedElements = document.querySelectorAll('.animate-on-scroll');
-
-  if (!animatedElements.length) return;
-
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px 0px -80px 0px',
-    threshold: 0.1
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  animatedElements.forEach(el => observer.observe(el));
-}
-
-/**
- * Form Validation
+ * Contact Form Validation & Submission
  */
 function initFormValidation() {
   const form = document.getElementById('contactForm');
   if (!form) return;
 
-  const inputs = form.querySelectorAll('input, textarea');
-
-  // Real-time validation
-  inputs.forEach(input => {
-    input.addEventListener('blur', () => validateField(input));
-    input.addEventListener('input', () => {
-      if (input.parentElement.classList.contains('error')) {
-        validateField(input);
-      }
-    });
-  });
-
-  // Form submission
   form.addEventListener('submit', function(e) {
     e.preventDefault();
 
+    const name = form.querySelector('[name="name"]');
+    const email = form.querySelector('[name="email"]');
+    const message = form.querySelector('[name="message"]');
+    
     let isValid = true;
 
-    inputs.forEach(input => {
-      if (!validateField(input)) {
+    // Basic required validation
+    [name, email, message].forEach(field => {
+      if (!field || !field.value.trim()) {
         isValid = false;
+        field && field.classList.add('error');
+      } else {
+        field && field.classList.remove('error');
       }
     });
 
-    if (isValid) {
-      // Simulate form submission
-      const formContent = form.querySelector('.form-content');
-      const formSuccess = form.querySelector('.form-success');
-
-      if (formContent && formSuccess) {
-        formContent.style.display = 'none';
-        formSuccess.classList.add('show');
-
-        // Reset form after delay (optional)
-        setTimeout(() => {
-          form.reset();
-          formContent.style.display = 'block';
-          formSuccess.classList.remove('show');
-        }, 5000);
+    // Email format validation
+    if (email && email.value) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email.value)) {
+        isValid = false;
+        email.classList.add('error');
       }
     }
+
+    if (isValid) {
+      // Show success message
+      const successEl = document.getElementById('formSuccess');
+      form.style.display = 'none';
+      if (successEl) {
+        successEl.classList.add('show');
+      }
+
+      // Reset after 5 seconds
+      setTimeout(() => {
+        form.reset();
+        form.style.display = 'block';
+        if (successEl) {
+          successEl.classList.remove('show');
+        }
+      }, 5000);
+    }
+  });
+
+  // Remove error styling on input
+  const inputs = form.querySelectorAll('input, textarea');
+  inputs.forEach(input => {
+    input.addEventListener('input', () => {
+      input.classList.remove('error');
+    });
   });
 }
 
-function validateField(field) {
-  const parent = field.parentElement;
-  const errorElement = parent.querySelector('.form-error');
-  let isValid = true;
-  let errorMessage = '';
+/**
+ * Newsletter Form
+ */
+function initNewsletterForm() {
+  const form = document.getElementById('newsletterForm');
+  if (!form) return;
 
-  // Remove existing error state
-  parent.classList.remove('error');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
 
-  // Check if required and empty
-  if (field.hasAttribute('required') && !field.value.trim()) {
-    isValid = false;
-    errorMessage = 'Este campo es requerido';
-  }
+    const emailInput = form.querySelector('input[type="email"]');
+    if (!emailInput || !emailInput.value.trim()) return;
 
-  // Email validation
-  if (field.type === 'email' && field.value.trim()) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(field.value)) {
-      isValid = false;
-      errorMessage = 'Ingresa un correo electrónico válido';
-    }
-  }
+    if (!emailRegex.test(emailInput.value)) return;
 
-  // Phone validation
-  if (field.type === 'tel' && field.value.trim()) {
-    const phoneRegex = /^[\d\s\-\+\(\)]{8,}$/;
-    if (!phoneRegex.test(field.value)) {
-      isValid = false;
-      errorMessage = 'Ingresa un número de teléfono válido';
-    }
-  }
+    // Visual feedback
+    const btn = form.querySelector('button');
+    const originalText = btn.textContent;
+    btn.textContent = '¡Listo!';
+    btn.style.background = '#25D366';
+    btn.style.borderColor = '#25D366';
 
-  // Apply error state if invalid
-  if (!isValid) {
-    parent.classList.add('error');
-    if (errorElement) {
-      errorElement.textContent = errorMessage;
-    }
-  }
-
-  return isValid;
+    setTimeout(() => {
+      form.reset();
+      btn.textContent = originalText;
+      btn.style.background = '';
+      btn.style.borderColor = '';
+    }, 3000);
+  });
 }
 
 /**
  * Back to Top Button
  */
 function initBackToTop() {
-  const backToTopBtn = document.querySelector('.back-to-top');
+  const backToTopBtn = document.getElementById('backToTop');
   if (!backToTopBtn) return;
 
   window.addEventListener('scroll', () => {
@@ -242,43 +189,4 @@ function initBackToTop() {
       behavior: 'smooth'
     });
   });
-}
-
-/**
- * Optional: Lazy loading images
- */
-function initLazyLoading() {
-  const lazyImages = document.querySelectorAll('img[data-src]');
-
-  if (!lazyImages.length) return;
-
-  const imageObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        img.src = img.dataset.src;
-        img.removeAttribute('data-src');
-        imageObserver.unobserve(img);
-      }
-    });
-  });
-
-  lazyImages.forEach(img => imageObserver.observe(img));
-}
-
-/**
- * Optional: Parallax effect for hero
- */
-function initParallax() {
-  const hero = document.querySelector('.hero');
-  const heroBg = document.querySelector('.hero-bg img');
-
-  if (!hero || !heroBg) return;
-
-  window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    if (scrolled < window.innerHeight) {
-      heroBg.style.transform = `translateY(${scrolled * 0.3}px)`;
-    }
-  }, { passive: true });
 }
