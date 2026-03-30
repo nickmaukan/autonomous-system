@@ -1,0 +1,187 @@
+{
+  "ticker": "ADP",
+  "generated_at": "2026-03-27T09:02:13.086712",
+  "technical": {
+    "ticker": "ADP",
+    "timestamp": "2026-03-27T09:02:12.238089",
+    "price_current": 201.5,
+    "price_change_pct": -5.22,
+    "indicators": {
+      "rsi": {
+        "value": 24.9,
+        "signal": "oversold",
+        "interpretation": "\u26a0\ufe0f SOBREVENTA"
+      },
+      "macd": {
+        "macd_value": -5.109,
+        "signal_value": -5.0464,
+        "histogram": -0.0627,
+        "crossover": "BEARISH"
+      },
+      "williams_r": {
+        "value": -86.77,
+        "signal": "oversold"
+      },
+      "adx": {
+        "value": 24.32,
+        "plus_di": 14.07,
+        "minus_di": 28.34,
+        "trend_strength": "WEAK",
+        "interpretation": "\u2696\ufe0f Sin tendencia clara (ADX < 25)"
+      },
+      "moving_averages": {
+        "MA20": 210.99,
+        "MA50": 223.25,
+        "MA200": 265.55,
+        "price_vs_ma20_pct": -4.5,
+        "price_vs_ma50_pct": -9.74,
+        "price_vs_ma200_pct": -24.12
+      },
+      "52_week_range": {
+        "high_52w": 321.84,
+        "low_52w": 198.59,
+        "current_position_pct": 2.4,
+        "distance_from_high_pct": 37.39
+      },
+      "bollinger_bands": {
+        "upper": 223.48,
+        "middle": 210.99,
+        "lower": 198.51
+      },
+      "atr": {
+        "value": 6.02,
+        "atr_pct": 2.99
+      }
+    },
+    "signals": [
+      {
+        "indicator": "RSI",
+        "signal": "BUY",
+        "strength": "STRONG"
+      },
+      {
+        "indicator": "MACD",
+        "signal": "SELL",
+        "strength": "MEDIUM"
+      },
+      {
+        "indicator": "Williams %R",
+        "signal": "BUY",
+        "strength": "STRONG"
+      }
+    ],
+    "summary": {
+      "technical_signal": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
+      "technical_strength": "WEAK_BUY",
+      "buy_signals": 2,
+      "sell_signals": 1
+    }
+  },
+  "fundamental": {
+    "ticker": "ADP",
+    "timestamp": "2026-03-27T09:02:12.486372",
+    "scores": [
+      "UP",
+      "DOWN",
+      "UP",
+      "UP",
+      "DOWN",
+      "UP",
+      "DOWN",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "DOWN"
+    ],
+    "ratios": {
+      "pe": {
+        "value": 19.36,
+        "score": "UP"
+      },
+      "pb": {
+        "value": 12.7,
+        "score": "DOWN"
+      },
+      "ps": {
+        "value": 3.84,
+        "score": "UP"
+      },
+      "current_ratio": {
+        "value": 1.03,
+        "score": "UP"
+      },
+      "debt_equity": {
+        "value": 70.04,
+        "score": "DOWN"
+      },
+      "roe": {
+        "value": 73.84,
+        "score": "UP"
+      },
+      "roa": {
+        "value": 4.71,
+        "score": "DOWN"
+      },
+      "gross_margin": {
+        "value": 48.35,
+        "score": "UP"
+      },
+      "operating_margin": {
+        "value": 26.28,
+        "score": "UP"
+      },
+      "net_margin": {
+        "value": 19.96,
+        "score": "UP"
+      }
+    },
+    "growth": {
+      "revenue_growth": {
+        "value": 6.2,
+        "score": "UP"
+      },
+      "earnings_growth": {
+        "value": 11.5,
+        "score": "UP"
+      }
+    },
+    "dividends": {
+      "yield": {
+        "value": 3.33
+      },
+      "payout_ratio": {
+        "value": 60.71,
+        "score": "DOWN"
+      }
+    },
+    "summary": {
+      "scores_up": 9,
+      "scores_total": 13,
+      "health_pct": 69.2,
+      "fundamental_signal": "\u2705 BUENO",
+      "fundamental_score": "BUY"
+    }
+  },
+  "combined": {
+    "ticker": "ADP",
+    "timestamp": "2026-03-27T09:02:13.086628",
+    "recommendation": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
+    "conviction": "MEDIA",
+    "scores": {
+      "technical": "WEAK_BUY",
+      "fundamental": "BUY",
+      "combined": 0.8
+    },
+    "verdict": "$201.5 | RSI: 24.9 | 52W: 2.4%",
+    "thesis_bull": [
+      "Fundamentales s\u00f3lidos",
+      "RSI en zona de oportunidad"
+    ],
+    "thesis_bear": [],
+    "actions": [
+      "\u26a0\ufe0f MANTENER, no agregar"
+    ]
+  }
+}

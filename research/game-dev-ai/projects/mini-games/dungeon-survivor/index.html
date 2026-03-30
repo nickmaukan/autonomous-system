@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dungeon Survivor</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #1a1a2e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Courier New', monospace;
+    }
+    #gameContainer {
+      position: relative;
+      border: 4px solid #4a4a6a;
+      box-shadow: 0 0 40px rgba(100, 100, 200, 0.3);
+    }
+    canvas {
+      display: block;
+      background: #2d2d44;
+    }
+    #ui {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      display: flex;
+      justify-content: space-between;
+      color: #fff;
+      font-size: 16px;
+      text-shadow: 2px 2px 4px #000;
+      pointer-events: none;
+    }
+    #ui div { background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 4px; }
+    #comboDisplay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ff0;
+      font-size: 32px;
+      font-weight: bold;
+      text-shadow: 2px 2px 8px #000;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    #gameOver {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+    #gameOver h1 { font-size: 48px; color: #e74c3c; margin-bottom: 20px; }
+    #gameOver p { font-size: 20px; margin: 10px 0; }
+    #gameOver .highlight { color: #f1c40f; font-size: 24px; }
+    #gameOver button {
+      margin-top: 30px;
+      padding: 15px 40px;
+      font-size: 20px;
+      background: #27ae60;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    #gameOver button:hover { background: #2ecc71; }
+    #startScreen {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+    #startScreen h1 { font-size: 42px; color: #f1c40f; margin-bottom: 10px; text-shadow: 0 0 20px #f39c12; }
+    #startScreen .subtitle { font-size: 18px; color: #aaa; margin-bottom: 40px; }
+    #startScreen .controls { font-size: 16px; line-height: 2; color: #ccc; margin-bottom: 30px; text-align: center; }
+    #startScreen button {
+      padding: 20px 60px;
+      font-size: 24px;
+      background: #e74c3c;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      animation: pulse 1.5s infinite;
+    }
+    #startScreen button:hover { background: #c0392b; }
+    #highScoreDisplay { color: #f1c40f; font-size: 18px; margin-top: 20px; }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+  </style>
+</head>
+<body>
+  <div id="gameContainer">
+    <canvas id="game" width="900" height="600"></canvas>
+    <div id="ui">
+      <div>HP: <span id="hp">5</span>/5</div>
+      <div>SCORE: <span id="score">0</span></div>
+      <div>WAVE: <span id="wave">1</span></div>
+      <div>TIME: <span id="time">0:00</span></div>
+      <div>COMBO: <span id="combo">x1</span></div>
+    </div>
+    <div id="comboDisplay"></div>
+    <div id="startScreen">
+      <h1>DUNGEON SURVIVOR</h1>
+      <p class="subtitle">How long can you survive?</p>
+      <div class="controls">
+        <strong>WASD</strong> - Move<br>
+        <strong>SPACE</strong> - Sword Attack (360°)
+      </div>
+      <button id="startBtn">START GAME</button>
+      <p id="highScoreDisplay"></p>
+    </div>
+    <div id="gameOver">
+      <h1>GAME OVER</h1>
+      <p>Score: <span class="highlight" id="finalScore">0</span></p>
+      <p>Time Survived: <span class="highlight" id="finalTime">0:00</span></p>
+      <p>Wave Reached: <span class="highlight" id="finalWave">1</span></p>
+      <p>High Score: <span class="highlight" id="highScore">0</span></p>
+      <button id="restartBtn">PLAY AGAIN</button>
+    </div>
+  </div>
+
+  <script>
+    // ============================================
+    // DUNGEON SURVIVOR - Complete Game
+    // ============================================
+    const canvas = document.getElementById('game');
+    const ctx = canvas.getContext('2d');
+    const W = 900, H = 600;
+
+    // Sprite base path
+    const SPRITE_BASE = '../02-pixel-art-asset-pack/assets/';
+
+    // Enemy type definitions
+    const ENEMY_TYPES = {
+      goblin: {
+        speed: 1.2, hp: 30, maxHp: 30, points: 25,
+        sprite: SPRITE_BASE + 'enemies/goblin_idle_fixed.png',
+        frames: 4, frameW: 64, frameH: 64, color: '#4CAF50'
+      },
+      skeleton: {
+        speed: 1.8, hp: 20, maxHp: 20, points: 30,
+        sprite: SPRITE_BASE + 'enemies/skeleton_idle.png',
+        frames: 4, frameW: 64, frameH: 64, color: '#ECEFC1'
+      },
+      bat: {
+        speed: 2.0, hp: 15, maxHp: 15, points: 20,
+        sprite: SPRITE_BASE + 'enemies/bat_fly.png',
+        frames: 6, frameW: 64, frameH: 64, color: '#9C27B0', curve: true
+      },
+      spider: {
+        speed: 1.5, hp: 25, maxHp: 25, points: 35,
+        sprite: SPRITE_BASE + 'enemies/spider_idle.png',
+        frames: 4, frameW: 64, frameH: 64, color: '#333'
+      },
+      ghost: {
+        speed: 1.0, hp: 10, maxHp: 10, points: 40,
+        sprite: SPRITE_BASE + 'enemies/ghost_float.png',
+        frames: 6, frameW: 64, frameH: 64, color: '#81D4FA', phasing: true
+      },
+      zombie: {
+        speed: 0.6, hp: 60, maxHp: 60, points: 50,
+        sprite: SPRITE_BASE + 'enemies/zombie_idle.png',
+        frames: 4, frameW: 64, frameH: 64, color: '#689F38'
+      }
+    };
+
+    // Sprite cache
+    const spriteCache = {};
+    function loadSprite(src) {
+      return new Promise((resolve) => {
+        if (spriteCache[src]) { resolve(spriteCache[src]); return; }
+        const img = new Image();
+        img.onload = () => { spriteCache[src] = img; resolve(img); };
+        img.onerror = () => { resolve(null); };
+        img.src = src;
+      });
+    }
+
+    // ============================================
+    // PLAYER CLASS
+    // ============================================
+    class Player {
+      constructor() {
+        this.x = W / 2;
+        this.y = H / 2;
+        this.w = 48;
+        this.h = 48;
+        this.speed = 4;
+        this.hp = 5;
+        this.maxHp = 5;
+        this.attackCooldown = 0;
+        this.attacking = false;
+        this.attackTimer = 0;
+        this.attackDuration = 15;
+        this.attackRadius = 70;
+        this.attackAngle = Math.PI / 3;
+        this.facing = 0;
+        this.animFrame = 0;
+        this.animTimer = 0;
+        this.sprite = SPRITE_BASE + 'characters/knight_walk_v2.png';
+        this.loadedSprite = null;
+        this.invincible = 0;
+        this.flashTimer = 0;
+      }
+
+      async loadSprite() {
+        this.loadedSprite = await loadSprite(this.sprite);
+      }
+
+      update(keys) {
+        let dx = 0, dy = 0;
+        if (keys['w'] || keys['W'] || keys['ArrowUp']) dy -= 1;
+        if (keys['s'] || keys['S'] || keys['ArrowDown']) dy += 1;
+        if (keys['a'] || keys['A'] || keys['ArrowLeft']) dx -= 1;
+        if (keys['d'] || keys['D'] || keys['ArrowRight']) dx += 1;
+
+        if (dx !== 0 || dy !== 0) {
+          const len = Math.sqrt(dx * dx + dy * dy);
+          dx /= len; dy /= len;
+          this.facing = Math.atan2(dy, dx);
+          this.x += dx * this.speed;
+          this.y += dy * this.speed;
+
+          this.animTimer++;
+          if (this.animTimer > 6) {
+            this.animTimer = 0;
+            this.animFrame = (this.animFrame + 1) % 8;
+          }
+        }
+
+        // Clamp to bounds
+        this.x = Math.max(this.w / 2, Math.min(W - this.w / 2, this.x));
+        this.y = Math.max(this.h / 2, Math.min(H - this.h / 2, this.y));
+
+        if (this.attackCooldown > 0) this.attackCooldown--;
+        if (this.attacking) {
+          this.attackTimer++;
+          if (this.attackTimer >= this.attackDuration) {
+            this.attacking = false;
+            this.attackTimer = 0;
+          }
+        }
+        if (this.invincible > 0) this.invincible--;
+        if (this.flashTimer > 0) this.flashTimer--;
+      }
+
+      attack() {
+        if (this.attackCooldown > 0) return false;
+        this.attacking = true;
+        this.attackTimer = 0;
+        this.attackCooldown = 30; // 0.5 seconds at 60fps
+        return true;
+      }
+
+      takeDamage(amount) {
+        if (this.invincible > 0) return false;
+        this.hp -= amount;
+        this.invincible = 60; // 1 second invincibility
+        this.flashTimer = 30;
+        return true;
+      }
+
+      draw(ctx) {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+
+        // Flash when damaged
+        if (this.flashTimer > 0 && this.flashTimer % 6 < 3) {
+          ctx.globalAlpha = 0.5;
+        }
+
+        // Draw sprite or fallback colored rect
+        if (this.loadedSprite) {
+          const fw = 64, fh = 64;
+          const cols = 8;
+          const sx = (this.animFrame % cols) * fw;
+          const sy = 0;
+          ctx.drawImage(this.loadedSprite, sx, sy, fw, fh, -this.w / 2, -this.h / 2, this.w, this.h);
+        } else {
+          ctx.fillStyle = '#3498db';
+          ctx.fillRect(-this.w / 2, -this.h / 2, this.w, this.h);
+        }
+
+        // Draw sword attack arc
+        if (this.attacking) {
+          const progress = this.attackTimer / this.attackDuration;
+          const arcStart = this.facing - this.attackAngle;
+          const arcEnd = this.facing + this.attackAngle;
+          const alpha = 1 - progress;
+
+          ctx.save();
+          ctx.globalAlpha = alpha;
+          ctx.fillStyle = '#f1c40f';
+          ctx.beginPath();
+          ctx.moveTo(0, 0);
+          ctx.arc(0, 0, this.attackRadius, arcStart, arcEnd);
+          ctx.closePath();
+          ctx.fill();
+
+          // Sword blade
+          const swordAngle = this.facing;
+          const swordLen = this.attackRadius * (0.5 + progress * 0.5);
+          ctx.strokeStyle = '#bdc3c7';
+          ctx.lineWidth = 6;
+          ctx.beginPath();
+          ctx.moveTo(0, 0);
+          ctx.lineTo(Math.cos(swordAngle) * swordLen, Math.sin(swordAngle) * swordLen);
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        ctx.restore();
+      }
+
+      getHitbox() {
+        return {
+          x: this.x - this.w / 2,
+          y: this.y - this.h / 2,
+          w: this.w,
+          h: this.h
+        };
+      }
+    }
+
+    // ============================================
+    // ENEMY CLASS
+    // ============================================
+    class Enemy {
+      constructor(type, x, y) {
+        this.type = type;
+        const config = ENEMY_TYPES[type];
+        this.x = x;
+        this.y = y;
+        this.w = 40;
+        this.h = 40;
+        this.speed = config.speed;
+        this.hp = config.hp;
+        this.maxHp = config.maxHp;
+        this.points = config.points;
+        this.phasing = config.phasing || false;
+        this.curve = config.curve || false;
+        this.color = config.color;
+        this.spriteSrc = config.sprite;
+        this.frames = config.frames;
+        this.frameW = config.frameW;
+        this.frameH = config.frameH;
+        this.loadedSprite = null;
+        this.animFrame = 0;
+        this.animTimer = 0;
+        this.curveOffset = Math.random() * Math.PI * 2;
+        this.curveSpeed = 0.05 + Math.random() * 0.05;
+        this.knockback = { x: 0, y: 0 };
+        this.hitFlash = 0;
+      }
+
+      async loadSprite() {
+        this.loadedSprite = await loadSprite(this.spriteSrc);
+      }
+
+      update(player, dt) {
+        const config = ENEMY_TYPES[this.type];
+        const dx = player.x - this.x;
+        const dy = player.y - this.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist > 0) {
+          let moveX = (dx / dist) * this.speed;
+          let moveY = (dy / dist) * this.speed;
+
+          // Bat curves
+          if (this.curve) {
+            const curveFactor = Math.sin(this.curveOffset) * 0.8;
+            moveX += Math.cos(dy / dist * Math.PI / 2) * curveFactor;
+            moveY += Math.sin(dx / dist * Math.PI / 2) * curveFactor;
+            this.curveOffset += this.curveSpeed;
+          }
+
+          this.x += moveX + this.knockback.x;
+          this.y += moveY + this.knockback.y;
+        }
+
+        // Apply knockback decay
+        this.knockback.x *= 0.8;
+        this.knockback.y *= 0.8;
+
+        // Clamp to bounds
+        this.x = Math.max(this.w / 2, Math.min(W - this.w / 2, this.x));
+        this.y = Math.max(this.h / 2, Math.min(H - this.h / 2, this.y));
+
+        // Animation
+        this.animTimer++;
+        const frameDelay = this.type === 'bat' ? 4 : 8;
+        if (this.animTimer >= frameDelay) {
+          this.animTimer = 0;
+          this.animFrame = (this.animFrame + 1) % this.frames;
+        }
+
+        if (this.hitFlash > 0) this.hitFlash--;
+      }
+
+      takeDamage(amount, angle) {
+        this.hp -= amount;
+        this.hitFlash = 8;
+        // Knockback
+        this.knockback.x = Math.cos(angle) * 8;
+        this.knockback.y = Math.sin(angle) * 8;
+        return this.hp <= 0;
+      }
+
+      draw(ctx) {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+
+        // Ghost transparency (set BEFORE drawing)
+        if (this.phasing) {
+          ctx.globalAlpha = 0.6 + Math.sin(Date.now() / 200) * 0.2;
+        }
+
+        // Hit flash (overrides ghost transparency)
+        if (this.hitFlash > 0) {
+          ctx.globalAlpha = 0.7;
+        }
+
+        // Draw sprite or fallback
+        if (this.loadedSprite) {
+          const cols = this.frames;
+          const sx = (this.animFrame % cols) * this.frameW;
+          const sy = 0;
+          ctx.drawImage(
+            this.loadedSprite, sx, sy, this.frameW, this.frameH,
+            -this.w / 2, -this.h / 2, this.w, this.h
+          );
+        } else {
+          ctx.fillStyle = this.color;
+          ctx.beginPath();
+          ctx.arc(0, 0, this.w / 2, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // Health bar
+        if (this.hp < this.maxHp) {
+          const barW = this.w;
+          const barH = 4;
+          const barY = -this.h / 2 - 8;
+          ctx.fillStyle = '#333';
+          ctx.fillRect(-barW / 2, barY, barW, barH);
+          ctx.fillStyle = '#e74c3c';
+          ctx.fillRect(-barW / 2, barY, barW * (this.hp / this.maxHp), barH);
+        }
+
+        ctx.restore();
+      }
+
+      getHitbox() {
+        return {
+          x: this.x - this.w / 2,
+          y: this.y - this.h / 2,
+          w: this.w,
+          h: this.h
+        };
+      }
+    }
+
+    // ============================================
+    // HEALTH PACK CLASS
+    // ============================================
+    class HealthPack {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.w = 28;
+        this.h = 28;
+        this.bobOffset = Math.random() * Math.PI * 2;
+        this.lifetime = 600; // 10 seconds at 60fps
+      }
+
+      update() {
+        this.bobOffset += 0.08;
+        this.lifetime--;
+        return this.lifetime > 0;
+      }
+
+      draw(ctx) {
+        const bobY = Math.sin(this.bobOffset) * 4;
+        ctx.save();
+        ctx.translate(this.x, this.y + bobY);
+
+        // Glow
+        ctx.shadowColor = '#2ecc71';
+        ctx.shadowBlur = 15;
+
+        // Cross
+        ctx.fillStyle = '#2ecc71';
+        ctx.fillRect(-this.w / 2, -4, this.w, 8);
+        ctx.fillRect(-4, -this.h / 2, 8, this.h);
+
+        ctx.restore();
+      }
+
+      getHitbox() {
+        return {
+          x: this.x - this.w / 2,
+          y: this.y - this.h / 2,
+          w: this.w,
+          h: this.h
+        };
+      }
+    }
+
+    // ============================================
+    // PARTICLE CLASS (for effects)
+    // ============================================
+    class Particle {
+      constructor(x, y, color, angle, speed) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        this.vx = Math.cos(angle) * speed;
+        this.vy = Math.sin(angle) * speed;
+        this.life = 1;
+        this.decay = 0.02 + Math.random() * 0.03;
+        this.size = 3 + Math.random() * 4;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.vx *= 0.95;
+        this.vy *= 0.95;
+        this.life -= this.decay;
+        return this.life > 0;
+      }
+
+      draw(ctx) {
+        ctx.globalAlpha = this.life;
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size * this.life, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      }
+    }
+
+    // ============================================
+    // GAME CLASS
+    // ============================================
+    class Game {
+      constructor() {
+        this.player = new Player();
+        this.enemies = [];
+        this.healthPacks = [];
+        this.particles = [];
+        this.score = 0;
+        this.combo = 1;
+        this.comboTimer = 0;
+        this.wave = 1;
+        this.gameTime = 0;
+        this.spawnTimer = 0;
+        this.healthPackTimer = 0;
+        this.running = false;
+        this.gameOver = false;
+        this.keys = {};
+        this.keysJustPressed = {};
+        this.highScore = parseInt(localStorage.getItem('dungeonSurvivorHighScore') || '0');
+        this.lastTime = 0;
+        this.floorPattern = null;
+
+        this.setupInput();
+        this.loadSprites();
+      }
+
+      async loadSprites() {
+        await this.player.loadSprite();
+
+        // Preload enemy sprites
+        for (const type of Object.keys(ENEMY_TYPES)) {
+          const enemy = new Enemy(type, 0, 0);
+          await enemy.loadSprite();
+        }
+
+        // Load floor
+        const floorImg = new Image();
+        floorImg.onload = () => {
+          this.floorPattern = ctx.createPattern(floorImg, 'repeat');
+        };
+        floorImg.src = SPRITE_BASE + 'environment/floors/floor_stone_cobble.png';
+      }
+
+      setupInput() {
+        window.addEventListener('keydown', (e) => {
+          if (!this.keys[e.key]) {
+            this.keysJustPressed[e.key] = true;
+          }
+          this.keys[e.key] = true;
+          if (e.key === ' ') e.preventDefault();
+        });
+        window.addEventListener('keyup', (e) => {
+          this.keys[e.key] = false;
+        });
+      }
+
+      start() {
+        this.player = new Player();
+        this.enemies = [];
+        this.healthPacks = [];
+        this.particles = [];
+        this.score = 0;
+        this.combo = 1;
+        this.comboTimer = 0;
+        this.wave = 1;
+        this.gameTime = 0;
+        this.spawnTimer = 0;
+        this.healthPackTimer = 0;
+        this.running = true;
+        this.gameOver = false;
+
+        this.player.loadSprite();
+        for (const type of Object.keys(ENEMY_TYPES)) {
+          const e = new Enemy(type, 0, 0);
+          e.loadSprite();
+        }
+
+        document.getElementById('startScreen').style.display = 'none';
+        document.getElementById('gameOver').style.display = 'none';
+
+        this.lastTime = performance.now();
+        this.loop();
+      }
+
+      spawnEnemy() {
+        const types = Object.keys(ENEMY_TYPES);
+        // Weight towards basic types early, more variety later
+        let type;
+        const roll = Math.random();
+        if (this.wave < 3) {
+          type = roll < 0.5 ? 'goblin' : 'skeleton';
+        } else if (this.wave < 5) {
+          const dist = { goblin: 0.3, skeleton: 0.25, bat: 0.2, spider: 0.15, ghost: 0.05, zombie: 0.05 };
+          type = this.weightedRandom(dist);
+        } else {
+          type = this.weightedRandom({
+            goblin: 0.2, skeleton: 0.2, bat: 0.2, spider: 0.15, ghost: 0.15, zombie: 0.1
+          });
+        }
+
+        // Spawn from edge
+        const edge = Math.floor(Math.random() * 4);
+        let x, y;
+        const margin = 30;
+        switch (edge) {
+          case 0: x = -margin; y = Math.random() * H; break; // left
+          case 1: x = W + margin; y = Math.random() * H; break; // right
+          case 2: x = Math.random() * W; y = -margin; break; // top
+          case 3: x = Math.random() * W; y = H + margin; break; // bottom
+        }
+
+        const enemy = new Enemy(type, x, y);
+        enemy.loadSprite();
+        this.enemies.push(enemy);
+      }
+
+      weightedRandom(weights) {
+        const keys = Object.keys(weights);
+        let total = 0;
+        for (const k of keys) total += weights[k];
+        let r = Math.random() * total;
+        for (const k of keys) {
+          r -= weights[k];
+          if (r <= 0) return k;
+        }
+        return keys[0];
+      }
+
+      spawnHealthPack() {
+        const margin = 80;
+        const x = margin + Math.random() * (W - margin * 2);
+        const y = margin + Math.random() * (H - margin * 2);
+        this.healthPacks.push(new HealthPack(x, y));
+      }
+
+      spawnParticles(x, y, color, count) {
+        for (let i = 0; i < count; i++) {
+          const angle = (Math.PI * 2 / count) * i + Math.random() * 0.5;
+          const speed = 2 + Math.random() * 4;
+          this.particles.push(new Particle(x, y, color, angle, speed));
+        }
+      }
+
+      aabb(a, b) {
+        return a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
+      }
+
+      update(dt) {
+        if (this.gameOver) return;
+
+        this.gameTime += dt;
+        const timeSeconds = Math.floor(this.gameTime / 1000);
+        const mins = Math.floor(timeSeconds / 60);
+        const secs = timeSeconds % 60;
+
+        // Combo timer
+        if (this.comboTimer > 0) {
+          this.comboTimer -= dt;
+          if (this.comboTimer <= 0) {
+            this.combo = 1;
+          }
+        }
+
+        // Player update
+        this.player.update(this.keys);
+
+        // Attack input
+        if (this.keysJustPressed[' '] || this.keysJustPressed['Space']) {
+          if (this.player.attack()) {
+            this.performAttack();
+          }
+        }
+
+        // Clear just pressed
+        this.keysJustPressed = {};
+
+        // Spawn enemies
+        const spawnInterval = Math.max(30, 120 - this.wave * 10); // frames
+        this.spawnTimer++;
+        const enemiesPerSpawn = 1 + Math.floor(this.wave / 3);
+        if (this.spawnTimer >= spawnInterval) {
+          this.spawnTimer = 0;
+          for (let i = 0; i < enemiesPerSpawn; i++) {
+            this.spawnEnemy();
+          }
+        }
+
+        // Health pack spawning
+        this.healthPackTimer++;
+        if (this.healthPackTimer >= 600 && this.healthPacks.length < 2) { // every 10 seconds
+          this.healthPackTimer = 0;
+          if (Math.random() < 0.5) {
+            this.spawnHealthPack();
+          }
+        }
+
+        // Wave progression
+        const newWave = Math.floor(timeSeconds / 30) + 1;
+        if (newWave > this.wave) {
+          this.wave = newWave;
+          // Spawn burst for new wave
+          for (let i = 0; i < this.wave * 2; i++) {
+            this.spawnEnemy();
+          }
+        }
+
+        // Update enemies
+        for (let i = this.enemies.length - 1; i >= 0; i--) {
+          const enemy = this.enemies[i];
+          enemy.update(this.player, dt);
+
+          // Enemy hits player
+          if (!enemy.phasing && this.aabb(this.player.getHitbox(), enemy.getHitbox())) {
+            if (this.player.takeDamage(1)) {
+              this.spawnParticles(this.player.x, this.player.y, '#e74c3c', 8);
+              if (this.player.hp <= 0) {
+                this.endGame();
+                return;
+              }
+            }
+          }
+        }
+
+        // Update health packs
+        for (let i = this.healthPacks.length - 1; i >= 0; i--) {
+          const hp = this.healthPacks[i];
+          if (!hp.update()) {
+            this.healthPacks.splice(i, 1);
+            continue;
+          }
+          if (this.aabb(this.player.getHitbox(), hp.getHitbox())) {
+            if (this.player.hp < this.player.maxHp) {
+              this.player.hp++;
+              this.spawnParticles(hp.x, hp.y, '#2ecc71', 10);
+              this.healthPacks.splice(i, 1);
+            }
+          }
+        }
+
+        // Update particles
+        for (let i = this.particles.length - 1; i >= 0; i--) {
+          if (!this.particles[i].update()) {
+            this.particles.splice(i, 1);
+          }
+        }
+
+        // Update UI
+        document.getElementById('hp').textContent = this.player.hp;
+        document.getElementById('score').textContent = this.score;
+        document.getElementById('wave').textContent = this.wave;
+        document.getElementById('time').textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+        document.getElementById('combo').textContent = `x${this.combo}`;
+      }
+
+      performAttack() {
+        const px = this.player.x;
+        const py = this.player.y;
+        const attackRange = this.player.attackRadius;
+        const attackAngle = this.player.attackAngle;
+        const playerFacing = this.player.facing;
+
+        for (let i = this.enemies.length - 1; i >= 0; i--) {
+          const enemy = this.enemies[i];
+          const dx = enemy.x - px;
+          const dy = enemy.y - py;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist <= attackRange + enemy.w / 2) {
+            // Check if enemy is within player's facing arc (directional attack)
+            const enemyAngle = Math.atan2(dy, dx);
+            let angleDiff = enemyAngle - playerFacing;
+            // Normalize to -PI to PI
+            while (angleDiff > Math.PI) angleDiff -= Math.PI * 2;
+            while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
+
+            if (Math.abs(angleDiff) <= attackAngle) {
+              const killed = enemy.takeDamage(25, enemyAngle);
+
+              this.spawnParticles(enemy.x, enemy.y, enemy.color, 5);
+
+              if (killed) {
+                // Score with combo
+                this.score += enemy.points * this.combo;
+
+                // Update combo
+                this.combo = Math.min(this.combo + 1, 10);
+                this.comboTimer = 1500; // 1.5 seconds
+
+                // Show combo
+                if (this.combo > 1) {
+                  const comboEl = document.getElementById('comboDisplay');
+                  comboEl.textContent = `COMBO x${this.combo}!`;
+                  comboEl.style.opacity = '1';
+                  setTimeout(() => { comboEl.style.opacity = '0'; }, 500);
+                }
+
+                // Big death effect
+                this.spawnParticles(enemy.x, enemy.y, enemy.color, 15);
+                this.enemies.splice(i, 1);
+              }
+            }
+          }
+        }
+      }
+
+      endGame() {
+        this.running = false;
+        this.gameOver = true;
+
+        const timeSeconds = Math.floor(this.gameTime / 1000);
+        const mins = Math.floor(timeSeconds / 60);
+        const secs = timeSeconds % 60;
+
+        if (this.score > this.highScore) {
+          this.highScore = this.score;
+          localStorage.setItem('dungeonSurvivorHighScore', this.highScore.toString());
+        }
+
+        document.getElementById('finalScore').textContent = this.score;
+        document.getElementById('finalTime').textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+        document.getElementById('finalWave').textContent = this.wave;
+        document.getElementById('highScore').textContent = this.highScore;
+        document.getElementById('gameOver').style.display = 'flex';
+      }
+
+      draw() {
+        // Clear
+        ctx.fillStyle = '#1a1a2e';
+        ctx.fillRect(0, 0, W, H);
+
+        // Floor
+        if (this.floorPattern) {
+          ctx.fillStyle = this.floorPattern;
+          ctx.fillRect(0, 0, W, H);
+        } else {
+          // Fallback grid
+          ctx.fillStyle = '#2d2d44';
+          ctx.fillRect(0, 0, W, H);
+          ctx.strokeStyle = '#3d3d5c';
+          ctx.lineWidth = 1;
+          for (let x = 0; x < W; x += 64) {
+            ctx.beginPath();
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, H);
+            ctx.stroke();
+          }
+          for (let y = 0; y < H; y += 64) {
+            ctx.beginPath();
+            ctx.moveTo(0, y);
+            ctx.lineTo(W, y);
+            ctx.stroke();
+          }
+        }
+
+        // Health packs
+        for (const hp of this.healthPacks) {
+          hp.draw(ctx);
+        }
+
+        // Particles
+        for (const p of this.particles) {
+          p.draw(ctx);
+        }
+
+        // Enemies
+        for (const enemy of this.enemies) {
+          enemy.draw(ctx);
+        }
+
+        // Player
+        this.player.draw(ctx);
+
+        // Vignette
+        const grad = ctx.createRadialGradient(W / 2, H / 2, H / 3, W / 2, H / 2, H);
+        grad.addColorStop(0, 'rgba(0,0,0,0)');
+        grad.addColorStop(1, 'rgba(0,0,0,0.4)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, W, H);
+      }
+
+      loop() {
+        const now = performance.now();
+        const dt = now - this.lastTime;
+        this.lastTime = now;
+
+        this.update(dt);
+        this.draw();
+
+        if (this.running) {
+          requestAnimationFrame(() => this.loop());
+        }
+      }
+    }
+
+    // ============================================
+    // INITIALIZATION
+    // ============================================
+    const game = new Game();
+
+    // Show high score on start screen
+    if (game.highScore > 0) {
+      document.getElementById('highScoreDisplay').textContent = `High Score: ${game.highScore}`;
+    }
+
+    document.getElementById('startBtn').addEventListener('click', () => {
+      game.start();
+    });
+
+    document.getElementById('restartBtn').addEventListener('click', () => {
+      game.start();
+    });
+  </script>
+</body>
+</html>

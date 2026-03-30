@@ -1,0 +1,183 @@
+{
+  "ticker": "AMZN",
+  "generated_at": "2026-03-27T09:02:16.432381",
+  "technical": {
+    "ticker": "AMZN",
+    "timestamp": "2026-03-27T09:02:15.700612",
+    "price_current": 201.66,
+    "price_change_pct": -3.97,
+    "indicators": {
+      "rsi": {
+        "value": 37.43,
+        "signal": "neutral",
+        "interpretation": "\u2705 Neutral"
+      },
+      "macd": {
+        "macd_value": -2.4746,
+        "signal_value": -2.274,
+        "histogram": -0.2007,
+        "crossover": "BEARISH"
+      },
+      "williams_r": {
+        "value": -97.15,
+        "signal": "oversold"
+      },
+      "adx": {
+        "value": 16.72,
+        "plus_di": 25.61,
+        "minus_di": 40.08,
+        "trend_strength": "WEAK",
+        "interpretation": "\u2696\ufe0f Sin tendencia clara (ADX < 25)"
+      },
+      "moving_averages": {
+        "MA20": 210.65,
+        "MA50": 217.25,
+        "MA200": 224.69,
+        "price_vs_ma20_pct": -4.27,
+        "price_vs_ma50_pct": -7.17,
+        "price_vs_ma200_pct": -10.25
+      },
+      "52_week_range": {
+        "high_52w": 258.6,
+        "low_52w": 161.38,
+        "current_position_pct": 41.4,
+        "distance_from_high_pct": 22.02
+      },
+      "bollinger_bands": {
+        "upper": 218.8,
+        "middle": 210.65,
+        "lower": 202.5
+      },
+      "atr": {
+        "value": 5.03,
+        "atr_pct": 2.49
+      }
+    },
+    "signals": [
+      {
+        "indicator": "RSI",
+        "signal": "NEUTRAL",
+        "strength": "WEAK"
+      },
+      {
+        "indicator": "MACD",
+        "signal": "SELL",
+        "strength": "MEDIUM"
+      },
+      {
+        "indicator": "Williams %R",
+        "signal": "BUY",
+        "strength": "STRONG"
+      },
+      {
+        "indicator": "Bollinger",
+        "signal": "BUY",
+        "strength": "MEDIUM"
+      }
+    ],
+    "summary": {
+      "technical_signal": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
+      "technical_strength": "WEAK_BUY",
+      "buy_signals": 2,
+      "sell_signals": 1
+    }
+  },
+  "fundamental": {
+    "ticker": "AMZN",
+    "timestamp": "2026-03-27T09:02:15.889515",
+    "scores": [
+      "UP",
+      "DOWN",
+      "UP",
+      "UP",
+      "DOWN",
+      "UP",
+      "UP",
+      "UP",
+      "DOWN",
+      "UP",
+      "UP",
+      "UP"
+    ],
+    "ratios": {
+      "pe": {
+        "value": 28.16,
+        "score": "UP"
+      },
+      "pb": {
+        "value": 5.26,
+        "score": "DOWN"
+      },
+      "ps": {
+        "value": 3.02,
+        "score": "UP"
+      },
+      "current_ratio": {
+        "value": 1.05,
+        "score": "UP"
+      },
+      "debt_equity": {
+        "value": 43.44,
+        "score": "DOWN"
+      },
+      "roe": {
+        "value": 22.29,
+        "score": "UP"
+      },
+      "roa": {
+        "value": 6.93,
+        "score": "UP"
+      },
+      "gross_margin": {
+        "value": 50.29,
+        "score": "UP"
+      },
+      "operating_margin": {
+        "value": 10.53,
+        "score": "DOWN"
+      },
+      "net_margin": {
+        "value": 10.83,
+        "score": "UP"
+      }
+    },
+    "growth": {
+      "revenue_growth": {
+        "value": 13.6,
+        "score": "UP"
+      },
+      "earnings_growth": {
+        "value": 5.0,
+        "score": "UP"
+      }
+    },
+    "dividends": {},
+    "summary": {
+      "scores_up": 9,
+      "scores_total": 12,
+      "health_pct": 75.0,
+      "fundamental_signal": "\u2705 FUERTE",
+      "fundamental_score": "STRONG_BUY"
+    }
+  },
+  "combined": {
+    "ticker": "AMZN",
+    "timestamp": "2026-03-27T09:02:16.432278",
+    "recommendation": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
+    "conviction": "MEDIA",
+    "scores": {
+      "technical": "WEAK_BUY",
+      "fundamental": "STRONG_BUY",
+      "combined": 1.4
+    },
+    "verdict": "$201.66 | RSI: 37.43 | 52W: 41.4%",
+    "thesis_bull": [
+      "Fundamentales s\u00f3lidos"
+    ],
+    "thesis_bear": [],
+    "actions": [
+      "\u2705 ZONA DE COMPRA",
+      "\ud83d\udcb0 Considerar entrada progresiva"
+    ]
+  }
+}

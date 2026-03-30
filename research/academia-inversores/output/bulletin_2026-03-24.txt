@@ -1,0 +1,49 @@
+📊 BOLETÍN DE INVERSIÓN | 2026-03-24
+==================================================
+
+📈 RESUMEN DE MERCADO
+------------------------------
+• S&P 500, Dow Jones, Nasdaq en monitoreo
+• Mercados mostrando volatilidad esta semana
+• Atención a reportes de earnings
+• Commodities (Oro, Petróleo) en foco
+
+🎯 TOP OPORTUNIDADES (Análisis Propio)
+------------------------------
+🔥 MSFT: $372.74 | RSI: 20.69 | Score: 1.6
+   → ⚠️ RSI en SOBREVENTA - Posible zona de compra
+
+🔥 SAP: $171.0 | RSI: 24.69 | Score: 1.6
+   → ⚠️ RSI en SOBREVENTA - Posible zona de compra
+
+✅ META: $592.92 | RSI: 24.14 | Score: 1.4
+   → ⚠️ RSI en SOBREVENTA - Posible zona de compra
+
+✅ RACE: $322.02 | RSI: 23.53 | Score: 1.4
+   → ⚠️ RSI en SOBREVENTA - Posible zona de compra
+
+✅ V: $303.76 | RSI: 25.97 | Score: 1.2
+   → ⚠️ RSI en SOBREVENTA - Posible zona de compra
+
+💡 INSIGHTS DEL ANÁLISIS
+------------------------------
+🔥 2 acciones con convicción ALTA:
+   • MSFT: 📈 COMPRAR
+   • SAP: 📈 COMPRAR
+
+👀 ACCIONES EN VIGILANCIA
+------------------------------
+• META, SAP: En zona de compra técnica (RSI < 30)
+• V, RACE: Mínimos de 52 semanas - evaluar soporte
+• NVDA: fundamentals fuertes pero técnica neutral
+
+📋 PLAN DE ACCIÓN
+------------------------------
+1. Revisar posiciones actuales vs rankings
+2. Considerar agregar en dips a SAP, META
+3. Vigilar V y RACE para entradas estratégicas
+4. Trading Bot retoma mañana 14:00 UTC
+
+——————————————————————————————
+Generado: 2026-03-24 22:13 | Stock Analyzer v1.1
+⚡ Powered by Academia de Inversores methodology

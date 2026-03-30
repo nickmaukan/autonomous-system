@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knight Runner</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+  }
+  #gameCanvas {
+    border: 3px solid #3a3a6a;
+    border-radius: 4px;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+  }
+  #controls {
+    color: #8888cc;
+    margin-top: 12px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+  #controls span { color: #aaaaff; }
+</style>
+</head>
+<body>
+<canvas id="gameCanvas" width="800" height="400"></canvas>
+<div id="controls"><span>SPACE</span> = Jump &nbsp;|&nbsp; <span>X</span> = Attack &nbsp;|&nbsp; <span>R</span> = Restart</div>
+<script>
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+
+// ─── Sprite Sheet Helpers ────────────────────────────────────────────────────
+const SPRITE_BASE = '~/AutonomousSystem/research/game-dev-ai/projects/02-pixel-art-asset-pack/assets';
+
+function loadImage(src) {
+  return new Promise((res, rej) => {
+    const img = new Image();
+    img.onload = () => res(img);
+    img.onerror = () => {
+      console.warn('Failed to load:', src);
+      res(null);
+    };
+    // Convert ~ to absolute path
+    img.src = src.replace(/^~/, process.env.HOME || '/Users/nickmaukan');
+  });
+}
+
+// ─── Game Constants ───────────────────────────────────────────────────────────
+const GROUND_Y = 340;
+const GRAVITY  = 0.75;
+const JUMP_VY  = -14;
+const PLAYER_X = 120;
+
+// ─── Game State ──────────────────────────────────────────────────────────────
+let gameOver   = false;
+let score      = 0;
+let scoreTimer = 0;
+let speed      = 4;
+let frameCount = 0;
+let obstacles  = [];
+let particles  = [];
+let spawnTimer = 0;
+let spawnInterval = 90;
+let isStarted  = false;
+
+// ─── Parallax Layers ─────────────────────────────────────────────────────────
+const bgLayers = [
+  { speed: 0.15, offset: 0, color: '#1a1a3a', hills: [] },  // far mountains
+  { speed: 0.35, offset: 0, color: '#2a2a5a', hills: [] },  // mid hills
+  { speed: 0.6,  offset: 0, color: '#1e1e44', hills: [] },  // near hills
+];
+
+// Generate hills for each layer
+function generateHills() {
+  bgLayers.forEach((layer, li) => {
+    layer.hills = [];
+    let x = 0;
+    while (x < 1600) {
+      const w = 100 + Math.random() * 200;
+      const h = 30 + Math.random() * (li === 0 ? 80 : li === 1 ? 60 : 40);
+      layer.hills.push({ x, w, h });
+      x += w * 0.6;
+    }
+  });
+}
+generateHills();
+
+// ─── Ground Tiles ────────────────────────────────────────────────────────────
+const groundTiles = [];
+function initGround() {
+  groundTiles.length = 0;
+  for (let i = 0; i < 10; i++) groundTiles.push({ x: i * 80 });
+}
+initGround();
+
+// ─── Player ───────────────────────────────────────────────────────────────────
+const player = {
+  x: PLAYER_X,
+  y: GROUND_Y - 64,
+  vy: 0,
+  w: 48,
+  h: 64,
+  isJumping: false,
+  isAttacking: false,
+  attackTimer: 0,
+  attackDuration: 20,
+  animFrame: 0,
+  animTimer: 0,
+  health: 1,
+
+  jump() {
+    if (!this.isJumping) {
+      this.vy = JUMP_VY;
+      this.isJumping = true;
+      spawnParticles(this.x + 24, this.y + this.h, '#aaaaff', 5);
+    }
+  },
+
+  attack() {
+    if (!this.isAttacking) {
+      this.isAttacking = true;
+      this.attackTimer = this.attackDuration;
+    }
+  },
+
+  getAttackHitbox() {
+    if (!this.isAttacking || this.attackTimer < this.attackDuration - 8) return null;
+    return { x: this.x + 40, y: this.y + 10, w: 40, h: 50 };
+  },
+
+  update() {
+    // Gravity
+    this.vy += GRAVITY;
+    this.y += this.vy;
+
+    // Ground collision
+    if (this.y >= GROUND_Y - this.h) {
+      this.y = GROUND_Y - this.h;
+      this.vy = 0;
+      this.isJumping = false;
+    }
+
+    // Attack timer
+    if (this.isAttacking) {
+      this.attackTimer--;
+      if (this.attackTimer <= 0) this.isAttacking = false;
+    }
+
+    // Animation
+    this.animTimer++;
+    if (this.animTimer >= 7) {
+      this.animTimer = 0;
+      this.animFrame = (this.animFrame + 1) % 8;
+    }
+  },
+
+  draw() {
+    const sx = this.animFrame * 64;
+    ctx.save();
+    ctx.translate(this.x, this.y);
+
+    if (knightSheet) {
+      ctx.drawImage(knightSheet, sx, 0, 64, 64, 0, 0, 64, 64);
+    } else {
+      // Fallback pixel knight
+      drawFallbackKnight(this.x, this.y, this.animFrame);
+    }
+
+    // Attack swing arc
+    if (this.isAttacking) {
+      const progress = 1 - (this.attackTimer / this.attackDuration);
+      const angle = -Math.PI/2 + progress * Math.PI;
+      ctx.save();
+      ctx.translate(30, 30);
+      ctx.rotate(angle);
+      ctx.fillStyle = '#c0c0ff';
+      ctx.shadowColor = '#8888ff';
+      ctx.shadowBlur = 10;
+      ctx.fillRect(0, -3, 38, 6);
+      // Sword tip
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(35, -4, 8, 8);
+      ctx.restore();
+    }
+
+    ctx.restore();
+  }
+};
+
+function drawFallbackKnight(px, py, frame) {
+  // Simple colored rectangle knight fallback
+  const bounce = Math.sin(frame * Math.PI / 4) * 2;
+  ctx.fillStyle = '#6688cc';
+  ctx.fillRect(px + 4, py + bounce, 40, 56);
+  // Helmet
+  ctx.fillStyle = '#8899aa';
+  ctx.fillRect(px + 8, py + bounce, 32, 20);
+  // Visor
+  ctx.fillStyle = '#334';
+  ctx.fillRect(px + 12, py + bounce + 10, 24, 8);
+  // Legs animation
+  const legOff = Math.sin(frame * Math.PI / 4) * 6;
+  ctx.fillStyle = '#445566';
+  ctx.fillRect(px + 8, py + 48 + bounce - legOff, 12, 16 + legOff);
+  ctx.fillRect(px + 28, py + 48 + bounce + legOff, 12, 16 - legOff);
+}
+
+// ─── Obstacles ───────────────────────────────────────────────────────────────
+const OBSTACLE_TYPES = ['rock', 'spike', 'bat', 'slime'];
+let pendingSecondSpawn = 0;
+
+function createObstacle(isSecondOfDouble = false) {
+  const o = {
+    type: OBSTACLE_TYPES[Math.floor(Math.random() * OBSTACLE_TYPES.length)],
+    alive: true,
+    animFrame: 0,
+    animTimer: 0,
+    vy: 0,
+    oscillateOffset: Math.random() * Math.PI * 2,
+  };
+  
+  // Offset second obstacle in a double spawn
+  const baseX = isSecondOfDouble ? 820 + speed * 25 : 820;
+
+  switch (o.type) {
+    case 'rock':
+      o.x = baseX;
+      o.y = GROUND_Y - 32;
+      o.w = 40; o.h = 32;
+      break;
+    case 'spike':
+      o.x = baseX;
+      o.y = GROUND_Y - 36;
+      o.w = 36; o.h = 36;
+      o.alive = true;
+      break;
+    case 'bat':
+      o.x = baseX;
+      o.y = GROUND_Y - 100 - Math.random() * 40;
+      o.w = 32; o.h = 24;
+      o.baseY = o.y;
+      break;
+    case 'slime':
+      o.x = baseX;
+      o.y = GROUND_Y - 28;
+      o.w = 32; o.h = 28;
+      break;
+  }
+
+  return o;
+}
+
+function updateObstacle(o) {
+  o.x -= speed;
+
+  // Bat oscillates
+  if (o.type === 'bat') {
+    o.animTimer++;
+    if (o.animTimer >= 8) {
+      o.animTimer = 0;
+      o.animFrame = (o.animFrame + 1) % 6;
+    }
+    o.y = o.baseY + Math.sin(frameCount * 0.08 + o.oscillateOffset) * 12;
+  }
+
+  // Slime squash animation
+  if (o.type === 'slime') {
+    o.animTimer++;
+    if (o.animTimer >= 10) {
+      o.animTimer = 0;
+      o.animFrame = (o.animFrame + 1) % 4;
+    }
+  }
+
+  if (o.x < -80) o.alive = false;
+}
+
+function drawObstacle(o) {
+  ctx.save();
+  switch (o.type) {
+    case 'rock':
+      drawRock(o.x, o.y, o.w, o.h);
+      break;
+    case 'spike':
+      drawSpike(o.x, o.y, o.w, o.h);
+      break;
+    case 'bat':
+      drawBat(o.x, o.y, o.w, o.h, o.animFrame);
+      break;
+    case 'slime':
+      drawSlime(o.x, o.y, o.w, o.h, o.animFrame);
+      break;
+  }
+  ctx.restore();
+}
+
+function drawRock(x, y, w, h) {
+  // Stone gray rock
+  ctx.fillStyle = '#6b6b7a';
+  ctx.beginPath();
+  ctx.moveTo(x + 4, y + h);
+  ctx.lineTo(x, y + h * 0.4);
+  ctx.lineTo(x + w * 0.3, y);
+  ctx.lineTo(x + w * 0.7, y + 2);
+  ctx.lineTo(x + w, y + h * 0.3);
+  ctx.lineTo(x + w - 2, y + h);
+  ctx.closePath();
+  ctx.fill();
+  // Highlight
+  ctx.fillStyle = '#8a8a9a';
+  ctx.fillRect(x + 8, y + 6, 12, 8);
+  // Dark crack
+  ctx.fillStyle = '#444455';
+  ctx.fillRect(x + 18, y + 12, 3, 14);
+}
+
+function drawSpike(x, y, w, h) {
+  ctx.fillStyle = '#aaaaaa';
+  // Draw 3 spikes
+  for (let i = 0; i < 3; i++) {
+    const sx = x + i * (w / 3);
+    ctx.beginPath();
+    ctx.moveTo(sx, y + h);
+    ctx.lineTo(sx + (w/6), y);
+    ctx.lineTo(sx + (w/3), y + h);
+    ctx.closePath();
+    ctx.fill();
+  }
+  // Dark tips
+  ctx.fillStyle = '#888888';
+  for (let i = 0; i < 3; i++) {
+    const sx = x + i * (w / 3);
+    ctx.beginPath();
+    ctx.moveTo(sx + w/6 - 3, y + 8);
+    ctx.lineTo(sx + w/6, y);
+    ctx.lineTo(sx + w/6 + 3, y + 8);
+    ctx.closePath();
+    ctx.fill();
+  }
+}
+
+function drawBat(x, y, w, h, frame) {
+  const wingFrame = frame % 6;
+  const wingAngle = Math.sin(wingFrame * Math.PI / 3) * 0.5;
+
+  ctx.fillStyle = '#553366';
+  // Body
+  ctx.beginPath();
+  ctx.ellipse(x + w/2, y + h/2, 8, 10, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Left wing
+  ctx.save();
+  ctx.translate(x + w/2 - 4, y + h/2);
+  ctx.rotate(-wingAngle - 0.3);
+  ctx.fillStyle = '#774488';
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.lineTo(-18, -6);
+  ctx.lineTo(-14, 6);
+  ctx.closePath();
+  ctx.fill();
+  ctx.restore();
+
+  // Right wing
+  ctx.save();
+  ctx.translate(x + w/2 + 4, y + h/2);
+  ctx.rotate(wingAngle + 0.3);
+  ctx.fillStyle = '#774488';
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.lineTo(18, -6);
+  ctx.lineTo(14, 6);
+  ctx.closePath();
+  ctx.fill();
+  ctx.restore();
+
+  // Eyes
+  ctx.fillStyle = '#ff4444';
+  ctx.fillRect(x + w/2 - 5, y + h/2 - 4, 3, 3);
+  ctx.fillRect(x + w/2 + 2, y + h/2 - 4, 3, 3);
+}
+
+function drawSlime(x, y, w, h, frame) {
+  const squash = [0, 4, 8, 4][frame]; // bounce squash/stretch
+  const bounce = [0, -4, -8, -4][frame];
+
+  ctx.fillStyle = '#44aa44';
+  ctx.beginPath();
+  ctx.ellipse(x + w/2, y + h - 8 + bounce, w/2 + squash/2, h/2 - squash/2, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Dark bottom
+  ctx.fillStyle = '#338833';
+  ctx.beginPath();
+  ctx.ellipse(x + w/2, y + h - 4 + bounce, w/2 - 2, 6, 0, 0, Math.PI);
+  ctx.fill();
+
+  // Shine
+  ctx.fillStyle = '#88dd88';
+  ctx.beginPath();
+  ctx.ellipse(x + w/2 - 6, y + h - 16 + bounce, 4, 6, -0.3, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Eyes
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(x + w/2 - 9, y + h - 18 + bounce, 6, 6);
+  ctx.fillRect(x + w/2 + 3, y + h - 18 + bounce, 6, 6);
+  ctx.fillStyle = '#111';
+  ctx.fillRect(x + w/2 - 7, y + h - 16 + bounce, 3, 4);
+  ctx.fillRect(x + w/2 + 5, y + h - 16 + bounce, 3, 4);
+}
+
+// ─── Collision Detection ──────────────────────────────────────────────────────
+function rectsOverlap(a, b) {
+  return a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
+}
+
+function getPlayerHitbox() {
+  return { x: player.x + 8, y: player.y + 4, w: player.w - 12, h: player.h - 8 };
+}
+
+function checkCollisions() {
+  const ph = getPlayerHitbox();
+  const ah = player.getAttackHitbox();
+
+  obstacles.forEach(o => {
+    if (!o.alive) return;
+
+    // Check attack hit vs obstacle (bats and slimes can be killed)
+    if (ah && (o.type === 'bat' || o.type === 'slime')) {
+      if (rectsOverlap(ah, o)) {
+        o.alive = false;
+        score += o.type === 'bat' ? 50 : 30;
+        spawnParticles(o.x + o.w/2, o.y + o.h/2, o.type === 'bat' ? '#aa44aa' : '#44cc44', 10);
+        return;
+      }
+    }
+
+    // Check player vs obstacle
+    const oh = { x: o.x + 4, y: o.y + 4, w: o.w - 8, h: o.h - 8 };
+    if (rectsOverlap(ph, oh)) {
+      triggerGameOver();
+    }
+  });
+}
+
+// ─── Particles ───────────────────────────────────────────────────────────────
+function spawnParticles(x, y, color, count) {
+  for (let i = 0; i < count; i++) {
+    particles.push({
+      x, y,
+      vx: (Math.random() - 0.5) * 8,
+      vy: (Math.random() - 1) * 6,
+      life: 30 + Math.random() * 20,
+      color,
+      size: 2 + Math.random() * 4
+    });
+  }
+}
+
+function updateParticles() {
+  particles.forEach(p => {
+    p.x += p.vx;
+    p.y += p.vy;
+    p.vy += 0.3;
+    p.life--;
+  });
+  particles = particles.filter(p => p.life > 0);
+}
+
+function drawParticles() {
+  particles.forEach(p => {
+    ctx.globalAlpha = p.life / 50;
+    ctx.fillStyle = p.color;
+    ctx.fillRect(p.x, p.y, p.size, p.size);
+  });
+  ctx.globalAlpha = 1;
+}
+
+// ─── Game Over ───────────────────────────────────────────────────────────────
+function triggerGameOver() {
+  gameOver = true;
+  spawnParticles(player.x + 24, player.y + 32, '#ff4444', 20);
+  spawnParticles(player.x + 24, player.y + 32, '#ffaa44', 10);
+}
+
+// ─── Spawning ─────────────────────────────────────────────────────────────────
+function spawnObstacle(isSecondOfDouble = false) {
+  obstacles.push(createObstacle(isSecondOfDouble));
+}
+
+// ─── Drawing ──────────────────────────────────────────────────────────────────
+function drawBackground() {
+  // Sky gradient
+  const grad = ctx.createLinearGradient(0, 0, 0, GROUND_Y);
+  grad.addColorStop(0, '#0a0a2a');
+  grad.addColorStop(1, '#1a1a4a');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, 800, GROUND_Y);
+
+  // Stars
+  ctx.fillStyle = '#ffffff';
+  for (let i = 0; i < 60; i++) {
+    const sx = (i * 137 + frameCount * 0.02) % 800;
+    const sy = (i * 79) % (GROUND_Y - 60);
+    const blink = Math.sin(frameCount * 0.05 + i) * 0.5 + 0.5;
+    ctx.globalAlpha = 0.3 + blink * 0.7;
+    ctx.fillRect(sx, sy, 2, 2);
+  }
+  ctx.globalAlpha = 1;
+
+  // Moon
+  ctx.fillStyle = '#ddddaa';
+  ctx.beginPath();
+  ctx.arc(680, 60, 30, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.fillStyle = '#0a0a2a';
+  ctx.beginPath();
+  ctx.arc(690, 55, 26, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Parallax hills
+  bgLayers.forEach((layer, li) => {
+    layer.offset = (layer.offset + speed * layer.speed) % 1600;
+
+    ctx.fillStyle = layer.color;
+    layer.hills.forEach(hill => {
+      const hx = hill.x - layer.offset;
+      const drawX = ((hx % 1600) + 1600) % 1600 - 200;
+      ctx.beginPath();
+      ctx.moveTo(drawX, GROUND_Y);
+      ctx.quadraticCurveTo(drawX + hill.w/2, GROUND_Y - hill.h, drawX + hill.w, GROUND_Y);
+      ctx.fill();
+    });
+  });
+}
+
+function drawGround() {
+  // Main ground
+  ctx.fillStyle = '#2a2a4a';
+  ctx.fillRect(0, GROUND_Y, 800, 60);
+
+  // Ground top line
+  ctx.fillStyle = '#4a4a7a';
+  ctx.fillRect(0, GROUND_Y, 800, 4);
+
+  // Scrolling tiles
+  const tileSpeed = speed;
+  groundTiles.forEach(tile => {
+    tile.x -= tileSpeed;
+    if (tile.x < -80) tile.x += 80 * 10;
+
+    // Grass tufts on top
+    ctx.fillStyle = '#3a5a3a';
+    for (let g = 0; g < 3; g++) {
+      const gx = tile.x + g * 26 + 6;
+      ctx.fillRect(gx, GROUND_Y - 2, 3, 4);
+      ctx.fillRect(gx + 5, GROUND_Y - 4, 2, 6);
+      ctx.fillRect(gx + 10, GROUND_Y - 1, 3, 3);
+    }
+
+    // Tile border
+    ctx.fillStyle = '#1a1a3a';
+    ctx.fillRect(tile.x, GROUND_Y + 4, 80, 2);
+  });
+
+  // Ground fill below
+  ctx.fillStyle = '#1a1a2a';
+  ctx.fillRect(0, GROUND_Y + 50, 800, 10);
+}
+
+function drawHUD() {
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 18px "Courier New"';
+  ctx.fillText(`SCORE: ${Math.floor(score)}`, 20, 30);
+  ctx.fillText(`SPEED: ${speed.toFixed(1)}x`, 20, 52);
+
+  if (!isStarted) {
+    ctx.fillStyle = 'rgba(0,0,0,0.6)';
+    ctx.fillRect(0, 0, 800, 400);
+    ctx.fillStyle = '#aaaaff';
+    ctx.font = 'bold 36px "Courier New"';
+    ctx.textAlign = 'center';
+    ctx.fillText('KNIGHT RUNNER', 400, 160);
+    ctx.fillStyle = '#8888cc';
+    ctx.font = '18px "Courier New"';
+    ctx.fillText('SPACE = Jump   |   X = Attack', 400, 200);
+    ctx.fillStyle = '#aaaaff';
+    ctx.font = 'bold 22px "Courier New"';
+    ctx.fillText('Press SPACE to Start', 400, 250);
+    ctx.textAlign = 'left';
+  }
+}
+
+function drawGameOver() {
+  ctx.fillStyle = 'rgba(0,0,0,0.7)';
+  ctx.fillRect(0, 0, 800, 400);
+
+  ctx.fillStyle = '#ff5555';
+  ctx.font = 'bold 48px "Courier New"';
+  ctx.textAlign = 'center';
+  ctx.fillText('GAME OVER', 400, 150);
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 28px "Courier New"';
+  ctx.fillText(`Final Score: ${Math.floor(score)}`, 400, 200);
+
+  ctx.fillStyle = '#aaaaff';
+  ctx.font = '20px "Courier New"';
+  ctx.fillText('Press R to Restart', 400, 260);
+  ctx.textAlign = 'left';
+}
+
+// ─── Sprite Sheets ────────────────────────────────────────────────────────────
+let knightSheet = null;
+let batSheet    = null;
+let slimeSheet  = null;
+
+async function loadSprites() {
+  const home = process.env.HOME || '/Users/nickmaukan';
+  knightSheet = await loadImage(`${home}/AutonomousSystem/research/game-dev-ai/projects/02-pixel-art-asset-pack/assets/characters/knight_walk_v2.png`);
+  batSheet    = await loadImage(`${home}/AutonomousSystem/research/game-dev-ai/projects/02-pixel-art-asset-pack/assets/enemies/bat_fly.png`);
+  slimeSheet  = await loadImage(`${home}/AutonomousSystem/research/game-dev-ai/projects/02-pixel-art-asset-pack/assets/characters/slime_fixed.png`);
+}
+
+// ─── Main Game Loop ───────────────────────────────────────────────────────────
+function reset() {
+  gameOver   = false;
+  score      = 0;
+  speed      = 4;
+  frameCount = 0;
+  spawnTimer = 0;
+  spawnInterval = 90;
+  obstacles.length = 0;
+  particles.length = 0;
+  isStarted  = false;
+  player.y = GROUND_Y - 64;
+  player.vy = 0;
+  player.isJumping = false;
+  player.isAttacking = false;
+  player.attackTimer = 0;
+  player.animFrame = 0;
+  player.health = 1;
+  initGround();
+  bgLayers.forEach(l => l.offset = 0);
+}
+
+function update() {
+  if (gameOver) return;
+
+  frameCount++;
+
+  // Start on first space
+  if (!isStarted) return;
+
+  // Score based on distance
+  score += speed * 0.05;
+
+  // Speed increase
+  if (frameCount % 300 === 0) {
+    speed = Math.min(speed + 0.3, 12);
+    spawnInterval = Math.max(spawnInterval - 4, 40);
+  }
+
+  // Spawn obstacles
+  spawnTimer++;
+  if (spawnTimer >= spawnInterval) {
+    spawnTimer = 0;
+    spawnObstacle();
+    // Sometimes spawn double (at higher speed)
+    if (speed > 6 && Math.random() < 0.3) {
+      // Delay second spawn using game frames instead of setTimeout
+      pendingSecondSpawn = 30; // 30 frames delay (~0.5s at 60fps)
+    }
+  }
+  
+  // Handle delayed second spawn
+  if (pendingSecondSpawn > 0) {
+    pendingSecondSpawn--;
+    if (pendingSecondSpawn === 0) {
+      spawnObstacle(true); // pass flag for offset
+    }
+  }
+
+  player.update();
+
+  obstacles.forEach(o => updateObstacle(o));
+  obstacles = obstacles.filter(o => o.alive && o.x > -80);
+
+  checkCollisions();
+  updateParticles();
+
+  // Update parallax offsets
+  bgLayers.forEach(l => {
+    l.offset = (l.offset + speed * l.speed) % 1600;
+  });
+
+  // Update ground tiles
+  groundTiles.forEach(tile => {
+    tile.x -= speed;
+    if (tile.x < -80) tile.x += 80 * 10;
+  });
+}
+
+function render() {
+  ctx.clearRect(0, 0, 800, 400);
+
+  drawBackground();
+  drawGround();
+
+  // Draw obstacles behind player if they're slimes/rocks, in front if bats
+  obstacles.filter(o => o.type === 'rock' || o.type === 'spike' || o.type === 'slime').forEach(drawObstacle);
+
+  player.draw();
+
+  obstacles.filter(o => o.type === 'bat').forEach(drawObstacle);
+
+  drawParticles();
+  drawHUD();
+
+  if (gameOver) drawGameOver();
+}
+
+function gameLoop() {
+  update();
+  render();
+  requestAnimationFrame(gameLoop);
+}
+
+// ─── Input ────────────────────────────────────────────────────────────────────
+const keys = {};
+
+document.addEventListener('keydown', e => {
+  if (e.repeat) return;
+  keys[e.code] = true;
+
+  if (e.code === 'Space') {
+    e.preventDefault();
+    if (!isStarted) { isStarted = true; return; }
+    if (!gameOver)  player.jump();
+  }
+
+  if (e.code === 'KeyX') {
+    if (!gameOver) player.attack();
+  }
+
+  if (e.code === 'KeyR') {
+    reset();
+  }
+});
+
+document.addEventListener('keyup', e => {
+  keys[e.code] = false;
+});
+
+// ─── Boot ─────────────────────────────────────────────────────────────────────
+loadSprites().then(() => {
+  gameLoop();
+});
+</script>
+</body>
+</html>

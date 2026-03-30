@@ -1,0 +1,189 @@
+{
+  "ticker": "META",
+  "generated_at": "2026-03-27T09:02:15.698018",
+  "technical": {
+    "ticker": "META",
+    "timestamp": "2026-03-27T09:02:14.902522",
+    "price_current": 533.84,
+    "price_change_pct": -17.57,
+    "indicators": {
+      "rsi": {
+        "value": 18.82,
+        "signal": "oversold",
+        "interpretation": "\u26a0\ufe0f SOBREVENTA"
+      },
+      "macd": {
+        "macd_value": -23.7306,
+        "signal_value": -14.901,
+        "histogram": -8.8296,
+        "crossover": "NEUTRAL"
+      },
+      "williams_r": {
+        "value": -99.49,
+        "signal": "oversold"
+      },
+      "adx": {
+        "value": 24.5,
+        "plus_di": 14.42,
+        "minus_di": 51.96,
+        "trend_strength": "WEAK",
+        "interpretation": "\u2696\ufe0f Sin tendencia clara (ADX < 25)"
+      },
+      "moving_averages": {
+        "MA20": 621.19,
+        "MA50": 643.27,
+        "MA200": 686.53,
+        "price_vs_ma20_pct": -14.06,
+        "price_vs_ma50_pct": -17.01,
+        "price_vs_ma200_pct": -22.24
+      },
+      "52_week_range": {
+        "high_52w": 794.38,
+        "low_52w": 478.31,
+        "current_position_pct": 17.6,
+        "distance_from_high_pct": 32.8
+      },
+      "bollinger_bands": {
+        "upper": 694.16,
+        "middle": 621.19,
+        "lower": 548.23
+      },
+      "atr": {
+        "value": 18.02,
+        "atr_pct": 3.37
+      }
+    },
+    "signals": [
+      {
+        "indicator": "RSI",
+        "signal": "BUY",
+        "strength": "STRONG"
+      },
+      {
+        "indicator": "Williams %R",
+        "signal": "BUY",
+        "strength": "STRONG"
+      },
+      {
+        "indicator": "Bollinger",
+        "signal": "BUY",
+        "strength": "MEDIUM"
+      }
+    ],
+    "summary": {
+      "technical_signal": "\ud83d\udcc8 COMPRAR",
+      "technical_strength": "BUY",
+      "buy_signals": 3,
+      "sell_signals": 0
+    }
+  },
+  "fundamental": {
+    "ticker": "META",
+    "timestamp": "2026-03-27T09:02:15.164384",
+    "scores": [
+      "UP",
+      "DOWN",
+      "UP",
+      "UP",
+      "DOWN",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP"
+    ],
+    "ratios": {
+      "pe": {
+        "value": 22.73,
+        "score": "UP"
+      },
+      "pb": {
+        "value": 6.22,
+        "score": "DOWN"
+      },
+      "ps": {
+        "value": 6.72,
+        "score": "UP"
+      },
+      "current_ratio": {
+        "value": 2.6,
+        "score": "UP"
+      },
+      "debt_equity": {
+        "value": 39.16,
+        "score": "DOWN"
+      },
+      "roe": {
+        "value": 30.24,
+        "score": "UP"
+      },
+      "roa": {
+        "value": 16.21,
+        "score": "UP"
+      },
+      "gross_margin": {
+        "value": 82.0,
+        "score": "UP"
+      },
+      "operating_margin": {
+        "value": 41.31,
+        "score": "UP"
+      },
+      "net_margin": {
+        "value": 30.08,
+        "score": "UP"
+      }
+    },
+    "growth": {
+      "revenue_growth": {
+        "value": 23.8,
+        "score": "UP"
+      },
+      "earnings_growth": {
+        "value": 10.7,
+        "score": "UP"
+      }
+    },
+    "dividends": {
+      "yield": {
+        "value": 0.38
+      },
+      "payout_ratio": {
+        "value": 8.94,
+        "score": "UP"
+      }
+    },
+    "summary": {
+      "scores_up": 11,
+      "scores_total": 13,
+      "health_pct": 84.6,
+      "fundamental_signal": "\u2705 FUERTE",
+      "fundamental_score": "STRONG_BUY"
+    }
+  },
+  "combined": {
+    "ticker": "META",
+    "timestamp": "2026-03-27T09:02:15.697939",
+    "recommendation": "\ud83d\udcc8 COMPRAR",
+    "conviction": "ALTA",
+    "scores": {
+      "technical": "BUY",
+      "fundamental": "STRONG_BUY",
+      "combined": 1.6
+    },
+    "verdict": "$533.84 | RSI: 18.82 | 52W: 17.6%",
+    "thesis_bull": [
+      "Se\u00f1ales t\u00e9cnicas alcistas",
+      "Fundamentales s\u00f3lidos",
+      "RSI en zona de oportunidad"
+    ],
+    "thesis_bear": [],
+    "actions": [
+      "\u2705 ZONA DE COMPRA",
+      "\ud83d\udcb0 Considerar entrada progresiva"
+    ]
+  }
+}

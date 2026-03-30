@@ -1,0 +1,40 @@
+📊 BOLETÍN DE INVERSIÓN | 2026-03-23
+==================================================
+
+📈 RESUMEN DE MERCADO
+------------------------------
+• S&P 500, Dow Jones, Nasdaq en monitoreo
+• Mercados mostrando volatilidad esta semana
+• Atención a reportes de earnings
+• Commodities (Oro, Petróleo) en foco
+
+🎯 TOP OPORTUNIDADES (Análisis Propio)
+------------------------------
+✅ MSFT: $385.67 | RSI: 31.38 | Score: 1.2
+
+✅ V: $306.33 | RSI: 30.04 | Score: 1.2
+
+✅ LULU: $165.64 | RSI: 36.14 | Score: 1.2
+
+✅ META: $602.36 | RSI: 31.81 | Score: 1.2
+
+✅ AMZN: $211.85 | RSI: 53.28 | Score: 1.2
+
+💡 INSIGHTS DEL ANÁLISIS
+------------------------------
+👀 ACCIONES EN VIGILANCIA
+------------------------------
+• META, SAP: En zona de compra técnica (RSI < 30)
+• V, RACE: Mínimos de 52 semanas - evaluar soporte
+• NVDA: fundamentals fuertes pero técnica neutral
+
+📋 PLAN DE ACCIÓN
+------------------------------
+1. Revisar posiciones actuales vs rankings
+2. Considerar agregar en dips a SAP, META
+3. Vigilar V y RACE para entradas estratégicas
+4. Trading Bot retoma mañana 14:00 UTC
+
+——————————————————————————————
+Generado: 2026-03-23 09:08 | Stock Analyzer v1.1
+⚡ Powered by Academia de Inversores methodology

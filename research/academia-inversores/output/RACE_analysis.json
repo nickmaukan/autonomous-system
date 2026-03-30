@@ -1,0 +1,183 @@
+{
+  "ticker": "RACE",
+  "generated_at": "2026-03-27T09:02:17.977502",
+  "technical": {
+    "ticker": "RACE",
+    "timestamp": "2026-03-27T09:02:17.224911",
+    "price_current": 320.32,
+    "price_change_pct": -15.69,
+    "indicators": {
+      "rsi": {
+        "value": 30.6,
+        "signal": "neutral",
+        "interpretation": "\u2705 Neutral"
+      },
+      "macd": {
+        "macd_value": -10.0536,
+        "signal_value": -8.705,
+        "histogram": -1.3486,
+        "crossover": "NEUTRAL"
+      },
+      "williams_r": {
+        "value": -81.0,
+        "signal": "oversold"
+      },
+      "adx": {
+        "value": 25.56,
+        "plus_di": 26.2,
+        "minus_di": 42.92,
+        "trend_strength": "STRONG",
+        "interpretation": "\ud83d\udcc8 Tendencia BEARISH FUERTE"
+      },
+      "moving_averages": {
+        "MA20": 337.57,
+        "MA50": 347.05,
+        "MA200": 415.43,
+        "price_vs_ma20_pct": -5.11,
+        "price_vs_ma50_pct": -7.7,
+        "price_vs_ma200_pct": -22.9
+      },
+      "52_week_range": {
+        "high_52w": 519.1,
+        "low_52w": 312.51,
+        "current_position_pct": 3.8,
+        "distance_from_high_pct": 38.29
+      },
+      "bollinger_bands": {
+        "upper": 368.83,
+        "middle": 337.57,
+        "lower": 306.32
+      },
+      "atr": {
+        "value": 8.73,
+        "atr_pct": 2.72
+      }
+    },
+    "signals": [
+      {
+        "indicator": "RSI",
+        "signal": "NEUTRAL",
+        "strength": "WEAK"
+      },
+      {
+        "indicator": "Williams %R",
+        "signal": "BUY",
+        "strength": "STRONG"
+      }
+    ],
+    "summary": {
+      "technical_signal": "\u2696\ufe0f NEUTRAL",
+      "technical_strength": "NEUTRAL",
+      "buy_signals": 1,
+      "sell_signals": 0
+    }
+  },
+  "fundamental": {
+    "ticker": "RACE",
+    "timestamp": "2026-03-27T09:02:17.426214",
+    "scores": [
+      "UP",
+      "DOWN",
+      "UP",
+      "UP",
+      "DOWN",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "DOWN",
+      "UP"
+    ],
+    "ratios": {
+      "pe": {
+        "value": 30.74,
+        "score": "UP"
+      },
+      "pb": {
+        "value": 12.57,
+        "score": "DOWN"
+      },
+      "ps": {
+        "value": 7.98,
+        "score": "UP"
+      },
+      "current_ratio": {
+        "value": 2.3,
+        "score": "UP"
+      },
+      "debt_equity": {
+        "value": 73.68,
+        "score": "DOWN"
+      },
+      "roe": {
+        "value": 42.89,
+        "score": "UP"
+      },
+      "roa": {
+        "value": 13.75,
+        "score": "UP"
+      },
+      "gross_margin": {
+        "value": 51.68,
+        "score": "UP"
+      },
+      "operating_margin": {
+        "value": 28.62,
+        "score": "UP"
+      },
+      "net_margin": {
+        "value": 22.35,
+        "score": "UP"
+      }
+    },
+    "growth": {
+      "revenue_growth": {
+        "value": 3.8,
+        "score": "UP"
+      },
+      "earnings_growth": {
+        "value": -0.2,
+        "score": "DOWN"
+      }
+    },
+    "dividends": {
+      "yield": {
+        "value": 1.33
+      },
+      "payout_ratio": {
+        "value": 33.33,
+        "score": "UP"
+      }
+    },
+    "summary": {
+      "scores_up": 10,
+      "scores_total": 13,
+      "health_pct": 76.9,
+      "fundamental_signal": "\u2705 FUERTE",
+      "fundamental_score": "STRONG_BUY"
+    }
+  },
+  "combined": {
+    "ticker": "RACE",
+    "timestamp": "2026-03-27T09:02:17.977420",
+    "recommendation": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
+    "conviction": "MEDIA",
+    "scores": {
+      "technical": "NEUTRAL",
+      "fundamental": "STRONG_BUY",
+      "combined": 1.2
+    },
+    "verdict": "$320.32 | RSI: 30.6 | 52W: 3.8%",
+    "thesis_bull": [
+      "Fundamentales s\u00f3lidos",
+      "RSI en zona de oportunidad"
+    ],
+    "thesis_bear": [],
+    "actions": [
+      "\u2705 ZONA DE COMPRA",
+      "\ud83d\udcb0 Considerar entrada progresiva"
+    ]
+  }
+}

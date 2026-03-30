@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Necromorph Assault</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+  }
+  canvas {
+    display: block;
+    cursor: crosshair;
+    image-rendering: pixelated;
+  }
+</style>
+</head>
+<body>
+<canvas id="game" width="800" height="600"></canvas>
+<script>
+// ─── CONSTANTS ────────────────────────────────────────────────────────────────
+const W = 800, H = 600;
+const PLAYER_SPEED = 3;
+const PROJ_SPEED = 10;
+const ENEMY_SPEED = 1.4;
+const COMBO_WINDOW = 2000; // ms
+const SCORE_PER_KILL = 15;
+
+// ─── CANVAS ───────────────────────────────────────────────────────────────────
+const canvas = document.getElementById('game');
+const ctx = canvas.getContext('2d');
+
+// ─── INPUT ────────────────────────────────────────────────────────────────────
+const keys = {};
+const mouse = { x: W / 2, y: H / 2, down: false };
+
+window.addEventListener('keydown', e => { keys[e.key.toLowerCase()] = true; e.preventDefault(); });
+window.addEventListener('keyup', e => { keys[e.key.toLowerCase()] = false; });
+canvas.addEventListener('mousemove', e => {
+  const r = canvas.getBoundingClientRect();
+  mouse.x = (e.clientX - r.left) * (W / r.width);
+  mouse.y = (e.clientY - r.top) * (H / r.height);
+});
+canvas.addEventListener('mousedown', e => { if (e.button === 0) mouse.down = true; });
+canvas.addEventListener('mouseup', e => { if (e.button === 0) mouse.down = false; });
+canvas.addEventListener('contextmenu', e => e.preventDefault());
+
+// ─── SPRITES ─────────────────────────────────────────────────────────────────
+const BASE = 'file:///Users/nickmaukan/AutonomousSystem/research/game-dev-ai/projects/03-scifi-deadaspace/assets';
+const img = {};
+
+const SPRITE_PATHS = {
+  eng_walk:  `${BASE}/characters/engineer_walk.png`,
+  necromorph_twitch: `${BASE}/enemies/necromorph_twitch.png`,
+  necromorph_attack: `${BASE}/enemies/necromorph_attack_fixed.png`,
+  plasma_cutter: `${BASE}/weapons/plasma_cutter.png`,
+};
+
+const FRAME_PATHS = {
+  eng_f1:  `${BASE}/characters/engineer_frame1.png`,
+  eng_f2:  `${BASE}/characters/engineer_frame2.png`,
+  eng_f3:  `${BASE}/characters/engineer_frame3.png`,
+  eng_f4:  `${BASE}/characters/engineer_frame4.png`,
+  eng_f5:  `${BASE}/characters/engineer_frame5.png`,
+  eng_f6:  `${BASE}/characters/engineer_frame6.png`,
+  eng_f7:  `${BASE}/characters/engineer_frame7.png`,
+  eng_f8:  `${BASE}/characters/engineer_frame8.png`,
+};
+
+function loadImage(path, key) {
+  return new Promise(resolve => {
+    const i = new Image();
+    i.src = path;
+    i.onload = () => { img[key] = i; resolve(); };
+    i.onerror = () => { console.warn('Failed to load:', path); resolve(); };
+  });
+}
+
+async function loadAllSprites() {
+  const allPaths = { ...SPRITE_PATHS, ...FRAME_PATHS };
+  await Promise.all(Object.entries(allPaths).map(([k, p]) => loadImage(p, k)));
+}
+
+// ─── PLAYER CLASS ─────────────────────────────────────────────────────────────
+class Player {
+  constructor() {
+    this.x = W / 2;
+    this.y = H / 2;
+    this.angle = 0;
+    this.health = 100;
+    this.maxHealth = 100;
+    this.walkFrame = 0;
+    this.walkTimer = 0;
+    this.shootCooldown = 0;
+    this.muzzleFlash = 0;
+    this.alive = true;
+    this.invincible = 0;
+  }
+
+  update(dt) {
+    if (!this.alive) return;
+
+    // Movement
+    let dx = 0, dy = 0;
+    if (keys['w'] || keys['arrowup'])    dy -= 1;
+    if (keys['s'] || keys['arrowdown'])  dy += 1;
+    if (keys['a'] || keys['arrowleft'])  dx -= 1;
+    if (keys['d'] || keys['arrowright']) dx += 1;
+    if (dx !== 0 || dy !== 0) {
+      const len = Math.sqrt(dx * dx + dy * dy);
+      dx /= len; dy /= len;
+      this.x += dx * PLAYER_SPEED;
+      this.y += dy * PLAYER_SPEED;
+      this.walkTimer += dt;
+      if (this.walkTimer > 120) {
+        this.walkFrame = (this.walkFrame + 1) % 8;
+        this.walkTimer = 0;
+      }
+    }
+
+    // Clamp to bounds
+    this.x = Math.max(20, Math.min(W - 20, this.x));
+    this.y = Math.max(20, Math.min(H - 20, this.y));
+
+    // Aim toward mouse
+    this.angle = Math.atan2(mouse.y - this.y, mouse.x - this.x);
+
+    // Cooldowns
+    if (this.shootCooldown > 0) this.shootCooldown -= dt;
+    if (this.muzzleFlash > 0) this.muzzleFlash -= dt;
+    if (this.invincible > 0) this.invincible -= dt;
+
+    // Shoot
+    if (mouse.down && this.shootCooldown <= 0) {
+      this.shoot();
+    }
+  }
+
+  shoot() {
+    this.shootCooldown = 200;
+    this.muzzleFlash = 80;
+    const tipX = this.x + Math.cos(this.angle) * 28;
+    const tipY = this.y + Math.sin(this.angle) * 28;
+    game.projectiles.push(new Projectile(tipX, tipY, this.angle));
+  }
+
+  takeDamage(dmg) {
+    if (this.invincible > 0) return;
+    this.health -= dmg;
+    this.invincible = 500;
+    if (this.health <= 0) {
+      this.health = 0;
+      this.alive = false;
+    }
+  }
+
+  draw() {
+    const frameKeys = ['eng_f1','eng_f2','eng_f3','eng_f4','eng_f5','eng_f6','eng_f7','eng_f8'];
+    const src = img[frameKeys[this.walkFrame]] || img.eng_f1;
+    
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.rotate(this.angle + Math.PI / 2);
+
+    // Draw sprite centered (with fallback)
+    if (src && src.complete && src.naturalWidth > 0) {
+      ctx.drawImage(src, -32, -32, 64, 64);
+    } else {
+      // Fallback: draw colored shape
+      ctx.fillStyle = '#00ff88';
+      ctx.beginPath();
+      ctx.arc(0, 0, 24, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#008844';
+      ctx.beginPath();
+      ctx.arc(0, -8, 8, Math.PI, 0);
+      ctx.fill();
+    }
+
+    // Muzzle flash
+    if (this.muzzleFlash > 0) {
+      ctx.fillStyle = `rgba(255, 220, 100, ${this.muzzleFlash / 80})`;
+      ctx.beginPath();
+      ctx.arc(0, -30, 12, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = `rgba(255, 255, 200, ${this.muzzleFlash / 80})`;
+      ctx.beginPath();
+      ctx.arc(0, -30, 6, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.restore();
+  }
+}
+
+// ─── ENEMY CLASS ─────────────────────────────────────────────────────────────
+class Enemy {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.hp = 3;
+    this.maxHp = 3;
+    this.angle = 0;
+    this.animFrame = 0;
+    this.animTimer = 0;
+    this.attacking = false;
+    this.attackTimer = 0;
+    this.speed = ENEMY_SPEED + Math.random() * 0.5;
+    this.dead = false;
+    this.hitFlash = 0;
+  }
+
+  update(dt) {
+    if (this.dead) return;
+
+    // Move toward player
+    const dx = game.player.x - this.x;
+    const dy = game.player.y - this.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    this.angle = Math.atan2(dy, dx);
+
+    const ATTACK_RANGE = 40;
+    if (dist > ATTACK_RANGE) {
+      this.attacking = false;
+      this.x += (dx / dist) * this.speed;
+      this.y += (dy / dist) * this.speed;
+    } else {
+      this.attacking = true;
+      if (this.attackTimer <= 0) {
+        game.player.takeDamage(10);
+        this.attackTimer = 800;
+      }
+    }
+
+    if (this.attackTimer > 0) this.attackTimer -= dt;
+
+    // Animate
+    this.animTimer += dt;
+    const frameCount = this.attacking ? 8 : 6;
+    if (this.animTimer > 150) {
+      this.animFrame = (this.animFrame + 1) % frameCount;
+      this.animTimer = 0;
+    }
+
+    if (this.hitFlash > 0) this.hitFlash -= dt;
+  }
+
+  takeDamage() {
+    this.hp--;
+    this.hitFlash = 100;
+    if (this.hp <= 0) {
+      this.dead = true;
+      game.onEnemyKilled(this);
+    }
+  }
+
+  draw() {
+    if (this.dead) return;
+    const src = this.attacking ? img.necromorph_attack : img.necromorph_twitch;
+
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.rotate(this.angle + Math.PI / 2);
+
+    // Hit flash
+    if (this.hitFlash > 0) {
+      ctx.globalAlpha = 0.6;
+      ctx.fillStyle = '#ff4444';
+      ctx.fillRect(-32, -32, 64, 64);
+      ctx.globalAlpha = 1;
+    }
+
+    // Draw sprite (with fallback)
+    if (src && src.complete && src.naturalWidth > 0) {
+      const cols = this.attacking ? 4 : 6;
+      const frameCount = this.attacking ? 8 : 6;
+      const sw = src.width / cols;
+      const sh = src.height / Math.ceil(frameCount / cols);
+      const col = this.animFrame % cols;
+      const row = Math.floor(this.animFrame / cols);
+      ctx.drawImage(src, col * sw, row * sh, sw, sh, -32, -32, 64, 64);
+    } else {
+      // Fallback: draw necromorph shape
+      ctx.fillStyle = '#aa4466';
+      ctx.beginPath();
+      ctx.arc(0, 0, 20, 0, Math.PI * 2);
+      ctx.fill();
+      // Eyes
+      ctx.fillStyle = '#ff0066';
+      ctx.beginPath();
+      ctx.arc(-8, -4, 4, 0, Math.PI * 2);
+      ctx.arc(8, -4, 4, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.restore();
+
+    // HP bar
+    if (this.hp < this.maxHp) {
+      const bw = 40, bh = 4;
+      ctx.fillStyle = '#300';
+      ctx.fillRect(this.x - bw / 2, this.y - 42, bw, bh);
+      ctx.fillStyle = '#0f0';
+      ctx.fillRect(this.x - bw / 2, this.y - 42, bw * (this.hp / this.maxHp), bh);
+    }
+  }
+}
+
+// ─── PROJECTILE CLASS ─────────────────────────────────────────────────────────
+class Projectile {
+  constructor(x, y, angle) {
+    this.x = x;
+    this.y = y;
+    this.vx = Math.cos(angle) * PROJ_SPEED;
+    this.vy = Math.sin(angle) * PROJ_SPEED;
+    this.angle = angle;
+    this.alive = true;
+    this.trail = [];
+  }
+
+  update() {
+    this.trail.push({ x: this.x, y: this.y });
+    if (this.trail.length > 5) this.trail.shift();
+
+    this.x += this.vx;
+    this.y += this.vy;
+
+    if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) {
+      this.alive = false;
+    }
+  }
+
+  draw() {
+    // Trail
+    for (let i = 0; i < this.trail.length; i++) {
+      const t = this.trail[i];
+      const alpha = (i + 1) / this.trail.length * 0.5;
+      ctx.fillStyle = `rgba(100, 200, 255, ${alpha})`;
+      ctx.beginPath();
+      ctx.arc(t.x, t.y, 3, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Glow
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.rotate(this.angle);
+
+    ctx.shadowColor = '#4af';
+    ctx.shadowBlur = 10;
+    ctx.fillStyle = '#aef';
+    ctx.fillRect(-8, -2, 16, 4);
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(-6, -1, 12, 2);
+    ctx.shadowBlur = 0;
+    ctx.restore();
+  }
+}
+
+// ─── GAME CLASS ───────────────────────────────────────────────────────────────
+class Game {
+  constructor() {
+    this.state = 'menu'; // menu | playing | gameover
+    this.player = null;
+    this.enemies = [];
+    this.projectiles = [];
+    this.score = 0;
+    this.wave = 0;
+    this.enemiesLeft = 0;
+    this.combo = 0;
+    this.comboTimer = 0;
+    this.comboDisplay = 0;
+    this.waveTimer = 0;
+    this.waveAnnounce = 0;
+    this.spawnQueue = 0;
+    this.spawnTimer = 0;
+    this.fps = 0;
+    this.lastTime = 0;
+    this.frameCount = 0;
+    this.fpsTimer = 0;
+  }
+
+  start() {
+    this.player = new Player();
+    this.enemies = [];
+    this.projectiles = [];
+    this.score = 0;
+    this.wave = 0;
+    this.combo = 0;
+    this.comboTimer = 0;
+    this.comboDisplay = 0;
+    this.state = 'playing';
+    this.nextWave();
+  }
+
+  nextWave() {
+    this.wave++;
+    this.enemiesLeft = 5 + this.wave * 3;
+    this.spawnQueue = this.enemiesLeft;
+    this.spawnTimer = 0;
+    this.waveAnnounce = 120;
+  }
+
+  spawnEnemy() {
+    const side = Math.floor(Math.random() * 4);
+    let x, y;
+    switch (side) {
+      case 0: x = Math.random() * W; y = -30; break; // top
+      case 1: x = W + 30; y = Math.random() * H; break; // right
+      case 2: x = Math.random() * W; y = H + 30; break; // bottom
+      case 3: x = -30; y = Math.random() * H; break; // left
+    }
+    this.enemies.push(new Enemy(x, y));
+    this.spawnQueue--;
+  }
+
+  onEnemyKilled(enemy) {
+    // Combo
+    if (this.comboTimer > 0) {
+      this.combo++;
+    } else {
+      this.combo = 1;
+    }
+    this.comboTimer = COMBO_WINDOW;
+    this.comboDisplay = this.combo;
+
+    const multiplier = Math.min(this.combo, 5);
+    this.score += SCORE_PER_KILL * multiplier;
+  }
+
+  update(dt) {
+    if (this.state !== 'playing') return;
+
+    this.player.update(dt);
+
+    // Spawn enemies from queue
+    if (this.spawnQueue > 0) {
+      this.spawnTimer += dt;
+      const spawnDelay = Math.max(400, 1200 - this.wave * 80);
+      if (this.spawnTimer >= spawnDelay) {
+        this.spawnEnemy();
+        this.spawnTimer = 0;
+      }
+    }
+
+    // Wave complete?
+    const aliveCount = this.enemies.filter(e => !e.dead).length;
+    if (aliveCount === 0 && this.spawnQueue === 0) {
+      this.waveTimer += dt;
+      if (this.waveTimer > 2000) {
+        this.waveTimer = 0;
+        this.nextWave();
+      }
+    }
+
+    // Update enemies
+    for (const e of this.enemies) e.update(dt);
+
+    // Update projectiles
+    for (const p of this.projectiles) p.update();
+
+    // Collision: projectile vs enemy
+    for (const p of this.projectiles) {
+      if (!p.alive) continue;
+      for (const e of this.enemies) {
+        if (e.dead) continue;
+        const dx = p.x - e.x, dy = p.y - e.y;
+        if (Math.sqrt(dx * dx + dy * dy) < 28) {
+          p.alive = false;
+          e.takeDamage();
+          break;
+        }
+      }
+    }
+
+    // Cleanup dead projectiles
+    this.projectiles = this.projectiles.filter(p => p.alive);
+
+    // Combo timer
+    if (this.comboTimer > 0) {
+      this.comboTimer -= dt;
+      if (this.comboTimer <= 0) {
+        this.combo = 0;
+        this.comboDisplay = 0;
+      }
+    }
+
+    if (this.waveAnnounce > 0) this.waveAnnounce -= dt;
+
+    // Game over check
+    if (!this.player.alive) {
+      this.state = 'gameover';
+    }
+
+    // FPS
+    this.frameCount++;
+    this.fpsTimer += dt;
+    if (this.fpsTimer >= 1000) {
+      this.fps = this.frameCount;
+      this.frameCount = 0;
+      this.fpsTimer = 0;
+    }
+  }
+
+  render() {
+    ctx.fillStyle = '#0a0a12';
+    ctx.fillRect(0, 0, W, H);
+
+    // Grid
+    ctx.strokeStyle = 'rgba(30, 40, 60, 0.4)';
+    ctx.lineWidth = 1;
+    for (let x = 0; x < W; x += 40) {
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+    }
+    for (let y = 0; y < H; y += 40) {
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+    }
+
+    if (this.state === 'menu') {
+      this.drawMenu();
+      return;
+    }
+    if (this.state === 'gameover') {
+      this.drawGameOver();
+      return;
+    }
+
+    // Draw projectiles
+    for (const p of this.projectiles) p.draw();
+
+    // Draw enemies
+    for (const e of this.enemies) e.draw();
+
+    // Draw player
+    if (this.player) this.player.draw();
+
+    // HUD
+    this.drawHUD();
+  }
+
+  drawMenu() {
+    ctx.fillStyle = '#0a0a12';
+    ctx.fillRect(0, 0, W, H);
+
+    // Title
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#cc2200';
+    ctx.font = 'bold 56px "Courier New"';
+    ctx.fillText('NECROMORPH', W / 2, H / 2 - 80);
+    ctx.fillStyle = '#ff4400';
+    ctx.font = 'bold 40px "Courier New"';
+    ctx.fillText('ASSAULT', W / 2, H / 2 - 30);
+
+    ctx.fillStyle = '#888';
+    ctx.font = '18px "Courier New"';
+    ctx.fillText('WASD to move  |  Mouse to aim  |  Click to shoot', W / 2, H / 2 + 40);
+
+    ctx.fillStyle = '#4af';
+    ctx.font = '22px "Courier New"';
+    ctx.fillText('[ CLICK TO START ]', W / 2, H / 2 + 90);
+
+    ctx.fillStyle = '#444';
+    ctx.font = '14px "Courier New"';
+    ctx.fillText('Survive the necromorph horde. Aim for the head.', W / 2, H / 2 + 130);
+
+    // Click handler
+    if (mouse.down) {
+      mouse.down = false;
+      this.start();
+    }
+  }
+
+  drawGameOver() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+    ctx.fillRect(0, 0, W, H);
+
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#cc2200';
+    ctx.font = 'bold 52px "Courier New"';
+    ctx.fillText('YOU DIED', W / 2, H / 2 - 60);
+
+    ctx.fillStyle = '#fff';
+    ctx.font = '28px "Courier New"';
+    ctx.fillText(`Score: ${this.score}`, W / 2, H / 2);
+
+    ctx.fillStyle = '#888';
+    ctx.font = '20px "Courier New"';
+    ctx.fillText(`Wave Reached: ${this.wave}`, W / 2, H / 2 + 40);
+
+    ctx.fillStyle = '#4af';
+    ctx.font = '20px "Courier New"';
+    ctx.fillText('[ CLICK TO RESTART ]', W / 2, H / 2 + 90);
+
+    if (mouse.down) {
+      mouse.down = false;
+      this.start();
+    }
+  }
+
+  drawHUD() {
+    // Health bar
+    const hbW = 200, hbH = 16;
+    ctx.fillStyle = '#222';
+    ctx.fillRect(20, 20, hbW, hbH);
+    const hpRatio = this.player.health / this.player.maxHealth;
+    ctx.fillStyle = hpRatio > 0.4 ? '#0f0' : hpRatio > 0.2 ? '#ff0' : '#f00';
+    ctx.fillRect(20, 20, hbW * hpRatio, hbH);
+    ctx.strokeStyle = '#555';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(20, 20, hbW, hbH);
+    ctx.fillStyle = '#fff';
+    ctx.font = '12px "Courier New"';
+    ctx.textAlign = 'left';
+    ctx.fillText(`HP: ${Math.ceil(this.player.health)}`, 24, 33);
+
+    // Score
+    ctx.textAlign = 'right';
+    ctx.fillStyle = '#fff';
+    ctx.font = '22px "Courier New"';
+    ctx.fillText(`${this.score}`, W - 20, 36);
+
+    // Wave
+    ctx.textAlign = 'right';
+    ctx.fillStyle = '#888';
+    ctx.font = '16px "Courier New"';
+    ctx.fillText(`Wave ${this.wave}`, W - 20, 56);
+
+    // Combo
+    if (this.comboDisplay > 1) {
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#ff0';
+      ctx.font = 'bold 26px "Courier New"';
+      ctx.fillText(`${this.comboDisplay}x COMBO!`, W / 2, 50);
+    }
+
+    // Wave announce
+    if (this.waveAnnounce > 0) {
+      const alpha = Math.min(1, this.waveAnnounce / 60);
+      ctx.globalAlpha = alpha;
+      ctx.textAlign = 'center';
+      ctx.fillStyle = '#ff4400';
+      ctx.font = 'bold 42px "Courier New"';
+      ctx.fillText(`WAVE ${this.wave}`, W / 2, H / 2 - 100);
+      ctx.globalAlpha = 1;
+    }
+
+    // Enemies remaining
+    const alive = this.enemies.filter(e => !e.dead).length + this.spawnQueue;
+    ctx.textAlign = 'left';
+    ctx.fillStyle = '#888';
+    ctx.font = '14px "Courier New"';
+    ctx.fillText(`Enemies: ${alive}`, 20, 56);
+
+    // FPS (top right small)
+    ctx.textAlign = 'right';
+    ctx.fillStyle = '#333';
+    ctx.font = '11px "Courier New"';
+    ctx.fillText(`${this.fps} FPS`, W - 4, H - 4);
+  }
+}
+
+// ─── MAIN LOOP ─────────────────────────────────────────────────────────────────
+let game;
+let lastTime = 0;
+
+function loop(ts) {
+  const dt = Math.min(ts - lastTime, 50); // cap delta to avoid spiral of death
+  lastTime = ts;
+
+  game.update(dt);
+  game.render();
+
+  requestAnimationFrame(loop);
+}
+
+async function init() {
+  await loadAllSprites();
+  game = new Game();
+  game.state = 'menu';
+  requestAnimationFrame(ts => { lastTime = ts; loop(ts); });
+}
+
+init();
+</script>
+</body>
+</html>

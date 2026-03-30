@@ -1,0 +1,187 @@
+{
+  "ticker": "NVDA",
+  "generated_at": "2026-03-27T09:02:14.899933",
+  "technical": {
+    "ticker": "NVDA",
+    "timestamp": "2026-03-27T09:02:13.915510",
+    "price_current": 168.56,
+    "price_change_pct": -4.87,
+    "indicators": {
+      "rsi": {
+        "value": 32.24,
+        "signal": "neutral",
+        "interpretation": "\u2705 Neutral"
+      },
+      "macd": {
+        "macd_value": -3.3064,
+        "signal_value": -2.2218,
+        "histogram": -1.0846,
+        "crossover": "NEUTRAL"
+      },
+      "williams_r": {
+        "value": -98.02,
+        "signal": "oversold"
+      },
+      "adx": {
+        "value": 18.11,
+        "plus_di": 20.46,
+        "minus_di": 38.79,
+        "trend_strength": "WEAK",
+        "interpretation": "\u2696\ufe0f Sin tendencia clara (ADX < 25)"
+      },
+      "moving_averages": {
+        "MA20": 179.48,
+        "MA50": 183.5,
+        "MA200": 179.21,
+        "price_vs_ma20_pct": -6.09,
+        "price_vs_ma50_pct": -8.14,
+        "price_vs_ma200_pct": -5.94
+      },
+      "52_week_range": {
+        "high_52w": 212.17,
+        "low_52w": 86.6,
+        "current_position_pct": 65.3,
+        "distance_from_high_pct": 20.55
+      },
+      "bollinger_bands": {
+        "upper": 188.92,
+        "middle": 179.48,
+        "lower": 170.05
+      },
+      "atr": {
+        "value": 4.96,
+        "atr_pct": 2.94
+      }
+    },
+    "signals": [
+      {
+        "indicator": "RSI",
+        "signal": "NEUTRAL",
+        "strength": "WEAK"
+      },
+      {
+        "indicator": "Williams %R",
+        "signal": "BUY",
+        "strength": "STRONG"
+      },
+      {
+        "indicator": "Bollinger",
+        "signal": "BUY",
+        "strength": "MEDIUM"
+      }
+    ],
+    "summary": {
+      "technical_signal": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
+      "technical_strength": "WEAK_BUY",
+      "buy_signals": 2,
+      "sell_signals": 0
+    }
+  },
+  "fundamental": {
+    "ticker": "NVDA",
+    "timestamp": "2026-03-27T09:02:14.242462",
+    "scores": [
+      "UP",
+      "DOWN",
+      "DOWN",
+      "DOWN",
+      "DOWN",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP"
+    ],
+    "ratios": {
+      "pe": {
+        "value": 34.4,
+        "score": "UP"
+      },
+      "pb": {
+        "value": 26.04,
+        "score": "DOWN"
+      },
+      "ps": {
+        "value": 18.97,
+        "score": "DOWN"
+      },
+      "current_ratio": {
+        "value": 3.9,
+        "score": "DOWN"
+      },
+      "debt_equity": {
+        "value": 7.25,
+        "score": "DOWN"
+      },
+      "roe": {
+        "value": 101.48,
+        "score": "UP"
+      },
+      "roa": {
+        "value": 51.19,
+        "score": "UP"
+      },
+      "gross_margin": {
+        "value": 71.07,
+        "score": "UP"
+      },
+      "operating_margin": {
+        "value": 65.02,
+        "score": "UP"
+      },
+      "net_margin": {
+        "value": 55.6,
+        "score": "UP"
+      }
+    },
+    "growth": {
+      "revenue_growth": {
+        "value": 73.2,
+        "score": "UP"
+      },
+      "earnings_growth": {
+        "value": 95.6,
+        "score": "UP"
+      }
+    },
+    "dividends": {
+      "yield": {
+        "value": 0.02
+      },
+      "payout_ratio": {
+        "value": 0.82,
+        "score": "UP"
+      }
+    },
+    "summary": {
+      "scores_up": 9,
+      "scores_total": 13,
+      "health_pct": 69.2,
+      "fundamental_signal": "\u2705 BUENO",
+      "fundamental_score": "BUY"
+    }
+  },
+  "combined": {
+    "ticker": "NVDA",
+    "timestamp": "2026-03-27T09:02:14.899721",
+    "recommendation": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
+    "conviction": "MEDIA",
+    "scores": {
+      "technical": "WEAK_BUY",
+      "fundamental": "BUY",
+      "combined": 0.8
+    },
+    "verdict": "$168.56 | RSI: 32.24 | 52W: 65.3%",
+    "thesis_bull": [
+      "Fundamentales s\u00f3lidos",
+      "RSI en zona de oportunidad"
+    ],
+    "thesis_bear": [],
+    "actions": [
+      "\u26a0\ufe0f MANTENER, no agregar"
+    ]
+  }
+}

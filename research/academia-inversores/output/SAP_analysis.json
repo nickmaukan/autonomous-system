@@ -1,0 +1,183 @@
+{
+  "ticker": "SAP",
+  "generated_at": "2026-03-27T09:02:17.220822",
+  "technical": {
+    "ticker": "SAP",
+    "timestamp": "2026-03-27T09:02:16.434567",
+    "price_current": 164.66,
+    "price_change_pct": -18.3,
+    "indicators": {
+      "rsi": {
+        "value": 11.55,
+        "signal": "oversold",
+        "interpretation": "\u26a0\ufe0f SOBREVENTA"
+      },
+      "macd": {
+        "macd_value": -9.9397,
+        "signal_value": -8.0651,
+        "histogram": -1.8746,
+        "crossover": "NEUTRAL"
+      },
+      "williams_r": {
+        "value": -98.28,
+        "signal": "oversold"
+      },
+      "adx": {
+        "value": 39.07,
+        "plus_di": 13.9,
+        "minus_di": 45.82,
+        "trend_strength": "STRONG",
+        "interpretation": "\ud83d\udcc8 Tendencia BEARISH FUERTE"
+      },
+      "moving_averages": {
+        "MA20": 186.67,
+        "MA50": 201.38,
+        "MA200": 251.99,
+        "price_vs_ma20_pct": -11.79,
+        "price_vs_ma50_pct": -18.24,
+        "price_vs_ma200_pct": -34.66
+      },
+      "52_week_range": {
+        "high_52w": 313.28,
+        "low_52w": 164.04,
+        "current_position_pct": 0.4,
+        "distance_from_high_pct": 47.44
+      },
+      "bollinger_bands": {
+        "upper": 210.26,
+        "middle": 186.67,
+        "lower": 163.08
+      },
+      "atr": {
+        "value": 5.55,
+        "atr_pct": 3.37
+      }
+    },
+    "signals": [
+      {
+        "indicator": "RSI",
+        "signal": "BUY",
+        "strength": "STRONG"
+      },
+      {
+        "indicator": "Williams %R",
+        "signal": "BUY",
+        "strength": "STRONG"
+      }
+    ],
+    "summary": {
+      "technical_signal": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
+      "technical_strength": "WEAK_BUY",
+      "buy_signals": 2,
+      "sell_signals": 0
+    }
+  },
+  "fundamental": {
+    "ticker": "SAP",
+    "timestamp": "2026-03-27T09:02:16.683197",
+    "scores": [
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "DOWN",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP"
+    ],
+    "ratios": {
+      "pe": {
+        "value": 23.26,
+        "score": "UP"
+      },
+      "pb": {
+        "value": 3.73,
+        "score": "UP"
+      },
+      "ps": {
+        "value": 5.26,
+        "score": "UP"
+      },
+      "current_ratio": {
+        "value": 1.16,
+        "score": "UP"
+      },
+      "debt_equity": {
+        "value": 16.59,
+        "score": "DOWN"
+      },
+      "roe": {
+        "value": 16.12,
+        "score": "UP"
+      },
+      "roa": {
+        "value": 9.01,
+        "score": "UP"
+      },
+      "gross_margin": {
+        "value": 73.76,
+        "score": "UP"
+      },
+      "operating_margin": {
+        "value": 29.21,
+        "score": "UP"
+      },
+      "net_margin": {
+        "value": 19.46,
+        "score": "UP"
+      }
+    },
+    "growth": {
+      "revenue_growth": {
+        "value": 3.3,
+        "score": "UP"
+      },
+      "earnings_growth": {
+        "value": 5.0,
+        "score": "UP"
+      }
+    },
+    "dividends": {
+      "yield": {
+        "value": 1.78
+      },
+      "payout_ratio": {
+        "value": 38.0,
+        "score": "UP"
+      }
+    },
+    "summary": {
+      "scores_up": 12,
+      "scores_total": 13,
+      "health_pct": 92.3,
+      "fundamental_signal": "\u2705 FUERTE",
+      "fundamental_score": "STRONG_BUY"
+    }
+  },
+  "combined": {
+    "ticker": "SAP",
+    "timestamp": "2026-03-27T09:02:17.220732",
+    "recommendation": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
+    "conviction": "MEDIA",
+    "scores": {
+      "technical": "WEAK_BUY",
+      "fundamental": "STRONG_BUY",
+      "combined": 1.4
+    },
+    "verdict": "$164.66 | RSI: 11.55 | 52W: 0.4%",
+    "thesis_bull": [
+      "Fundamentales s\u00f3lidos",
+      "RSI en zona de oportunidad"
+    ],
+    "thesis_bear": [],
+    "actions": [
+      "\u2705 ZONA DE COMPRA",
+      "\ud83d\udcb0 Considerar entrada progresiva"
+    ]
+  }
+}

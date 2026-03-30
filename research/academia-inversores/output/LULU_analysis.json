@@ -1,0 +1,180 @@
+{
+  "ticker": "LULU",
+  "generated_at": "2026-03-27T09:02:13.912838",
+  "technical": {
+    "ticker": "LULU",
+    "timestamp": "2026-03-27T09:02:13.089408",
+    "price_current": 146.0,
+    "price_change_pct": -21.15,
+    "indicators": {
+      "rsi": {
+        "value": 22.84,
+        "signal": "oversold",
+        "interpretation": "\u26a0\ufe0f SOBREVENTA"
+      },
+      "macd": {
+        "macd_value": -6.5522,
+        "signal_value": -5.5613,
+        "histogram": -0.991,
+        "crossover": "NEUTRAL"
+      },
+      "williams_r": {
+        "value": -98.83,
+        "signal": "oversold"
+      },
+      "adx": {
+        "value": 25.2,
+        "plus_di": 14.04,
+        "minus_di": 36.82,
+        "trend_strength": "STRONG",
+        "interpretation": "\ud83d\udcc8 Tendencia BEARISH FUERTE"
+      },
+      "moving_averages": {
+        "MA20": 163.82,
+        "MA50": 174.9,
+        "MA200": 190.6,
+        "price_vs_ma20_pct": -10.88,
+        "price_vs_ma50_pct": -16.53,
+        "price_vs_ma200_pct": -23.4
+      },
+      "52_week_range": {
+        "high_52w": 348.5,
+        "low_52w": 145.7,
+        "current_position_pct": 0.1,
+        "distance_from_high_pct": 58.11
+      },
+      "bollinger_bands": {
+        "upper": 179.29,
+        "middle": 163.82,
+        "lower": 148.34
+      },
+      "atr": {
+        "value": 6.11,
+        "atr_pct": 4.18
+      }
+    },
+    "signals": [
+      {
+        "indicator": "RSI",
+        "signal": "BUY",
+        "strength": "STRONG"
+      },
+      {
+        "indicator": "Williams %R",
+        "signal": "BUY",
+        "strength": "STRONG"
+      },
+      {
+        "indicator": "Bollinger",
+        "signal": "BUY",
+        "strength": "MEDIUM"
+      }
+    ],
+    "summary": {
+      "technical_signal": "\ud83d\udcc8 COMPRAR",
+      "technical_strength": "BUY",
+      "buy_signals": 3,
+      "sell_signals": 0
+    }
+  },
+  "fundamental": {
+    "ticker": "LULU",
+    "timestamp": "2026-03-27T09:02:13.285013",
+    "scores": [
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "DOWN",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "UP",
+      "DOWN"
+    ],
+    "ratios": {
+      "pe": {
+        "value": 11.01,
+        "score": "UP"
+      },
+      "pb": {
+        "value": 3.43,
+        "score": "UP"
+      },
+      "ps": {
+        "value": 1.54,
+        "score": "UP"
+      },
+      "current_ratio": {
+        "value": 2.26,
+        "score": "UP"
+      },
+      "debt_equity": {
+        "value": 36.24,
+        "score": "DOWN"
+      },
+      "roe": {
+        "value": 34.01,
+        "score": "UP"
+      },
+      "roa": {
+        "value": 17.21,
+        "score": "UP"
+      },
+      "gross_margin": {
+        "value": 56.6,
+        "score": "UP"
+      },
+      "operating_margin": {
+        "value": 22.31,
+        "score": "UP"
+      },
+      "net_margin": {
+        "value": 14.22,
+        "score": "UP"
+      }
+    },
+    "growth": {
+      "revenue_growth": {
+        "value": 0.8,
+        "score": "UP"
+      },
+      "earnings_growth": {
+        "value": -18.5,
+        "score": "DOWN"
+      }
+    },
+    "dividends": {},
+    "summary": {
+      "scores_up": 10,
+      "scores_total": 12,
+      "health_pct": 83.3,
+      "fundamental_signal": "\u2705 FUERTE",
+      "fundamental_score": "STRONG_BUY"
+    }
+  },
+  "combined": {
+    "ticker": "LULU",
+    "timestamp": "2026-03-27T09:02:13.912751",
+    "recommendation": "\ud83d\udcc8 COMPRAR",
+    "conviction": "ALTA",
+    "scores": {
+      "technical": "BUY",
+      "fundamental": "STRONG_BUY",
+      "combined": 1.6
+    },
+    "verdict": "$146.0 | RSI: 22.84 | 52W: 0.1%",
+    "thesis_bull": [
+      "Se\u00f1ales t\u00e9cnicas alcistas",
+      "Fundamentales s\u00f3lidos",
+      "RSI en zona de oportunidad"
+    ],
+    "thesis_bear": [],
+    "actions": [
+      "\u2705 ZONA DE COMPRA",
+      "\ud83d\udcb0 Considerar entrada progresiva"
+    ]
+  }
+}
