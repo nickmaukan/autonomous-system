@@ -1,0 +1,47 @@
+📊 BOLETÍN DE INVERSIÓN | 2026-03-31
+==================================================
+
+📈 RESUMEN DE MERCADO
+------------------------------
+• S&P 500, Dow Jones, Nasdaq en monitoreo
+• Mercados mostrando volatilidad esta semana
+• Atención a reportes de earnings
+• Commodities (Oro, Petróleo) en foco
+
+🎯 TOP OPORTUNIDADES (Análisis Propio)
+------------------------------
+🔥 LULU: $145.83 | RSI: 24.62 | Score: 1.6
+   → ⚠️ RSI en SOBREVENTA - Posible zona de compra
+
+✅ MSFT: $358.96 | RSI: 12.4 | Score: 1.4
+   → ⚠️ RSI en SOBREVENTA - Posible zona de compra
+
+✅ META: $536.38 | RSI: 19.7 | Score: 1.4
+   → ⚠️ RSI en SOBREVENTA - Posible zona de compra
+
+✅ SAP: $168.29 | RSI: 20.53 | Score: 1.4
+   → ⚠️ RSI en SOBREVENTA - Posible zona de compra
+
+✅ V: $299.54 | RSI: 33.28 | Score: 1.2
+
+💡 INSIGHTS DEL ANÁLISIS
+------------------------------
+🔥 1 acciones con convicción ALTA:
+   • LULU: 📈 COMPRAR
+
+👀 ACCIONES EN VIGILANCIA
+------------------------------
+• META, SAP: En zona de compra técnica (RSI < 30)
+• V, RACE: Mínimos de 52 semanas - evaluar soporte
+• NVDA: fundamentals fuertes pero técnica neutral
+
+📋 PLAN DE ACCIÓN
+------------------------------
+1. Revisar posiciones actuales vs rankings
+2. Considerar agregar en dips a SAP, META
+3. Vigilar V y RACE para entradas estratégicas
+4. Trading Bot retoma mañana 14:00 UTC
+
+——————————————————————————————
+Generado: 2026-03-31 08:00 | Stock Analyzer v1.1
+⚡ Powered by Academia de Inversores methodology

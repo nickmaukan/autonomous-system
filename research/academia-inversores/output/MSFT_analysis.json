@@ -1,56 +1,56 @@
 {
   "ticker": "MSFT",
-  "generated_at": "2026-03-27T09:02:11.286629",
+  "generated_at": "2026-04-01T08:00:15.132677",
   "technical": {
     "ticker": "MSFT",
-    "timestamp": "2026-03-27T09:02:09.605606",
-    "price_current": 357.76,
-    "price_change_pct": -8.91,
+    "timestamp": "2026-04-01T08:00:13.223339",
+    "price_current": 370.17,
+    "price_change_pct": -8.36,
     "indicators": {
       "rsi": {
-        "value": 8.82,
+        "value": 26.09,
         "signal": "oversold",
         "interpretation": "\u26a0\ufe0f SOBREVENTA"
       },
       "macd": {
-        "macd_value": -12.2206,
-        "signal_value": -9.3358,
-        "histogram": -2.8848,
+        "macd_value": -12.6451,
+        "signal_value": -10.6066,
+        "histogram": -2.0385,
         "crossover": "NEUTRAL"
       },
       "williams_r": {
-        "value": -99.0,
-        "signal": "oversold"
+        "value": -72.13,
+        "signal": "neutral"
       },
       "adx": {
-        "value": 30.82,
-        "plus_di": 13.68,
-        "minus_di": 49.16,
+        "value": 32.35,
+        "plus_di": 19.69,
+        "minus_di": 39.81,
         "trend_strength": "STRONG",
         "interpretation": "\ud83d\udcc8 Tendencia BEARISH FUERTE"
       },
       "moving_averages": {
-        "MA20": 392.87,
-        "MA50": 410.04,
-        "MA200": 477.38,
-        "price_vs_ma20_pct": -8.94,
-        "price_vs_ma50_pct": -12.75,
-        "price_vs_ma200_pct": -25.06
+        "MA20": 389.15,
+        "MA50": 406.31,
+        "MA200": 476.29,
+        "price_vs_ma20_pct": -4.88,
+        "price_vs_ma50_pct": -8.9,
+        "price_vs_ma200_pct": -22.28
       },
       "52_week_range": {
         "high_52w": 552.24,
         "low_52w": 342.17,
-        "current_position_pct": 7.4,
-        "distance_from_high_pct": 35.22
+        "current_position_pct": 13.3,
+        "distance_from_high_pct": 32.97
       },
       "bollinger_bands": {
-        "upper": 424.39,
-        "middle": 392.87,
-        "lower": 361.34
+        "upper": 424.76,
+        "middle": 389.15,
+        "lower": 353.54
       },
       "atr": {
-        "value": 7.66,
-        "atr_pct": 2.14
+        "value": 8.31,
+        "atr_pct": 2.24
       }
     },
     "signals": [
@@ -58,28 +58,18 @@
         "indicator": "RSI",
         "signal": "BUY",
         "strength": "STRONG"
-      },
-      {
-        "indicator": "Williams %R",
-        "signal": "BUY",
-        "strength": "STRONG"
-      },
-      {
-        "indicator": "Bollinger",
-        "signal": "BUY",
-        "strength": "MEDIUM"
       }
     ],
     "summary": {
-      "technical_signal": "\ud83d\udcc8 COMPRAR",
-      "technical_strength": "BUY",
-      "buy_signals": 3,
+      "technical_signal": "\u2696\ufe0f NEUTRAL",
+      "technical_strength": "NEUTRAL",
+      "buy_signals": 1,
       "sell_signals": 0
     }
   },
   "fundamental": {
     "ticker": "MSFT",
-    "timestamp": "2026-03-27T09:02:10.628769",
+    "timestamp": "2026-04-01T08:00:14.468847",
     "scores": [
       "UP",
       "DOWN",
@@ -97,15 +87,15 @@
     ],
     "ratios": {
       "pe": {
-        "value": 22.38,
+        "value": 23.15,
         "score": "UP"
       },
       "pb": {
-        "value": 6.8,
+        "value": 7.04,
         "score": "DOWN"
       },
       "ps": {
-        "value": 8.71,
+        "value": 9.01,
         "score": "UP"
       },
       "current_ratio": {
@@ -149,7 +139,7 @@
     },
     "dividends": {
       "yield": {
-        "value": 0.99
+        "value": 0.98
       },
       "payout_ratio": {
         "value": 21.28,
@@ -166,17 +156,16 @@
   },
   "combined": {
     "ticker": "MSFT",
-    "timestamp": "2026-03-27T09:02:11.286454",
-    "recommendation": "\ud83d\udcc8 COMPRAR",
-    "conviction": "ALTA",
+    "timestamp": "2026-04-01T08:00:15.132582",
+    "recommendation": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
+    "conviction": "MEDIA",
     "scores": {
-      "technical": "BUY",
+      "technical": "NEUTRAL",
       "fundamental": "STRONG_BUY",
-      "combined": 1.6
+      "combined": 1.2
     },
-    "verdict": "$357.76 | RSI: 8.82 | 52W: 7.4%",
+    "verdict": "$370.17 | RSI: 26.09 | 52W: 13.3%",
     "thesis_bull": [
-      "Se\u00f1ales t\u00e9cnicas alcistas",
       "Fundamentales s\u00f3lidos",
       "RSI en zona de oportunidad"
     ],

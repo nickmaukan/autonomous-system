@@ -1,85 +1,75 @@
 {
   "ticker": "ADP",
-  "generated_at": "2026-03-27T09:02:13.086712",
+  "generated_at": "2026-04-01T08:00:16.816320",
   "technical": {
     "ticker": "ADP",
-    "timestamp": "2026-03-27T09:02:12.238089",
-    "price_current": 201.5,
-    "price_change_pct": -5.22,
+    "timestamp": "2026-04-01T08:00:15.961015",
+    "price_current": 203.18,
+    "price_change_pct": -5.28,
     "indicators": {
       "rsi": {
-        "value": 24.9,
-        "signal": "oversold",
-        "interpretation": "\u26a0\ufe0f SOBREVENTA"
+        "value": 38.81,
+        "signal": "neutral",
+        "interpretation": "\u2705 Neutral"
       },
       "macd": {
-        "macd_value": -5.109,
-        "signal_value": -5.0464,
-        "histogram": -0.0627,
-        "crossover": "BEARISH"
+        "macd_value": -4.8124,
+        "signal_value": -4.9755,
+        "histogram": 0.1632,
+        "crossover": "NEUTRAL"
       },
       "williams_r": {
-        "value": -86.77,
-        "signal": "oversold"
+        "value": -70.78,
+        "signal": "neutral"
       },
       "adx": {
-        "value": 24.32,
-        "plus_di": 14.07,
-        "minus_di": 28.34,
+        "value": 24.57,
+        "plus_di": 17.54,
+        "minus_di": 27.87,
         "trend_strength": "WEAK",
         "interpretation": "\u2696\ufe0f Sin tendencia clara (ADX < 25)"
       },
       "moving_averages": {
-        "MA20": 210.99,
-        "MA50": 223.25,
-        "MA200": 265.55,
-        "price_vs_ma20_pct": -4.5,
-        "price_vs_ma50_pct": -9.74,
-        "price_vs_ma200_pct": -24.12
+        "MA20": 210.03,
+        "MA50": 221.09,
+        "MA200": 264.56,
+        "price_vs_ma20_pct": -3.26,
+        "price_vs_ma50_pct": -8.1,
+        "price_vs_ma200_pct": -23.2
       },
       "52_week_range": {
         "high_52w": 321.84,
         "low_52w": 198.59,
-        "current_position_pct": 2.4,
-        "distance_from_high_pct": 37.39
+        "current_position_pct": 3.7,
+        "distance_from_high_pct": 36.87
       },
       "bollinger_bands": {
-        "upper": 223.48,
-        "middle": 210.99,
-        "lower": 198.51
+        "upper": 223.01,
+        "middle": 210.03,
+        "lower": 197.04
       },
       "atr": {
-        "value": 6.02,
-        "atr_pct": 2.99
+        "value": 5.56,
+        "atr_pct": 2.74
       }
     },
     "signals": [
       {
         "indicator": "RSI",
-        "signal": "BUY",
-        "strength": "STRONG"
-      },
-      {
-        "indicator": "MACD",
-        "signal": "SELL",
-        "strength": "MEDIUM"
-      },
-      {
-        "indicator": "Williams %R",
-        "signal": "BUY",
-        "strength": "STRONG"
+        "signal": "NEUTRAL",
+        "strength": "WEAK"
       }
     ],
     "summary": {
-      "technical_signal": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
-      "technical_strength": "WEAK_BUY",
-      "buy_signals": 2,
-      "sell_signals": 1
+      "technical_signal": "\u2696\ufe0f NEUTRAL",
+      "technical_strength": "NEUTRAL",
+      "buy_signals": 0,
+      "sell_signals": 0
     }
   },
   "fundamental": {
     "ticker": "ADP",
-    "timestamp": "2026-03-27T09:02:12.486372",
+    "timestamp": "2026-04-01T08:00:16.217174",
     "scores": [
       "UP",
       "DOWN",
@@ -97,15 +87,15 @@
     ],
     "ratios": {
       "pe": {
-        "value": 19.36,
+        "value": 19.54,
         "score": "UP"
       },
       "pb": {
-        "value": 12.7,
+        "value": 12.81,
         "score": "DOWN"
       },
       "ps": {
-        "value": 3.84,
+        "value": 3.87,
         "score": "UP"
       },
       "current_ratio": {
@@ -149,7 +139,7 @@
     },
     "dividends": {
       "yield": {
-        "value": 3.33
+        "value": 3.35
       },
       "payout_ratio": {
         "value": 60.71,
@@ -166,18 +156,17 @@
   },
   "combined": {
     "ticker": "ADP",
-    "timestamp": "2026-03-27T09:02:13.086628",
+    "timestamp": "2026-04-01T08:00:16.816203",
     "recommendation": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
     "conviction": "MEDIA",
     "scores": {
-      "technical": "WEAK_BUY",
+      "technical": "NEUTRAL",
       "fundamental": "BUY",
-      "combined": 0.8
+      "combined": 0.6
     },
-    "verdict": "$201.5 | RSI: 24.9 | 52W: 2.4%",
+    "verdict": "$203.18 | RSI: 38.81 | 52W: 3.7%",
     "thesis_bull": [
-      "Fundamentales s\u00f3lidos",
-      "RSI en zona de oportunidad"
+      "Fundamentales s\u00f3lidos"
     ],
     "thesis_bear": [],
     "actions": [

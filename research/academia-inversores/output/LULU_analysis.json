@@ -1,85 +1,75 @@
 {
   "ticker": "LULU",
-  "generated_at": "2026-03-27T09:02:13.912838",
+  "generated_at": "2026-04-01T08:00:17.615853",
   "technical": {
     "ticker": "LULU",
-    "timestamp": "2026-03-27T09:02:13.089408",
-    "price_current": 146.0,
-    "price_change_pct": -21.15,
+    "timestamp": "2026-04-01T08:00:16.820511",
+    "price_current": 153.1,
+    "price_change_pct": -12.15,
     "indicators": {
       "rsi": {
-        "value": 22.84,
-        "signal": "oversold",
-        "interpretation": "\u26a0\ufe0f SOBREVENTA"
+        "value": 39.04,
+        "signal": "neutral",
+        "interpretation": "\u2705 Neutral"
       },
       "macd": {
-        "macd_value": -6.5522,
-        "signal_value": -5.5613,
-        "histogram": -0.991,
+        "macd_value": -6.9517,
+        "signal_value": -6.0954,
+        "histogram": -0.8562,
         "crossover": "NEUTRAL"
       },
       "williams_r": {
-        "value": -98.83,
-        "signal": "oversold"
+        "value": -64.07,
+        "signal": "neutral"
       },
       "adx": {
-        "value": 25.2,
-        "plus_di": 14.04,
-        "minus_di": 36.82,
+        "value": 27.17,
+        "plus_di": 17.25,
+        "minus_di": 32.58,
         "trend_strength": "STRONG",
         "interpretation": "\ud83d\udcc8 Tendencia BEARISH FUERTE"
       },
       "moving_averages": {
-        "MA20": 163.82,
-        "MA50": 174.9,
-        "MA200": 190.6,
-        "price_vs_ma20_pct": -10.88,
-        "price_vs_ma50_pct": -16.53,
-        "price_vs_ma200_pct": -23.4
+        "MA20": 161.23,
+        "MA50": 172.74,
+        "MA200": 189.59,
+        "price_vs_ma20_pct": -5.04,
+        "price_vs_ma50_pct": -11.37,
+        "price_vs_ma200_pct": -19.25
       },
       "52_week_range": {
-        "high_52w": 348.5,
-        "low_52w": 145.7,
-        "current_position_pct": 0.1,
-        "distance_from_high_pct": 58.11
+        "high_52w": 340.25,
+        "low_52w": 143.96,
+        "current_position_pct": 4.7,
+        "distance_from_high_pct": 55.0
       },
       "bollinger_bands": {
-        "upper": 179.29,
-        "middle": 163.82,
-        "lower": 148.34
+        "upper": 177.03,
+        "middle": 161.23,
+        "lower": 145.43
       },
       "atr": {
-        "value": 6.11,
-        "atr_pct": 4.18
+        "value": 6.28,
+        "atr_pct": 4.1
       }
     },
     "signals": [
       {
         "indicator": "RSI",
-        "signal": "BUY",
-        "strength": "STRONG"
-      },
-      {
-        "indicator": "Williams %R",
-        "signal": "BUY",
-        "strength": "STRONG"
-      },
-      {
-        "indicator": "Bollinger",
-        "signal": "BUY",
-        "strength": "MEDIUM"
+        "signal": "NEUTRAL",
+        "strength": "WEAK"
       }
     ],
     "summary": {
-      "technical_signal": "\ud83d\udcc8 COMPRAR",
-      "technical_strength": "BUY",
-      "buy_signals": 3,
+      "technical_signal": "\u2696\ufe0f NEUTRAL",
+      "technical_strength": "NEUTRAL",
+      "buy_signals": 0,
       "sell_signals": 0
     }
   },
   "fundamental": {
     "ticker": "LULU",
-    "timestamp": "2026-03-27T09:02:13.285013",
+    "timestamp": "2026-04-01T08:00:17.023227",
     "scores": [
       "UP",
       "UP",
@@ -96,15 +86,15 @@
     ],
     "ratios": {
       "pe": {
-        "value": 11.01,
+        "value": 11.55,
         "score": "UP"
       },
       "pb": {
-        "value": 3.43,
+        "value": 3.59,
         "score": "UP"
       },
       "ps": {
-        "value": 1.54,
+        "value": 1.62,
         "score": "UP"
       },
       "current_ratio": {
@@ -157,19 +147,17 @@
   },
   "combined": {
     "ticker": "LULU",
-    "timestamp": "2026-03-27T09:02:13.912751",
-    "recommendation": "\ud83d\udcc8 COMPRAR",
-    "conviction": "ALTA",
+    "timestamp": "2026-04-01T08:00:17.615776",
+    "recommendation": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
+    "conviction": "MEDIA",
     "scores": {
-      "technical": "BUY",
+      "technical": "NEUTRAL",
       "fundamental": "STRONG_BUY",
-      "combined": 1.6
+      "combined": 1.2
     },
-    "verdict": "$146.0 | RSI: 22.84 | 52W: 0.1%",
+    "verdict": "$153.1 | RSI: 39.04 | 52W: 4.7%",
     "thesis_bull": [
-      "Se\u00f1ales t\u00e9cnicas alcistas",
-      "Fundamentales s\u00f3lidos",
-      "RSI en zona de oportunidad"
+      "Fundamentales s\u00f3lidos"
     ],
     "thesis_bear": [],
     "actions": [

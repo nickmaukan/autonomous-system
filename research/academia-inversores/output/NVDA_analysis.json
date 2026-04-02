@@ -1,56 +1,56 @@
 {
   "ticker": "NVDA",
-  "generated_at": "2026-03-27T09:02:14.899933",
+  "generated_at": "2026-04-01T08:00:18.412755",
   "technical": {
     "ticker": "NVDA",
-    "timestamp": "2026-03-27T09:02:13.915510",
-    "price_current": 168.56,
-    "price_change_pct": -4.87,
+    "timestamp": "2026-04-01T08:00:17.618360",
+    "price_current": 174.4,
+    "price_change_pct": -3.13,
     "indicators": {
       "rsi": {
-        "value": 32.24,
+        "value": 38.1,
         "signal": "neutral",
         "interpretation": "\u2705 Neutral"
       },
       "macd": {
-        "macd_value": -3.3064,
-        "signal_value": -2.2218,
-        "histogram": -1.0846,
+        "macd_value": -3.7385,
+        "signal_value": -2.8241,
+        "histogram": -0.9145,
         "crossover": "NEUTRAL"
       },
       "williams_r": {
-        "value": -98.02,
-        "signal": "oversold"
+        "value": -58.84,
+        "signal": "neutral"
       },
       "adx": {
-        "value": 18.11,
-        "plus_di": 20.46,
-        "minus_di": 38.79,
+        "value": 19.7,
+        "plus_di": 22.45,
+        "minus_di": 34.47,
         "trend_strength": "WEAK",
         "interpretation": "\u2696\ufe0f Sin tendencia clara (ADX < 25)"
       },
       "moving_averages": {
-        "MA20": 179.48,
-        "MA50": 183.5,
-        "MA200": 179.21,
-        "price_vs_ma20_pct": -6.09,
-        "price_vs_ma50_pct": -8.14,
-        "price_vs_ma200_pct": -5.94
+        "MA20": 178.28,
+        "MA50": 182.81,
+        "MA200": 179.47,
+        "price_vs_ma20_pct": -2.18,
+        "price_vs_ma50_pct": -4.6,
+        "price_vs_ma200_pct": -2.82
       },
       "52_week_range": {
         "high_52w": 212.17,
         "low_52w": 86.6,
-        "current_position_pct": 65.3,
-        "distance_from_high_pct": 20.55
+        "current_position_pct": 69.9,
+        "distance_from_high_pct": 17.8
       },
       "bollinger_bands": {
-        "upper": 188.92,
-        "middle": 179.48,
-        "lower": 170.05
+        "upper": 189.88,
+        "middle": 178.28,
+        "lower": 166.68
       },
       "atr": {
-        "value": 4.96,
-        "atr_pct": 2.94
+        "value": 5.54,
+        "atr_pct": 3.18
       }
     },
     "signals": [
@@ -58,30 +58,20 @@
         "indicator": "RSI",
         "signal": "NEUTRAL",
         "strength": "WEAK"
-      },
-      {
-        "indicator": "Williams %R",
-        "signal": "BUY",
-        "strength": "STRONG"
-      },
-      {
-        "indicator": "Bollinger",
-        "signal": "BUY",
-        "strength": "MEDIUM"
       }
     ],
     "summary": {
-      "technical_signal": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
-      "technical_strength": "WEAK_BUY",
-      "buy_signals": 2,
+      "technical_signal": "\u2696\ufe0f NEUTRAL",
+      "technical_strength": "NEUTRAL",
+      "buy_signals": 0,
       "sell_signals": 0
     }
   },
   "fundamental": {
     "ticker": "NVDA",
-    "timestamp": "2026-03-27T09:02:14.242462",
+    "timestamp": "2026-04-01T08:00:17.829075",
     "scores": [
-      "UP",
+      "DOWN",
       "DOWN",
       "DOWN",
       "DOWN",
@@ -97,15 +87,15 @@
     ],
     "ratios": {
       "pe": {
-        "value": 34.4,
-        "score": "UP"
+        "value": 35.59,
+        "score": "DOWN"
       },
       "pb": {
-        "value": 26.04,
+        "value": 26.95,
         "score": "DOWN"
       },
       "ps": {
-        "value": 18.97,
+        "value": 19.63,
         "score": "DOWN"
       },
       "current_ratio": {
@@ -157,27 +147,26 @@
       }
     },
     "summary": {
-      "scores_up": 9,
+      "scores_up": 8,
       "scores_total": 13,
-      "health_pct": 69.2,
+      "health_pct": 61.5,
       "fundamental_signal": "\u2705 BUENO",
       "fundamental_score": "BUY"
     }
   },
   "combined": {
     "ticker": "NVDA",
-    "timestamp": "2026-03-27T09:02:14.899721",
+    "timestamp": "2026-04-01T08:00:18.412669",
     "recommendation": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
     "conviction": "MEDIA",
     "scores": {
-      "technical": "WEAK_BUY",
+      "technical": "NEUTRAL",
       "fundamental": "BUY",
-      "combined": 0.8
+      "combined": 0.6
     },
-    "verdict": "$168.56 | RSI: 32.24 | 52W: 65.3%",
+    "verdict": "$174.4 | RSI: 38.1 | 52W: 69.9%",
     "thesis_bull": [
-      "Fundamentales s\u00f3lidos",
-      "RSI en zona de oportunidad"
+      "Fundamentales s\u00f3lidos"
     ],
     "thesis_bear": [],
     "actions": [

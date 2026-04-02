@@ -1,56 +1,56 @@
 {
   "ticker": "AMZN",
-  "generated_at": "2026-03-27T09:02:16.432381",
+  "generated_at": "2026-04-01T08:00:20.010480",
   "technical": {
     "ticker": "AMZN",
-    "timestamp": "2026-03-27T09:02:15.700612",
-    "price_current": 201.66,
-    "price_change_pct": -3.97,
+    "timestamp": "2026-04-01T08:00:19.225010",
+    "price_current": 208.27,
+    "price_change_pct": -0.22,
     "indicators": {
       "rsi": {
-        "value": 37.43,
+        "value": 46.07,
         "signal": "neutral",
         "interpretation": "\u2705 Neutral"
       },
       "macd": {
-        "macd_value": -2.4746,
-        "signal_value": -2.274,
-        "histogram": -0.2007,
-        "crossover": "BEARISH"
+        "macd_value": -2.7118,
+        "signal_value": -2.5071,
+        "histogram": -0.2047,
+        "crossover": "NEUTRAL"
       },
       "williams_r": {
-        "value": -97.15,
-        "signal": "oversold"
+        "value": -44.87,
+        "signal": "neutral"
       },
       "adx": {
-        "value": 16.72,
-        "plus_di": 25.61,
-        "minus_di": 40.08,
+        "value": 16.91,
+        "plus_di": 28.46,
+        "minus_di": 33.74,
         "trend_strength": "WEAK",
         "interpretation": "\u2696\ufe0f Sin tendencia clara (ADX < 25)"
       },
       "moving_averages": {
-        "MA20": 210.65,
-        "MA50": 217.25,
-        "MA200": 224.69,
-        "price_vs_ma20_pct": -4.27,
-        "price_vs_ma50_pct": -7.17,
-        "price_vs_ma200_pct": -10.25
+        "MA20": 210.14,
+        "MA50": 215.84,
+        "MA200": 224.59,
+        "price_vs_ma20_pct": -0.89,
+        "price_vs_ma50_pct": -3.51,
+        "price_vs_ma200_pct": -7.27
       },
       "52_week_range": {
         "high_52w": 258.6,
         "low_52w": 161.38,
-        "current_position_pct": 41.4,
-        "distance_from_high_pct": 22.02
+        "current_position_pct": 48.2,
+        "distance_from_high_pct": 19.46
       },
       "bollinger_bands": {
-        "upper": 218.8,
-        "middle": 210.65,
-        "lower": 202.5
+        "upper": 219.85,
+        "middle": 210.14,
+        "lower": 200.43
       },
       "atr": {
-        "value": 5.03,
-        "atr_pct": 2.49
+        "value": 5.53,
+        "atr_pct": 2.66
       }
     },
     "signals": [
@@ -58,33 +58,18 @@
         "indicator": "RSI",
         "signal": "NEUTRAL",
         "strength": "WEAK"
-      },
-      {
-        "indicator": "MACD",
-        "signal": "SELL",
-        "strength": "MEDIUM"
-      },
-      {
-        "indicator": "Williams %R",
-        "signal": "BUY",
-        "strength": "STRONG"
-      },
-      {
-        "indicator": "Bollinger",
-        "signal": "BUY",
-        "strength": "MEDIUM"
       }
     ],
     "summary": {
-      "technical_signal": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
-      "technical_strength": "WEAK_BUY",
-      "buy_signals": 2,
-      "sell_signals": 1
+      "technical_signal": "\u2696\ufe0f NEUTRAL",
+      "technical_strength": "NEUTRAL",
+      "buy_signals": 0,
+      "sell_signals": 0
     }
   },
   "fundamental": {
     "ticker": "AMZN",
-    "timestamp": "2026-03-27T09:02:15.889515",
+    "timestamp": "2026-04-01T08:00:19.424727",
     "scores": [
       "UP",
       "DOWN",
@@ -101,15 +86,15 @@
     ],
     "ratios": {
       "pe": {
-        "value": 28.16,
+        "value": 29.09,
         "score": "UP"
       },
       "pb": {
-        "value": 5.26,
+        "value": 5.44,
         "score": "DOWN"
       },
       "ps": {
-        "value": 3.02,
+        "value": 3.12,
         "score": "UP"
       },
       "current_ratio": {
@@ -162,15 +147,15 @@
   },
   "combined": {
     "ticker": "AMZN",
-    "timestamp": "2026-03-27T09:02:16.432278",
+    "timestamp": "2026-04-01T08:00:20.010440",
     "recommendation": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
     "conviction": "MEDIA",
     "scores": {
-      "technical": "WEAK_BUY",
+      "technical": "NEUTRAL",
       "fundamental": "STRONG_BUY",
-      "combined": 1.4
+      "combined": 1.2
     },
-    "verdict": "$201.66 | RSI: 37.43 | 52W: 41.4%",
+    "verdict": "$208.27 | RSI: 46.07 | 52W: 48.2%",
     "thesis_bull": [
       "Fundamentales s\u00f3lidos"
     ],

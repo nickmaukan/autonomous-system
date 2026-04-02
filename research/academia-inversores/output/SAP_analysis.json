@@ -1,56 +1,56 @@
 {
   "ticker": "SAP",
-  "generated_at": "2026-03-27T09:02:17.220822",
+  "generated_at": "2026-04-01T08:00:20.860344",
   "technical": {
     "ticker": "SAP",
-    "timestamp": "2026-03-27T09:02:16.434567",
-    "price_current": 164.66,
-    "price_change_pct": -18.3,
+    "timestamp": "2026-04-01T08:00:20.011578",
+    "price_current": 171.21,
+    "price_change_pct": -12.79,
     "indicators": {
       "rsi": {
-        "value": 11.55,
+        "value": 27.78,
         "signal": "oversold",
         "interpretation": "\u26a0\ufe0f SOBREVENTA"
       },
       "macd": {
-        "macd_value": -9.9397,
-        "signal_value": -8.0651,
-        "histogram": -1.8746,
+        "macd_value": -9.6554,
+        "signal_value": -8.6988,
+        "histogram": -0.9566,
         "crossover": "NEUTRAL"
       },
       "williams_r": {
-        "value": -98.28,
-        "signal": "oversold"
+        "value": -75.98,
+        "signal": "neutral"
       },
       "adx": {
-        "value": 39.07,
-        "plus_di": 13.9,
-        "minus_di": 45.82,
+        "value": 39.17,
+        "plus_di": 19.27,
+        "minus_di": 40.81,
         "trend_strength": "STRONG",
         "interpretation": "\ud83d\udcc8 Tendencia BEARISH FUERTE"
       },
       "moving_averages": {
-        "MA20": 186.67,
-        "MA50": 201.38,
-        "MA200": 251.99,
-        "price_vs_ma20_pct": -11.79,
-        "price_vs_ma50_pct": -18.24,
-        "price_vs_ma200_pct": -34.66
+        "MA20": 184.0,
+        "MA50": 198.77,
+        "MA200": 250.68,
+        "price_vs_ma20_pct": -6.95,
+        "price_vs_ma50_pct": -13.87,
+        "price_vs_ma200_pct": -31.7
       },
       "52_week_range": {
         "high_52w": 313.28,
-        "low_52w": 164.04,
-        "current_position_pct": 0.4,
-        "distance_from_high_pct": 47.44
+        "low_52w": 163.77,
+        "current_position_pct": 5.0,
+        "distance_from_high_pct": 45.35
       },
       "bollinger_bands": {
-        "upper": 210.26,
-        "middle": 186.67,
-        "lower": 163.08
+        "upper": 208.81,
+        "middle": 184.0,
+        "lower": 159.18
       },
       "atr": {
-        "value": 5.55,
-        "atr_pct": 3.37
+        "value": 5.41,
+        "atr_pct": 3.16
       }
     },
     "signals": [
@@ -58,23 +58,18 @@
         "indicator": "RSI",
         "signal": "BUY",
         "strength": "STRONG"
-      },
-      {
-        "indicator": "Williams %R",
-        "signal": "BUY",
-        "strength": "STRONG"
       }
     ],
     "summary": {
-      "technical_signal": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
-      "technical_strength": "WEAK_BUY",
-      "buy_signals": 2,
+      "technical_signal": "\u2696\ufe0f NEUTRAL",
+      "technical_strength": "NEUTRAL",
+      "buy_signals": 1,
       "sell_signals": 0
     }
   },
   "fundamental": {
     "ticker": "SAP",
-    "timestamp": "2026-03-27T09:02:16.683197",
+    "timestamp": "2026-04-01T08:00:20.238242",
     "scores": [
       "UP",
       "UP",
@@ -92,15 +87,15 @@
     ],
     "ratios": {
       "pe": {
-        "value": 23.26,
+        "value": 24.46,
         "score": "UP"
       },
       "pb": {
-        "value": 3.73,
+        "value": 3.91,
         "score": "UP"
       },
       "ps": {
-        "value": 5.26,
+        "value": 5.47,
         "score": "UP"
       },
       "current_ratio": {
@@ -144,7 +139,7 @@
     },
     "dividends": {
       "yield": {
-        "value": 1.78
+        "value": 1.73
       },
       "payout_ratio": {
         "value": 38.0,
@@ -161,15 +156,15 @@
   },
   "combined": {
     "ticker": "SAP",
-    "timestamp": "2026-03-27T09:02:17.220732",
+    "timestamp": "2026-04-01T08:00:20.860264",
     "recommendation": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
     "conviction": "MEDIA",
     "scores": {
-      "technical": "WEAK_BUY",
+      "technical": "NEUTRAL",
       "fundamental": "STRONG_BUY",
-      "combined": 1.4
+      "combined": 1.2
     },
-    "verdict": "$164.66 | RSI: 11.55 | 52W: 0.4%",
+    "verdict": "$171.21 | RSI: 27.78 | 52W: 5.0%",
     "thesis_bull": [
       "Fundamentales s\u00f3lidos",
       "RSI en zona de oportunidad"
