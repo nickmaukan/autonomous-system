@@ -1,56 +1,56 @@
 {
   "ticker": "V",
-  "generated_at": "2026-04-01T08:00:15.958492",
+  "generated_at": "2026-04-08T08:00:15.443389",
   "technical": {
     "ticker": "V",
-    "timestamp": "2026-04-01T08:00:15.136898",
-    "price_current": 302.24,
-    "price_change_pct": -5.79,
+    "timestamp": "2026-04-08T08:00:14.694848",
+    "price_current": 302.55,
+    "price_change_pct": -4.25,
     "indicators": {
       "rsi": {
-        "value": 41.95,
+        "value": 43.19,
         "signal": "neutral",
         "interpretation": "\u2705 Neutral"
       },
       "macd": {
-        "macd_value": -5.0713,
-        "signal_value": -5.1066,
-        "histogram": 0.0353,
-        "crossover": "BULLISH"
+        "macd_value": -4.1259,
+        "signal_value": -4.7757,
+        "histogram": 0.6498,
+        "crossover": "NEUTRAL"
       },
       "williams_r": {
-        "value": -56.89,
+        "value": -40.69,
         "signal": "neutral"
       },
       "adx": {
-        "value": 27.03,
-        "plus_di": 17.36,
-        "minus_di": 29.78,
+        "value": 25.7,
+        "plus_di": 15.79,
+        "minus_di": 22.46,
         "trend_strength": "STRONG",
         "interpretation": "\ud83d\udcc8 Tendencia BEARISH FUERTE"
       },
       "moving_averages": {
-        "MA20": 307.27,
-        "MA50": 316.65,
-        "MA200": 335.97,
-        "price_vs_ma20_pct": -1.64,
-        "price_vs_ma50_pct": -4.55,
-        "price_vs_ma200_pct": -10.04
+        "MA20": 303.85,
+        "MA50": 314.74,
+        "MA200": 335.0,
+        "price_vs_ma20_pct": -0.43,
+        "price_vs_ma50_pct": -3.87,
+        "price_vs_ma200_pct": -9.69
       },
       "52_week_range": {
         "high_52w": 373.34,
-        "low_52w": 294.32,
-        "current_position_pct": 10.0,
-        "distance_from_high_pct": 19.04
+        "low_52w": 293.89,
+        "current_position_pct": 10.9,
+        "distance_from_high_pct": 18.96
       },
       "bollinger_bands": {
-        "upper": 321.65,
-        "middle": 307.27,
-        "lower": 292.9
+        "upper": 312.99,
+        "middle": 303.85,
+        "lower": 294.72
       },
       "atr": {
-        "value": 5.96,
-        "atr_pct": 1.97
+        "value": 6.56,
+        "atr_pct": 2.17
       }
     },
     "signals": [
@@ -58,23 +58,18 @@
         "indicator": "RSI",
         "signal": "NEUTRAL",
         "strength": "WEAK"
-      },
-      {
-        "indicator": "MACD",
-        "signal": "BUY",
-        "strength": "MEDIUM"
       }
     ],
     "summary": {
       "technical_signal": "\u2696\ufe0f NEUTRAL",
       "technical_strength": "NEUTRAL",
-      "buy_signals": 1,
+      "buy_signals": 0,
       "sell_signals": 0
     }
   },
   "fundamental": {
     "ticker": "V",
-    "timestamp": "2026-04-01T08:00:15.355275",
+    "timestamp": "2026-04-08T08:00:14.907478",
     "scores": [
       "UP",
       "DOWN",
@@ -96,11 +91,11 @@
         "score": "UP"
       },
       "pb": {
-        "value": 15.09,
+        "value": 15.1,
         "score": "DOWN"
       },
       "ps": {
-        "value": 14.08,
+        "value": 14.09,
         "score": "DOWN"
       },
       "current_ratio": {
@@ -144,7 +139,7 @@
     },
     "dividends": {
       "yield": {
-        "value": 0.89
+        "value": 0.88
       },
       "payout_ratio": {
         "value": 22.91,
@@ -161,7 +156,7 @@
   },
   "combined": {
     "ticker": "V",
-    "timestamp": "2026-04-01T08:00:15.958395",
+    "timestamp": "2026-04-08T08:00:15.443293",
     "recommendation": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
     "conviction": "MEDIA",
     "scores": {
@@ -169,7 +164,7 @@
       "fundamental": "STRONG_BUY",
       "combined": 1.2
     },
-    "verdict": "$302.24 | RSI: 41.95 | 52W: 10.0%",
+    "verdict": "$302.55 | RSI: 43.19 | 52W: 10.9%",
     "thesis_bull": [
       "Fundamentales s\u00f3lidos"
     ],

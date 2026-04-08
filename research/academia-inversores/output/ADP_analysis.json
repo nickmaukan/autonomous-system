@@ -1,56 +1,56 @@
 {
   "ticker": "ADP",
-  "generated_at": "2026-04-01T08:00:16.816320",
+  "generated_at": "2026-04-08T08:00:16.330833",
   "technical": {
     "ticker": "ADP",
-    "timestamp": "2026-04-01T08:00:15.961015",
-    "price_current": 203.18,
-    "price_change_pct": -5.28,
+    "timestamp": "2026-04-08T08:00:15.446115",
+    "price_current": 203.61,
+    "price_change_pct": -7.96,
     "indicators": {
       "rsi": {
-        "value": 38.81,
+        "value": 40.52,
         "signal": "neutral",
         "interpretation": "\u2705 Neutral"
       },
       "macd": {
-        "macd_value": -4.8124,
-        "signal_value": -4.9755,
-        "histogram": 0.1632,
+        "macd_value": -4.1509,
+        "signal_value": -4.6525,
+        "histogram": 0.5016,
         "crossover": "NEUTRAL"
       },
       "williams_r": {
-        "value": -70.78,
+        "value": -62.08,
         "signal": "neutral"
       },
       "adx": {
-        "value": 24.57,
-        "plus_di": 17.54,
-        "minus_di": 27.87,
-        "trend_strength": "WEAK",
-        "interpretation": "\u2696\ufe0f Sin tendencia clara (ADX < 25)"
+        "value": 26.25,
+        "plus_di": 14.73,
+        "minus_di": 26.73,
+        "trend_strength": "STRONG",
+        "interpretation": "\ud83d\udcc8 Tendencia BEARISH FUERTE"
       },
       "moving_averages": {
-        "MA20": 210.03,
-        "MA50": 221.09,
-        "MA200": 264.56,
-        "price_vs_ma20_pct": -3.26,
-        "price_vs_ma50_pct": -8.1,
-        "price_vs_ma200_pct": -23.2
+        "MA20": 206.6,
+        "MA50": 216.93,
+        "MA200": 262.6,
+        "price_vs_ma20_pct": -1.45,
+        "price_vs_ma50_pct": -6.14,
+        "price_vs_ma200_pct": -22.46
       },
       "52_week_range": {
         "high_52w": 321.84,
-        "low_52w": 198.59,
-        "current_position_pct": 3.7,
-        "distance_from_high_pct": 36.87
+        "low_52w": 197.08,
+        "current_position_pct": 5.2,
+        "distance_from_high_pct": 36.73
       },
       "bollinger_bands": {
-        "upper": 223.01,
-        "middle": 210.03,
-        "lower": 197.04
+        "upper": 214.2,
+        "middle": 206.6,
+        "lower": 199.0
       },
       "atr": {
-        "value": 5.56,
-        "atr_pct": 2.74
+        "value": 5.44,
+        "atr_pct": 2.67
       }
     },
     "signals": [
@@ -69,7 +69,7 @@
   },
   "fundamental": {
     "ticker": "ADP",
-    "timestamp": "2026-04-01T08:00:16.217174",
+    "timestamp": "2026-04-08T08:00:15.701526",
     "scores": [
       "UP",
       "DOWN",
@@ -87,15 +87,15 @@
     ],
     "ratios": {
       "pe": {
-        "value": 19.54,
+        "value": 19.58,
         "score": "UP"
       },
       "pb": {
-        "value": 12.81,
+        "value": 12.83,
         "score": "DOWN"
       },
       "ps": {
-        "value": 3.87,
+        "value": 3.88,
         "score": "UP"
       },
       "current_ratio": {
@@ -139,7 +139,7 @@
     },
     "dividends": {
       "yield": {
-        "value": 3.35
+        "value": 3.34
       },
       "payout_ratio": {
         "value": 60.71,
@@ -156,7 +156,7 @@
   },
   "combined": {
     "ticker": "ADP",
-    "timestamp": "2026-04-01T08:00:16.816203",
+    "timestamp": "2026-04-08T08:00:16.330749",
     "recommendation": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
     "conviction": "MEDIA",
     "scores": {
@@ -164,7 +164,7 @@
       "fundamental": "BUY",
       "combined": 0.6
     },
-    "verdict": "$203.18 | RSI: 38.81 | 52W: 3.7%",
+    "verdict": "$203.61 | RSI: 40.52 | 52W: 5.2%",
     "thesis_bull": [
       "Fundamentales s\u00f3lidos"
     ],

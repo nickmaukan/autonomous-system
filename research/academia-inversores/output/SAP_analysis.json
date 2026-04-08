@@ -1,56 +1,56 @@
 {
   "ticker": "SAP",
-  "generated_at": "2026-04-01T08:00:20.860344",
+  "generated_at": "2026-04-08T08:00:20.219172",
   "technical": {
     "ticker": "SAP",
-    "timestamp": "2026-04-01T08:00:20.011578",
-    "price_current": 171.21,
-    "price_change_pct": -12.79,
+    "timestamp": "2026-04-08T08:00:19.400572",
+    "price_current": 169.48,
+    "price_change_pct": -15.3,
     "indicators": {
       "rsi": {
-        "value": 27.78,
+        "value": 26.22,
         "signal": "oversold",
         "interpretation": "\u26a0\ufe0f SOBREVENTA"
       },
       "macd": {
-        "macd_value": -9.6554,
-        "signal_value": -8.6988,
-        "histogram": -0.9566,
+        "macd_value": -8.1498,
+        "signal_value": -8.6191,
+        "histogram": 0.4692,
         "crossover": "NEUTRAL"
       },
       "williams_r": {
-        "value": -75.98,
+        "value": -79.02,
         "signal": "neutral"
       },
       "adx": {
-        "value": 39.17,
-        "plus_di": 19.27,
-        "minus_di": 40.81,
+        "value": 39.1,
+        "plus_di": 14.19,
+        "minus_di": 35.61,
         "trend_strength": "STRONG",
         "interpretation": "\ud83d\udcc8 Tendencia BEARISH FUERTE"
       },
       "moving_averages": {
-        "MA20": 184.0,
-        "MA50": 198.77,
-        "MA200": 250.68,
-        "price_vs_ma20_pct": -6.95,
-        "price_vs_ma50_pct": -13.87,
-        "price_vs_ma200_pct": -31.7
+        "MA20": 178.31,
+        "MA50": 194.26,
+        "MA200": 248.24,
+        "price_vs_ma20_pct": -4.95,
+        "price_vs_ma50_pct": -12.75,
+        "price_vs_ma200_pct": -31.73
       },
       "52_week_range": {
         "high_52w": 313.28,
         "low_52w": 163.77,
-        "current_position_pct": 5.0,
-        "distance_from_high_pct": 45.35
+        "current_position_pct": 3.8,
+        "distance_from_high_pct": 45.9
       },
       "bollinger_bands": {
-        "upper": 208.81,
-        "middle": 184.0,
-        "lower": 159.18
+        "upper": 198.82,
+        "middle": 178.31,
+        "lower": 157.8
       },
       "atr": {
-        "value": 5.41,
-        "atr_pct": 3.16
+        "value": 5.6,
+        "atr_pct": 3.3
       }
     },
     "signals": [
@@ -69,7 +69,7 @@
   },
   "fundamental": {
     "ticker": "SAP",
-    "timestamp": "2026-04-01T08:00:20.238242",
+    "timestamp": "2026-04-08T08:00:19.693422",
     "scores": [
       "UP",
       "UP",
@@ -87,15 +87,15 @@
     ],
     "ratios": {
       "pe": {
-        "value": 24.46,
+        "value": 24.11,
         "score": "UP"
       },
       "pb": {
-        "value": 3.91,
+        "value": 3.83,
         "score": "UP"
       },
       "ps": {
-        "value": 5.47,
+        "value": 5.42,
         "score": "UP"
       },
       "current_ratio": {
@@ -139,7 +139,7 @@
     },
     "dividends": {
       "yield": {
-        "value": 1.73
+        "value": 1.75
       },
       "payout_ratio": {
         "value": 38.0,
@@ -156,7 +156,7 @@
   },
   "combined": {
     "ticker": "SAP",
-    "timestamp": "2026-04-01T08:00:20.860264",
+    "timestamp": "2026-04-08T08:00:20.219068",
     "recommendation": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
     "conviction": "MEDIA",
     "scores": {
@@ -164,7 +164,7 @@
       "fundamental": "STRONG_BUY",
       "combined": 1.2
     },
-    "verdict": "$171.21 | RSI: 27.78 | 52W: 5.0%",
+    "verdict": "$169.48 | RSI: 26.22 | 52W: 3.8%",
     "thesis_bull": [
       "Fundamentales s\u00f3lidos",
       "RSI en zona de oportunidad"

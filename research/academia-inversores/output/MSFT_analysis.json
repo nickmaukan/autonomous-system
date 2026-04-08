@@ -1,56 +1,56 @@
 {
   "ticker": "MSFT",
-  "generated_at": "2026-04-01T08:00:15.132677",
+  "generated_at": "2026-04-08T08:00:14.690519",
   "technical": {
     "ticker": "MSFT",
-    "timestamp": "2026-04-01T08:00:13.223339",
-    "price_current": 370.17,
-    "price_change_pct": -8.36,
+    "timestamp": "2026-04-08T08:00:12.977342",
+    "price_current": 372.29,
+    "price_change_pct": -9.07,
     "indicators": {
       "rsi": {
-        "value": 26.09,
+        "value": 28.93,
         "signal": "oversold",
         "interpretation": "\u26a0\ufe0f SOBREVENTA"
       },
       "macd": {
-        "macd_value": -12.6451,
-        "signal_value": -10.6066,
-        "histogram": -2.0385,
+        "macd_value": -10.0961,
+        "signal_value": -10.7947,
+        "histogram": 0.6986,
         "crossover": "NEUTRAL"
       },
       "williams_r": {
-        "value": -72.13,
+        "value": -61.63,
         "signal": "neutral"
       },
       "adx": {
-        "value": 32.35,
-        "plus_di": 19.69,
-        "minus_di": 39.81,
+        "value": 33.21,
+        "plus_di": 15.68,
+        "minus_di": 35.62,
         "trend_strength": "STRONG",
         "interpretation": "\ud83d\udcc8 Tendencia BEARISH FUERTE"
       },
       "moving_averages": {
-        "MA20": 389.15,
-        "MA50": 406.31,
-        "MA200": 476.29,
-        "price_vs_ma20_pct": -4.88,
-        "price_vs_ma50_pct": -8.9,
-        "price_vs_ma200_pct": -22.28
+        "MA20": 381.84,
+        "MA50": 399.84,
+        "MA200": 474.22,
+        "price_vs_ma20_pct": -2.5,
+        "price_vs_ma50_pct": -6.89,
+        "price_vs_ma200_pct": -21.49
       },
       "52_week_range": {
         "high_52w": 552.24,
-        "low_52w": 342.17,
-        "current_position_pct": 13.3,
-        "distance_from_high_pct": 32.97
+        "low_52w": 347.59,
+        "current_position_pct": 12.1,
+        "distance_from_high_pct": 32.59
       },
       "bollinger_bands": {
-        "upper": 424.76,
-        "middle": 389.15,
-        "lower": 353.54
+        "upper": 413.01,
+        "middle": 381.84,
+        "lower": 350.66
       },
       "atr": {
-        "value": 8.31,
-        "atr_pct": 2.24
+        "value": 8.19,
+        "atr_pct": 2.2
       }
     },
     "signals": [
@@ -69,7 +69,7 @@
   },
   "fundamental": {
     "ticker": "MSFT",
-    "timestamp": "2026-04-01T08:00:14.468847",
+    "timestamp": "2026-04-08T08:00:14.160676",
     "scores": [
       "UP",
       "DOWN",
@@ -87,15 +87,15 @@
     ],
     "ratios": {
       "pe": {
-        "value": 23.15,
+        "value": 23.31,
         "score": "UP"
       },
       "pb": {
-        "value": 7.04,
+        "value": 7.08,
         "score": "DOWN"
       },
       "ps": {
-        "value": 9.01,
+        "value": 9.06,
         "score": "UP"
       },
       "current_ratio": {
@@ -156,7 +156,7 @@
   },
   "combined": {
     "ticker": "MSFT",
-    "timestamp": "2026-04-01T08:00:15.132582",
+    "timestamp": "2026-04-08T08:00:14.690422",
     "recommendation": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
     "conviction": "MEDIA",
     "scores": {
@@ -164,7 +164,7 @@
       "fundamental": "STRONG_BUY",
       "combined": 1.2
     },
-    "verdict": "$370.17 | RSI: 26.09 | 52W: 13.3%",
+    "verdict": "$372.29 | RSI: 28.93 | 52W: 12.1%",
     "thesis_bull": [
       "Fundamentales s\u00f3lidos",
       "RSI en zona de oportunidad"

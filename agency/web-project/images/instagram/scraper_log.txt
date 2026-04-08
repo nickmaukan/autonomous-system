@@ -6,3 +6,9 @@
 2026-03-25 22:12:50,897 - ERROR - ❌ Instaloader error: Profile entramados_estudio78 does not exist.
 2026-03-25 22:12:50,897 - INFO - 🔄 Trying alternative method...
 2026-03-25 22:12:53,704 - ERROR - ❌ Alternative method also failed: Profile entramados_estudio78 does not exist.
+2026-04-02 10:05:11,415 - INFO - 🚀 Starting Instagram scraper for @entramados_estudio78
+2026-04-02 10:05:11,416 - INFO - 📁 Output directory: /Users/nickmaukan/AutonomousSystem/agency/web-project/images/instagram
+2026-04-02 10:05:11,416 - INFO - 📥 Downloading profile pictures and posts from @entramados_estudio78...
+2026-04-02 10:05:17,740 - ERROR - ❌ Instaloader error: Profile entramados_estudio78 does not exist.
+2026-04-02 10:05:17,740 - INFO - 🔄 Trying alternative method...
+2026-04-02 10:05:23,162 - ERROR - ❌ Alternative method also failed: Profile entramados_estudio78 does not exist.

@@ -1,56 +1,56 @@
 {
   "ticker": "NVDA",
-  "generated_at": "2026-04-01T08:00:18.412755",
+  "generated_at": "2026-04-08T08:00:17.783415",
   "technical": {
     "ticker": "NVDA",
-    "timestamp": "2026-04-01T08:00:17.618360",
-    "price_current": 174.4,
-    "price_change_pct": -3.13,
+    "timestamp": "2026-04-08T08:00:17.046817",
+    "price_current": 178.1,
+    "price_change_pct": -2.49,
     "indicators": {
       "rsi": {
-        "value": 38.1,
+        "value": 45.5,
         "signal": "neutral",
         "interpretation": "\u2705 Neutral"
       },
       "macd": {
-        "macd_value": -3.7385,
-        "signal_value": -2.8241,
-        "histogram": -0.9145,
+        "macd_value": -2.0977,
+        "signal_value": -2.6904,
+        "histogram": 0.5928,
         "crossover": "NEUTRAL"
       },
       "williams_r": {
-        "value": -58.84,
+        "value": -27.63,
         "signal": "neutral"
       },
       "adx": {
-        "value": 19.7,
-        "plus_di": 22.45,
-        "minus_di": 34.47,
+        "value": 19.46,
+        "plus_di": 22.66,
+        "minus_di": 35.32,
         "trend_strength": "WEAK",
         "interpretation": "\u2696\ufe0f Sin tendencia clara (ADX < 25)"
       },
       "moving_averages": {
-        "MA20": 178.28,
-        "MA50": 182.81,
-        "MA200": 179.47,
-        "price_vs_ma20_pct": -2.18,
-        "price_vs_ma50_pct": -4.6,
-        "price_vs_ma200_pct": -2.82
+        "MA20": 177.39,
+        "MA50": 182.31,
+        "MA200": 180.13,
+        "price_vs_ma20_pct": 0.4,
+        "price_vs_ma50_pct": -2.31,
+        "price_vs_ma200_pct": -1.13
       },
       "52_week_range": {
         "high_52w": 212.17,
-        "low_52w": 86.6,
-        "current_position_pct": 69.9,
-        "distance_from_high_pct": 17.8
+        "low_52w": 94.44,
+        "current_position_pct": 71.1,
+        "distance_from_high_pct": 16.06
       },
       "bollinger_bands": {
-        "upper": 189.88,
-        "middle": 178.28,
-        "lower": 166.68
+        "upper": 188.28,
+        "middle": 177.39,
+        "lower": 166.49
       },
       "atr": {
-        "value": 5.54,
-        "atr_pct": 3.18
+        "value": 5.04,
+        "atr_pct": 2.83
       }
     },
     "signals": [
@@ -69,7 +69,7 @@
   },
   "fundamental": {
     "ticker": "NVDA",
-    "timestamp": "2026-04-01T08:00:17.829075",
+    "timestamp": "2026-04-08T08:00:17.246549",
     "scores": [
       "DOWN",
       "DOWN",
@@ -87,15 +87,15 @@
     ],
     "ratios": {
       "pe": {
-        "value": 35.59,
+        "value": 36.35,
         "score": "DOWN"
       },
       "pb": {
-        "value": 26.95,
+        "value": 27.52,
         "score": "DOWN"
       },
       "ps": {
-        "value": 19.63,
+        "value": 20.05,
         "score": "DOWN"
       },
       "current_ratio": {
@@ -156,7 +156,7 @@
   },
   "combined": {
     "ticker": "NVDA",
-    "timestamp": "2026-04-01T08:00:18.412669",
+    "timestamp": "2026-04-08T08:00:17.783315",
     "recommendation": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
     "conviction": "MEDIA",
     "scores": {
@@ -164,7 +164,7 @@
       "fundamental": "BUY",
       "combined": 0.6
     },
-    "verdict": "$174.4 | RSI: 38.1 | 52W: 69.9%",
+    "verdict": "$178.1 | RSI: 45.5 | 52W: 71.1%",
     "thesis_bull": [
       "Fundamentales s\u00f3lidos"
     ],

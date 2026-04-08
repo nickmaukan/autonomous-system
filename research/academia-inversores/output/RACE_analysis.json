@@ -1,56 +1,56 @@
 {
   "ticker": "RACE",
-  "generated_at": "2026-04-01T08:00:21.660746",
+  "generated_at": "2026-04-08T08:00:21.082704",
   "technical": {
     "ticker": "RACE",
-    "timestamp": "2026-04-01T08:00:20.862947",
-    "price_current": 338.45,
-    "price_change_pct": -6.28,
+    "timestamp": "2026-04-08T08:00:20.221547",
+    "price_current": 334.57,
+    "price_change_pct": -3.47,
     "indicators": {
       "rsi": {
-        "value": 48.74,
+        "value": 48.87,
         "signal": "neutral",
         "interpretation": "\u2705 Neutral"
       },
       "macd": {
-        "macd_value": -8.0452,
-        "signal_value": -8.7451,
-        "histogram": 0.6999,
-        "crossover": "BULLISH"
+        "macd_value": -4.0467,
+        "signal_value": -6.4353,
+        "histogram": 2.3886,
+        "crossover": "NEUTRAL"
       },
       "williams_r": {
-        "value": -13.65,
+        "value": -34.29,
         "signal": "neutral"
       },
       "adx": {
-        "value": 23.54,
-        "plus_di": 32.36,
-        "minus_di": 35.1,
+        "value": 19.22,
+        "plus_di": 25.5,
+        "minus_di": 33.79,
         "trend_strength": "WEAK",
         "interpretation": "\u2696\ufe0f Sin tendencia clara (ADX < 25)"
       },
       "moving_averages": {
-        "MA20": 334.51,
-        "MA50": 346.31,
-        "MA200": 413.97,
-        "price_vs_ma20_pct": 1.18,
-        "price_vs_ma50_pct": -2.27,
-        "price_vs_ma200_pct": -18.24
+        "MA20": 331.29,
+        "MA50": 346.32,
+        "MA200": 411.49,
+        "price_vs_ma20_pct": 0.99,
+        "price_vs_ma50_pct": -3.39,
+        "price_vs_ma200_pct": -18.69
       },
       "52_week_range": {
         "high_52w": 519.1,
         "low_52w": 312.51,
-        "current_position_pct": 12.6,
-        "distance_from_high_pct": 34.8
+        "current_position_pct": 10.7,
+        "distance_from_high_pct": 35.55
       },
       "bollinger_bands": {
-        "upper": 361.59,
-        "middle": 334.51,
-        "lower": 307.44
+        "upper": 349.09,
+        "middle": 331.29,
+        "lower": 313.49
       },
       "atr": {
-        "value": 9.81,
-        "atr_pct": 2.9
+        "value": 10.04,
+        "atr_pct": 3.0
       }
     },
     "signals": [
@@ -58,23 +58,18 @@
         "indicator": "RSI",
         "signal": "NEUTRAL",
         "strength": "WEAK"
-      },
-      {
-        "indicator": "MACD",
-        "signal": "BUY",
-        "strength": "MEDIUM"
       }
     ],
     "summary": {
       "technical_signal": "\u2696\ufe0f NEUTRAL",
       "technical_strength": "NEUTRAL",
-      "buy_signals": 1,
+      "buy_signals": 0,
       "sell_signals": 0
     }
   },
   "fundamental": {
     "ticker": "RACE",
-    "timestamp": "2026-04-01T08:00:21.081740",
+    "timestamp": "2026-04-08T08:00:20.461370",
     "scores": [
       "UP",
       "DOWN",
@@ -92,15 +87,15 @@
     ],
     "ratios": {
       "pe": {
-        "value": 32.99,
+        "value": 32.8,
         "score": "UP"
       },
       "pb": {
-        "value": 13.41,
+        "value": 13.12,
         "score": "DOWN"
       },
       "ps": {
-        "value": 8.43,
+        "value": 8.36,
         "score": "UP"
       },
       "current_ratio": {
@@ -161,7 +156,7 @@
   },
   "combined": {
     "ticker": "RACE",
-    "timestamp": "2026-04-01T08:00:21.660659",
+    "timestamp": "2026-04-08T08:00:21.082611",
     "recommendation": "\ud83d\udcca COMPRAR CON PRECAUCI\u00d3N",
     "conviction": "MEDIA",
     "scores": {
@@ -169,7 +164,7 @@
       "fundamental": "STRONG_BUY",
       "combined": 1.2
     },
-    "verdict": "$338.45 | RSI: 48.74 | 52W: 12.6%",
+    "verdict": "$334.57 | RSI: 48.87 | 52W: 10.7%",
     "thesis_bull": [
       "Fundamentales s\u00f3lidos"
     ],
